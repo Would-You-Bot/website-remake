@@ -6,7 +6,8 @@
 		"dev": "next dev --turbopack -p 2123",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "biome lint",
+		"format": "biome format ./"
 	},
 	"dependencies": {
 		"class-variance-authority": "^0.7.1",
