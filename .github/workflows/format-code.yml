@@ -2,7 +2,7 @@ name: Format Code
 on:
   pull_request:
     branches:
-      - main
+      - master
       - production
   schedule:
     - cron: "0 0 * * *"
