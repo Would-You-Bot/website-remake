@@ -7,7 +7,8 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "biome lint",
-		"format": "biome format ./ --write"
+		"format": "biome format ./ --write",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"class-variance-authority": "^0.7.1",
@@ -21,10 +22,13 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
+		"@commitlint/cli": "^19.8.0",
+		"@commitlint/config-conventional": "^19.8.0",
 		"@tailwindcss/postcss": "^4",
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"husky": "^9.1.7",
 		"tailwindcss": "^4",
 		"typescript": "^5"
 	}
