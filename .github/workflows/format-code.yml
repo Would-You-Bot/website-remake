@@ -2,8 +2,9 @@ name: Format Code
 on:
   pull_request:
     branches:
-      - master
+      - main
       - production
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
