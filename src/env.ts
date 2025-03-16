@@ -3,7 +3,6 @@ import { z } from "zod";
 
 export const env = createEnv({
 	server: {
-		DATABASE_URL: z.string().url(),
 	},
 	client: {
 		// client variables are public and can be accessed by the client
