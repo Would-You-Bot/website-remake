@@ -36,20 +36,25 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
 				className={cn(
 					"flex select-none",
 					orientation === "vertical" ? "flex-col" : "flex-row",
-					className
+					className,
 				)}
 				onClick={handleClick}
 				{...props}
 			>
 				{avatars.map((avatar, index) => (
 					<Tooltip key={avatar.id}>
-						<TooltipTrigger className={cn("group", index > 0 && `-ml-3 z-[${index}]`)}>
+						<TooltipTrigger
+							className={cn("group", index > 0 && `-ml-3 z-[${index}]`)}
+						>
 							<Avatar
 								className={cn(
-									"border-[2px] border-background bg-background group-hover:scale-105 group-hover:z-50 transition-all"
+									"border-[2px] border-background bg-background group-hover:scale-105 group-hover:z-50 transition-all",
 								)}
 							>
-								<AvatarImage src={avatar.iconURL} alt={`${avatar.name}'s Server Avatar`} />
+								<AvatarImage
+									src={avatar.iconURL}
+									alt={`${avatar.name}'s Server Avatar`}
+								/>
 								<AvatarFallback>
 									<Image
 										src="https://cdn.discordapp.com/embed/avatars/0.png"
@@ -119,7 +124,11 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
 				))}
 				<Tooltip>
 					<TooltipTrigger>
-						<Avatar className={cn("border-[2px] border-background bg-background -ml-3 z-10")}>
+						<Avatar
+							className={cn(
+								"border-[2px] border-background bg-background -ml-3 z-10",
+							)}
+						>
 							<AvatarImage src="" />
 							<AvatarFallback className="bg-brand-primary">
 								<span className="text-sm text-white">+99</span>
@@ -132,7 +141,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
 				</Tooltip>
 			</div>
 		);
-	}
+	},
 );
 
 AvatarGroup.displayName = "AvatarGroup";

@@ -27,24 +27,30 @@ export default function HomeContent({ servers }: HomeContentProps) {
 					<h1 className="text-[2rem] sm:text-5xl md:text-6xl font-bold leading-normal mb-8">
 						Entertain Your
 						<br />
-						<span className="text-brand-red-100 drop-shadow-red-glow">Discord</span>{" "}
-						<span className="text-brand-blue-100 drop-shadow-blue-glow">Server</span>
+						<span className="text-brand-red-100 drop-shadow-red-glow">
+							Discord
+						</span>{" "}
+						<span className="text-brand-blue-100 drop-shadow-blue-glow">
+							Server
+						</span>
 					</h1>
 					<p className="text-lg text-foreground/70">
-						Play fun and entertaining games with Would You, featuring user polls and customization.
-						Play Would You Rather, Truth or Dare, Never Have I Ever, Higher or Lower, and What Would
-						You Do!
+						Play fun and entertaining games with Would You, featuring user polls
+						and customization. Play Would You Rather, Truth or Dare, Never Have
+						I Ever, Higher or Lower, and What Would You Do!
 					</p>
 					<div className="flex flex-col lg:flex-row mt-8 items-center gap-4">
 						<AvatarGroup avatars={servers.reverse().slice(0, 5)} />
-						<span className="text-muted-foreground">Trusted by your favorite servers!</span>
+						<span className="text-muted-foreground">
+							Trusted by your favorite servers!
+						</span>
 					</div>
 					<Link
 						href="/invite"
 						target="_blank"
 						className={cn(
 							"mt-8 flex gap-2 w-fit justify-center",
-							buttonVariants({ variant: "default" })
+							buttonVariants({ variant: "default" }),
 						)}
 					>
 						Unleash the Fun

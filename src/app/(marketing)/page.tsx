@@ -11,7 +11,7 @@ export default async function Home() {
 			headers: {
 				Authorization: `Bearer ${process.env.UPSTASH_API_KEY}`,
 			},
-		}
+		},
 	);
 	const servers = JSON.parse(serverData.data.result);
 
@@ -26,4 +26,3 @@ export default async function Home() {
 		</main>
 	);
 }
-

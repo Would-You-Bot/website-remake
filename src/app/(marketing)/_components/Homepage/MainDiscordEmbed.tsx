@@ -20,7 +20,9 @@ import { getRandomQuestion, QuestionTypes } from "@/helpers/getRandomQuestion";
 export default function MainDiscordEmbed() {
 	const { theme } = useTheme();
 	const [replayedRounds, setReplayedRounds] = useState(0);
-	const [currentQuestion, setCurrentQuestion] = useState(getRandomQuestion(QuestionTypes.WYR));
+	const [currentQuestion, setCurrentQuestion] = useState(
+		getRandomQuestion(QuestionTypes.WYR),
+	);
 
 	const replay = () => {
 		if (replayedRounds < 3) {
@@ -63,8 +65,13 @@ export default function MainDiscordEmbed() {
 						lightTheme={theme === "light"}
 					/>
 					<DiscordEmbed slot="embeds" color="#1e88e5">
-						<DiscordEmbedDescription slot="description">{currentQuestion}</DiscordEmbedDescription>
-						<DiscordEmbedFooter slot="footer" footerImage="./staff/Dominik.webp">
+						<DiscordEmbedDescription slot="description">
+							{currentQuestion}
+						</DiscordEmbedDescription>
+						<DiscordEmbedFooter
+							slot="footer"
+							footerImage="./staff/Dominik.webp"
+						>
 							Requested by dominikdev | Type: General | ID: 64
 						</DiscordEmbedFooter>
 					</DiscordEmbed>
@@ -123,7 +130,9 @@ export default function MainDiscordEmbed() {
 							) : (
 								<DiscordButton
 									type="secondary"
-									onClick={() => window.open("https://wouldyoubot.gg/invite", "_blank")}
+									onClick={() =>
+										window.open("https://wouldyoubot.gg/invite", "_blank")
+									}
 									emoji="/emojis/external.svg"
 									emojiName="external"
 								>

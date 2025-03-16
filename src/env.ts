@@ -12,4 +12,3 @@ export const env = createEnv({
 		// same as defined in client
 	},
 });
-
