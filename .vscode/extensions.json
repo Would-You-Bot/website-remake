@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "aaron-bond.better-comments",
+    "biomejs.biome"
+  ]
+}

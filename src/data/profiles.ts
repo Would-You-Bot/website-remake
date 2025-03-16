@@ -1,0 +1,71 @@
+import type { Profiles } from "@/types/profiles"
+
+export const profiles: Profiles = {
+  wouldyou: {
+    author: "Would You",
+    avatar: "./Logo.svg",
+    roleColor: "#1e88e5",
+    bot: true,
+    verified: true,
+  },
+  sky: {
+    author: "ForGetFulSkyBro",
+    avatar: "./staff/Sky.webp",
+    roleColor: "#f1c40f",
+    bot: false,
+    verified: false,
+  },
+  dominik: {
+    author: "Dominik",
+    avatar: "./staff/Dominik.webp",
+    roleColor: "#55CBCD",
+    bot: false,
+    verified: false,
+    clanIcon: "heart",
+    clanTag: "Cute",
+  },
+  nightkiller: {
+    author: "NightKiller_2",
+    avatar: "./staff/Nightkiller.webp",
+    roleColor: "#00fff5",
+    bot: false,
+    verified: false,
+  },
+  pod: {
+    author: "Pod",
+    avatar: "./staff/Pod.webp",
+    roleColor: "#F1327F",
+    bot: false,
+    verified: false,
+  },
+  finn: {
+    author: "Finn",
+    avatar: "./staff/Finn.webp",
+    roleColor: "#23CE6B",
+    bot: false,
+    verified: false,
+  },
+  paulos: {
+    author: "Paulos",
+    avatar: "./staff/Paulos.webp",
+    roleColor: "#EC7C26",
+    bot: false,
+    verified: false,
+    clanIcon: "water",
+    clanTag: "CSS3",
+  },
+  invalid: {
+    author: "InvalidKiller",
+    avatar: "./staff/Invalid.webp",
+    roleColor: "#f8dd3f",
+    bot: false,
+    verified: false,
+  },
+  gersti: {
+    author: "Gersti",
+    avatar: "./staff/Gersti.webp",
+    roleColor: "#ff69eb",
+    bot: false,
+    verified: false,
+  },
+}
