@@ -1,0 +1,107 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PackType {
+  wouldyourather
+  neverhaveiever
+  whatwouldyoudo
+  truth
+  dare
+  topic
+  mixed
+}
+
+enum Status {
+  pending
+  resubmit_pending
+  approved
+  denied
+}
+
+model QuestionPack {
+  id          String   @id @default(cuid())
+  authorId    String
+  type        PackType
+  name        String
+  description String
+  tags        String[]
+  popular     Boolean
+  language    String
+  likes       String[]
+  questions   Json[]
+  status      Status   @default(pending)
+  nsfw        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  User        User     @relation(fields: [authorId], references: [id])
+
+  @@map("questionpacks")
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String
+  email         String         @unique
+  emailVerified Boolean
+  image         String?
+  banner        String?
+  language      String         @default("en")
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  Session       Session[]
+  Account       Account[]
+  QuestionPacks QuestionPack[]
+
+  @@map("users")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("sessions")
+}
+
+model Account {
+  id                    String    @id @default(cuid())
+  userId                String
+  accountId             String
+  providerId            String
+  accessToken           String?
+  refreshToken          String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  idToken               String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  user                  User      @relation(fields: [userId], references: [id])
+
+  @@map("accounts")
+}
+
+model Verification {
+  id         String   @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("verifications")
+}
