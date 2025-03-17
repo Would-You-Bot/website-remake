@@ -1,7 +1,7 @@
 import { getPosts } from "@/lib/query";
 import { Fragment } from "react";
-import { Container } from "./_components/container";
-import { PostCard } from "./_components/post-card";
+import { Container } from "@/components/blog/container";
+import { PostCard } from "@/components/blog/post-card";
 
 export default async function HomePage() {
 	const posts = await getPosts();

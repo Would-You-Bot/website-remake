@@ -1,5 +1,5 @@
-import { Container } from "../_components/container";
-import { Prose } from "../_components/prose";
+import { Container } from "@/components/blog/container";
+import { Prose } from "@/components/blog/prose";
 import { env } from "@/env";
 import { getPosts, getSinglePost } from "@/lib/query";
 import { SiteMetadata } from "@/lib/site";
