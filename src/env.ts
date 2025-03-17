@@ -3,12 +3,14 @@ import { z } from "zod";
 
 export const env = createEnv({
 	server: {
+		DISCORD_CLIENT_ID: z.string(),
+		DISCORD_CLIENT_SECRET: z.string(),
 		UPSTASH_API_KEY: z.string(),
 	},
 	client: {
-		// client variables are public and can be accessed by the client
+		NEXT_PUBLIC_APP_URL: z.string().url(),
 	},
 	experimental__runtimeEnv: {
-		// same as defined in client
+		NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
 	},
 });
