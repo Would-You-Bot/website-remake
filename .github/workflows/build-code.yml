@@ -35,34 +35,25 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
-
           BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
           BETTER_AUTH_URL: ${{ secrets.BETTER_AUTH_URL }}
-
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-
           DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
           DISCORD_CLIENT_SECRET: ${{ secrets.DISCORD_CLIENT_SECRET }}
           DISCORD_REDIRECT_URI: ${{ secrets.DISCORD_REDIRECT_URI }}
           DISCORD_TOKEN_URL: ${{ secrets.DISCORD_TOKEN_URL }}
           DISCORD_AUTHORIZE_URL: ${{ secrets.DISCORD_AUTHORIZE_URL }}
-
           REDIS_URL: ${{ secrets.REDIS_URL }}
           REDIS_TOKEN: ${{ secrets.REDIS_TOKEN }}
           UPSTASH_API_KEY: ${{ secrets.UPSTASH_API_KEY }}
-          
           STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
           STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}
-
           MARBLE_API_URL: ${{ secrets.MARBLE_API_URL }}
           MARBLE_WORKSPACE_ID: ${{ secrets.Marble_WORKSPACE_ID }}
-          
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
           NEXT_PUBLIC_PAGE_URL: ${{ secrets.NEXT_PUBLIC_PAGE_URL }}
           NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
-
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
-
           NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
           NEXT_PUBLIC_PREMIUM_MONTHLY_PRICE_ID: ${{ secrets.NEXT_PUBLIC_PREMIUM_MONTHLY_PRICE_ID }}
           NEXT_PUBLIC_PREMIUM_YEARLY_PRICE_ID: ${{ secrets.NEXT_PUBLIC_PREMIUM_YEARLY_PRICE_ID }}
