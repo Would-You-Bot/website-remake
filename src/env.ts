@@ -8,7 +8,7 @@ export const env = createEnv({
 	},
 	client: {
 		// client variables are public and can be accessed by the client
-		NEXT_PUBLIC_APP_URL: z.string(),
+		NEXT_PUBLIC_APP_URL: z.string().url(),
 	},
 	experimental__runtimeEnv: {
 		NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
