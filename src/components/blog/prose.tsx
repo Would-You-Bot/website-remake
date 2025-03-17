@@ -14,8 +14,12 @@ export function Prose({ children, html, className }: ProseProps) {
 				className,
 			)}
 		>
-			{/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
-			{html ? <div dangerouslySetInnerHTML={{ __html: html }} /> : children}
+			{html ? (
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+				<div dangerouslySetInnerHTML={{ __html: html }} className="blog-post" />
+			) : (
+				children
+			)}
 		</article>
 	);
 }

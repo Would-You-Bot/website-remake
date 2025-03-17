@@ -11,7 +11,7 @@ const nextConfig = {
 	output: "standalone",
 	transpilePackages: ["@t3-oss/env-nextjs", "@t3-oss/env-core"],
 	images: {
-		domains: ["api.dicebear.com"],
+		domains: ["api.dicebear.com", "images.marblecms.com"],
 	},
 };
 

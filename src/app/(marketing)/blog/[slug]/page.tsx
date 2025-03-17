@@ -1,5 +1,6 @@
 import { Container } from "@/components/blog/container";
 import { Prose } from "@/components/blog/prose";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { env } from "@/env";
 import { getPosts, getSinglePost } from "@/lib/query";
 import { SiteMetadata } from "@/lib/site";
@@ -8,6 +9,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
+import "@/styles/blog.css";
 
 type PageProps = {
 	params: Promise<{ slug: string }>;
@@ -90,24 +92,29 @@ async function Page({ params }: PageProps) {
 
 	return (
 		<Container className="min-h-[calc(100vh-100px)] py-14">
-			<section className="space-y-6 lg:space-y-8 max-w-3xl mx-auto">
+			<section className="space-y-6 lg:space-y-8 mx-auto">
 				<div className="flex flex-col items-center gap-4">
-					<h1 className="font-serif text-3xl lg:text-4xl text-center">
+					<h1 className="text-3xl md:text-4xl font-bold text-center">
 						{data.title}
 					</h1>
-					<time dateTime={new Date(data.publishedAt)?.toISOString()}>
+					<time
+						dateTime={new Date(data.publishedAt)?.toISOString()}
+						className="text-zinc-700 dark:text-zinc-300"
+					>
 						{formattedDate}
 					</time>
 					<div className="flex items-center gap-2">
-						<Image
-							src={"/avatar.png"}
-							// src={data.author.image ?? "/avatar.png"}
-							alt={data.author.name || "Random Elephant Image"}
-							width={36}
-							height={36}
-							loading="eager"
-							className="aspect-square shrink-0 size-8 rounded-full"
-						/>
+						<Avatar>
+							<AvatarImage
+								src={data.author.image}
+								alt={data.author.name || "Random Elephant Image"}
+								width={36}
+								height={36}
+								loading="eager"
+								className="aspect-square size-8"
+							/>
+							<AvatarFallback>{data.author.name.slice(0, 2)}</AvatarFallback>
+						</Avatar>
 						<p className="text-muted-foreground">{data.author.name}</p>
 					</div>
 				</div>
@@ -117,7 +124,7 @@ async function Page({ params }: PageProps) {
 						alt={data.title || "Avatar"}
 						loading="eager"
 						fill
-						className="object-cover size-full max-sm:max-h-[360px]"
+						className="object-cover aspect-video size-full max-sm:max-h-[360px] rounded-lg md:rounded-xl"
 					/>
 				</div>
 				<Prose html={data.content} />
