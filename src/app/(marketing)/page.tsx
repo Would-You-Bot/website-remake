@@ -2,7 +2,6 @@ import Image from "next/image";
 import HomeContent from "./_components/Homepage/Content";
 import type FeaturedServer from "@/types/FeaturedServer";
 import axios from "axios";
-import { headers } from "next/headers";
 
 export default async function Home() {
 	const serverData = await axios.get<{ result: string }>(
