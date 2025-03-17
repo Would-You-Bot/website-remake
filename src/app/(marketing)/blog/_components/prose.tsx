@@ -13,7 +13,6 @@ export function Prose({ children, html, className }: ProseProps) {
 				"prose prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl prose-headings:font-serif prose-headings:font-normal mx-auto",
 				className,
 			)}
-      
 		>
 			{/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
 			{html ? <div dangerouslySetInnerHTML={{ __html: html }} /> : children}
