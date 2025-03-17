@@ -16,25 +16,24 @@ export function PostCard({ post }: PostCardProps) {
 	});
 
 	return (
-		<li className="flex flex-col gap-4">
-			<div className="relative group z-10 rounded-t-md min-h-[240px]">
+		<li className="flex flex-col gap-4 border p-6 rounded-xl h-full group">
+			<div className="rounded-t-md max-h-[240px] overflow-hidden rounded-lg">
 				<Image
 					src={post.coverImage || "/random.jpg"}
 					alt={post.title}
 					fill
 					loading="eager"
-					className="object-cover size-full h-[260px]"
+					className="!static object-cover size-full aspect-video group-hover:scale-105 transition duration-500"
 				/>
 			</div>
-			<Link
-				href={link}
-				className="hover:text-muted-foreground transition duration-300"
-			>
-				<h2 className="font-serif text-2xl">{post.title}</h2>
+			<Link href={link}>
+				<h2 className="text-2xl hover:text-muted-foreground transition duration-300">
+					{post.title}
+				</h2>
 			</Link>
 			<div className="flex items-center gap-2 font-mono text-muted-foreground">
 				<time dateTime={post.publishedAt.toString()}>{formattedDate}</time>
-				<span className="mx-2">-</span>
+				<span>-</span>
 				<p>{post.author.name}</p>
 			</div>
 			<p className="text-muted-foreground line-clamp-2">{post.description}</p>
