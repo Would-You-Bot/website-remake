@@ -1,4 +1,4 @@
-import prisma from "./db";
+import prisma from "@/lib/db";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { env } from "@/env";
