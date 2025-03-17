@@ -1,5 +1,5 @@
-import { Container } from "@/components/blog/container";
-import { Prose } from "@/components/blog/prose";
+import { Container } from "../_components/container";
+import { Prose } from "../_components/prose";
 import { env } from "@/env";
 import { getPosts, getSinglePost } from "@/lib/query";
 import { SiteMetadata } from "@/lib/site";
@@ -18,8 +18,8 @@ export async function generateMetadata(
 	{ params }: PageProps,
 	parent: ResolvingMetadata,
 ): Promise<Metadata> {
-	const key = env.MARBLE_WORKSPACE_KEY;
-	const url = env.MARBLE_API_URL;
+	const key = env.MARBLE_WORKSPACE_ID;
+	const url = env.MARBLE_API_URL.replace(/\/$/, "");
 
 	const slug = (await params).slug;
 
@@ -95,10 +95,13 @@ async function Page({ params }: PageProps) {
 					<h1 className="font-serif text-3xl lg:text-4xl text-center">
 						{data.title}
 					</h1>
-					<time dateTime={data.publishedAt.toString()}>{formattedDate}</time>
+					<time dateTime={new Date(data.publishedAt)?.toISOString()}>
+						{formattedDate}
+					</time>
 					<div className="flex items-center gap-2">
 						<Image
-							src={data.author.image || "/random.jpg"}
+							src={"/avatar.png"}
+							// src={data.author.image ?? "/avatar.png"}
 							alt={data.author.name || "Random Elephant Image"}
 							width={36}
 							height={36}
@@ -110,7 +113,7 @@ async function Page({ params }: PageProps) {
 				</div>
 				<div className="relative min-h-[360px] md:min-h-[400px] lg:min-h-[430px]">
 					<Image
-						src={data.coverImage || "/avatar.png"}
+						src={data.coverImage || "/random.jpg"}
 						alt={data.title || "Avatar"}
 						loading="eager"
 						fill

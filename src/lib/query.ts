@@ -2,10 +2,9 @@ import type { Post, Tag } from "@/types/post";
 import { env } from "@/env";
 
 const url = env.MARBLE_API_URL.replace(/\/$/, "");
-const key = env.MARBLE_WORKSPACE_KEY;
+const key = env.MARBLE_WORKSPACE_ID;
 
 export async function getPosts() {
-	console.log(" getPosts ~ fetch ", `${url}/${key}/posts`);
 	try {
 		const raw = await fetch(`${url}/${key}/posts`);
 		const data: Post[] = await raw.json();
