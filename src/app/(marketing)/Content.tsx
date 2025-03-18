@@ -39,7 +39,7 @@ export default function HomeContent({ servers }: HomeContentProps) {
 						and customization. Play Would You Rather, Truth or Dare, Never Have
 						I Ever, Higher or Lower, and What Would You Do!
 					</p>
-					<div className="flex flex-col lg:flex-row mt-8 items-center gap-4">
+					<div className="flex flex-col lg:flex-row mt-8 items-center gap-2">
 						<AvatarGroup avatars={servers.reverse().slice(0, 5)} />
 						<span className="text-muted-foreground">
 							Trusted by your favorite servers!

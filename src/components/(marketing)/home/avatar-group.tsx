@@ -65,7 +65,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
 								</AvatarFallback>
 							</Avatar>
 						</TooltipTrigger>
-						<TooltipContent className="bg-background-darker">
+						<TooltipContent>
 							<div className="flex flex-col">
 								<div className="flex gap-2">
 									<span className="max-w-[150px] truncate">{avatar.name}</span>
@@ -115,7 +115,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
 											</svg>
 										)}
 								</div>
-								<span className="text-foreground/60">
+								<span className="text-muted-foreground">
 									{formatMemberCount(avatar.memberCount)} Members
 								</span>
 							</div>
@@ -130,12 +130,12 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
 							)}
 						>
 							<AvatarImage src="" />
-							<AvatarFallback className="bg-brand-primary">
-								<span className="text-sm text-white">+99</span>
+							<AvatarFallback className="bg-primary">
+								<span className="text-sm">+99</span>
 							</AvatarFallback>
 						</Avatar>
 					</TooltipTrigger>
-					<TooltipContent className="bg-background-darker">
+					<TooltipContent>
 						<p>And more</p>
 					</TooltipContent>
 				</Tooltip>
