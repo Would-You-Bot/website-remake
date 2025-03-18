@@ -6,8 +6,8 @@ import { buttonVariants } from "@/ui/button";
 
 import Link from "next/link";
 import type FeaturedServer from "@/types/FeaturedServer";
-import MainDiscordEmbed from "@/components/(marketing)/home/MainDiscordEmbed";
-import { AvatarGroup } from "@/components/(marketing)/home/AvatarGroup";
+import MainDiscordEmbed from "@/components/(marketing)/home/main-discord-embed";
+import { AvatarGroup } from "@/components/(marketing)/home/avatar-group";
 
 interface HomeContentProps {
 	servers: FeaturedServer[];

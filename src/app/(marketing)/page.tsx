@@ -1,7 +1,7 @@
 import Image from "next/image";
-import HomeContent from "./Content";
 import type FeaturedServer from "@/types/FeaturedServer";
 import axios from "axios";
+import Content from "./content";
 
 export default async function Home() {
 	const serverData = await axios.get<{ result: string }>(
@@ -16,7 +16,7 @@ export default async function Home() {
 
 	return (
 		<main className="flex w-full flex-col items-center overflow-x-hidden">
-			<HomeContent
+			<Content
 				// initialRatherQuestion={getRandomQuestion('rather')}
 				// initialNhieQuestion={getRandomQuestion('nhie')}
 				// serverCount={serverCount}
