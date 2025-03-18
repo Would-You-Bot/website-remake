@@ -25,13 +25,13 @@ export default function HomeContent({ servers }: HomeContentProps) {
 					viewport={{ once: true }}
 					className="flex flex-col items-center lg:block"
 				>
-					<h1 className="text-[2rem] sm:text-5xl md:text-6xl font-bold mb-8">
+					<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8">
 						Entertain Your
 						<br />
 						<span className="text-primary">Discord</span>{" "}
 						<span className="text-secondary">Server</span>
 					</h1>
-					<p className="text-lg text-foreground/70">
+					<p className="text-lg text-muted-foreground">
 						Play fun and entertaining games with Would You, featuring user polls
 						and customization. Play Would You Rather, Truth or Dare, Never Have
 						I Ever, Higher or Lower, and What Would You Do!
