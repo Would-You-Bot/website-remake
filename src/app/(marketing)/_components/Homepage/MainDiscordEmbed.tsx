@@ -80,7 +80,11 @@ export default function MainDiscordEmbed() {
 						<DiscordEmbedDescription slot="description">
 							{currentQuestion}
 						</DiscordEmbedDescription>
-						<DiscordEmbedFooter slot="footer" footerImage={randomStaff.avatar}>
+						<DiscordEmbedFooter
+							slot="footer"
+							footerImage={randomStaff.avatar}
+							className="mt-2 -mb-2"
+						>
 							Requested by {randomStaff.author} | Type: General | ID: 64
 						</DiscordEmbedFooter>
 					</DiscordEmbed>
