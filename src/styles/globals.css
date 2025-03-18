@@ -13,6 +13,8 @@
 	--radius-lg: var(--radius);
 	--radius-xl: calc(var(--radius) + 4px);
 
+	--container-8xl: 94rem;
+
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 
@@ -160,4 +162,3 @@
 		@apply bg-background text-foreground;
 	}
 }
-

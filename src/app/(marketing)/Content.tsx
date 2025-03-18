@@ -25,15 +25,11 @@ export default function HomeContent({ servers }: HomeContentProps) {
 					viewport={{ once: true }}
 					className="flex flex-col items-center lg:block"
 				>
-					<h1 className="text-[2rem] sm:text-5xl md:text-6xl font-bold leading-normal mb-8">
+					<h1 className="text-[2rem] sm:text-5xl md:text-6xl font-bold mb-8">
 						Entertain Your
 						<br />
-						<span className="text-brand-red-100 drop-shadow-red-glow">
-							Discord
-						</span>{" "}
-						<span className="text-brand-blue-100 drop-shadow-blue-glow">
-							Server
-						</span>
+						<span className="text-primary">Discord</span>{" "}
+						<span className="text-secondary">Server</span>
 					</h1>
 					<p className="text-lg text-foreground/70">
 						Play fun and entertaining games with Would You, featuring user polls
