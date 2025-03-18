@@ -18,29 +18,6 @@
 		"avatar": "./staff/Dominik.webp",
 		"roleColor": "#55CBCD",
 		"bot": false,
-		"verified": false,
-		"clanIcon": "heart",
-		"clanTag": "Cute"
-	},
-	"nightkiller": {
-		"author": "NightKiller_2",
-		"avatar": "./staff/Nightkiller.webp",
-		"roleColor": "#00fff5",
-		"bot": false,
-		"verified": false
-	},
-	"pod": {
-		"author": "Pod",
-		"avatar": "./staff/Pod.webp",
-		"roleColor": "#F1327F",
-		"bot": false,
-		"verified": false
-	},
-	"finn": {
-		"author": "Finn",
-		"avatar": "./staff/Finn.webp",
-		"roleColor": "#23CE6B",
-		"bot": false,
 		"verified": false
 	},
 	"paulos": {
@@ -48,30 +25,26 @@
 		"avatar": "./staff/Paulos.webp",
 		"roleColor": "#EC7C26",
 		"bot": false,
-		"verified": false,
-		"clanIcon": "water",
-		"clanTag": "CSS3"
+		"verified": false
 	},
 	"woofer": {
 		"author": "Woofer21",
 		"avatar": "./staff/Woofer21.webp",
-		"roleColor": "#EC7C26",
+		"roleColor": "#ee0605",
 		"bot": false,
-		"verified": false,
-		"clanIcon": "leaf",
-		"clanTag": "BUG"
+		"verified": false
+	},
+	"tee": {
+		"author": "Taqib",
+		"avatar": "./staff/tee.webp",
+		"roleColor": "#ee0605",
+		"bot": false,
+		"verified": false
 	},
 	"invalid": {
 		"author": "InvalidKiller",
 		"avatar": "./staff/Invalid.webp",
 		"roleColor": "#f8dd3f",
-		"bot": false,
-		"verified": false
-	},
-	"gersti": {
-		"author": "Gersti",
-		"avatar": "./staff/Gersti.webp",
-		"roleColor": "#ff69eb",
 		"bot": false,
 		"verified": false
 	}
