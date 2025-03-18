@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HomeContent from "./_components/Homepage/Content";
+import HomeContent from "./Content";
 import type FeaturedServer from "@/types/FeaturedServer";
 import axios from "axios";
 

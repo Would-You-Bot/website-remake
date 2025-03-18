@@ -5,9 +5,9 @@ import { motion } from "motion/react";
 import { buttonVariants } from "@/ui/button";
 
 import Link from "next/link";
-import MainDiscordEmbed from "./MainDiscordEmbed";
-import { AvatarGroup } from "./AvatarGroup";
 import type FeaturedServer from "@/types/FeaturedServer";
+import MainDiscordEmbed from "@/components/(marketing)/home/MainDiscordEmbed";
+import { AvatarGroup } from "@/components/(marketing)/home/AvatarGroup";
 
 interface HomeContentProps {
 	servers: FeaturedServer[];
