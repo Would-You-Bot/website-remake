@@ -13,9 +13,11 @@ import {
 } from "@skyra/discord-components-react";
 import { motion } from "motion/react";
 import { useTheme } from "next-themes";
-import { type FC, useState } from "react";
+import { type FC, useEffect, useState } from "react";
 import profiles from "@/data/profiles.json";
 import { getRandomQuestion, QuestionTypes } from "@/helpers/getRandomQuestion";
+
+const staff = Object.keys(profiles).slice(1);
 
 export default function MainDiscordEmbed() {
 	const { theme } = useTheme();
@@ -23,6 +25,18 @@ export default function MainDiscordEmbed() {
 	const [currentQuestion, setCurrentQuestion] = useState(
 		getRandomQuestion(QuestionTypes.WYR),
 	);
+	const [randomStaff, setRandomStaff] = useState<(typeof profiles)["wouldyou"]>(
+		profiles.wouldyou,
+	);
+
+	// Generates a random staff member on mount
+	useEffect(() => {
+		setRandomStaff(
+			profiles[
+				staff[Math.floor(Math.random() * staff.length)] as keyof typeof profiles
+			],
+		);
+	}, []);
 
 	const replay = () => {
 		if (replayedRounds < 3) {
@@ -54,13 +68,10 @@ export default function MainDiscordEmbed() {
 				>
 					<DiscordCommand
 						slot="reply"
-						profile="dominik"
-						author={profiles.dominik.author}
-						avatar={profiles.dominik.avatar}
-						roleColor={profiles.dominik.roleColor}
-						// @ts-expect-error
-						clanIcon={profiles.dominik.clanIcon}
-						clanTag={profiles.dominik.clanTag}
+						profile={randomStaff.author}
+						author={randomStaff.author}
+						avatar={randomStaff.avatar}
+						roleColor={randomStaff.roleColor}
 						command="/wouldyourather"
 						lightTheme={theme === "light"}
 						className="mb-2 ml-12 pl-2"
@@ -69,11 +80,8 @@ export default function MainDiscordEmbed() {
 						<DiscordEmbedDescription slot="description">
 							{currentQuestion}
 						</DiscordEmbedDescription>
-						<DiscordEmbedFooter
-							slot="footer"
-							footerImage="./staff/Dominik.webp"
-						>
-							Requested by dominikdev | Type: General | ID: 64
+						<DiscordEmbedFooter slot="footer" footerImage={randomStaff.avatar}>
+							Requested by {randomStaff.author} | Type: General | ID: 64
 						</DiscordEmbedFooter>
 					</DiscordEmbed>
 					<DiscordAttachments slot="components">
