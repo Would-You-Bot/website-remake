@@ -41,7 +41,7 @@ export default function MainDiscordEmbed() {
 		>
 			<DiscordMessages
 				lightTheme={theme === "light"}
-				className="mx-auto w-auto overflow-x-hidden rounded-lg text-left shadow sm:w-2/3 lg:w-auto"
+				className="mx-auto w-auto overflow-x-hidden rounded-lg text-left shadow sm:w-2/3 lg:w-auto p-4"
 			>
 				<DiscordMessage
 					profile="wouldyou"
@@ -63,6 +63,7 @@ export default function MainDiscordEmbed() {
 						clanTag={profiles.dominik.clanTag}
 						command="/wouldyourather"
 						lightTheme={theme === "light"}
+						className="mb-2 ml-12 pl-2"
 					/>
 					<DiscordEmbed slot="embeds" color="#1e88e5">
 						<DiscordEmbedDescription slot="description">
