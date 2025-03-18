@@ -1,35 +1,76 @@
-import type { Post, Tag } from "@/types/post";
 import { env } from "@/env";
+import type { Post, Tag } from "@/types/post";
 
-const url = env.MARBLE_API_URL.replace(/\/$/, "");
-const key = env.MARBLE_WORKSPACE_ID;
+/**
+ * API client for Marble content services
+ */
+class MarbleApiService {
+	private readonly baseUrl: string;
 
-export async function getPosts() {
-	try {
-		const raw = await fetch(`${url}/${key}/posts`);
-		const data: Post[] = await raw.json();
-		return data;
-	} catch (error) {
-		console.log(error);
+	constructor() {
+		const url = env.MARBLE_API_URL.replace(/\/$/, "");
+		const workspaceId = env.MARBLE_WORKSPACE_ID;
+		this.baseUrl = `${url}/${workspaceId}`;
+	}
+
+	/**
+	 * Generic fetch method with error handling
+	 */
+	private async fetchData<T>(endpoint: string): Promise<T> {
+		try {
+			const response = await fetch(`${this.baseUrl}/${endpoint}`);
+
+			if (!response.ok) {
+				throw new Error(`API error: ${response.status} ${response.statusText}`);
+			}
+
+			return (await response.json()) as T;
+		} catch (error) {
+			console.error(`Error fetching ${endpoint}:`, error);
+			throw error;
+		}
+	}
+
+	/**
+	 * Get all posts
+	 */
+	async getPosts(): Promise<Post[]> {
+		return await this.fetchData<Post[]>("posts");
+	}
+
+	/**
+	 * Get a single post by its slug
+	 */
+	async getPostBySlug(slug: string): Promise<Post> {
+		if (!slug) {
+			throw new Error("Post slug is required");
+		}
+		return await this.fetchData<Post>(`posts/${slug}`);
+	}
+
+	/**
+	 * Get all tags
+	 */
+	async getTags(): Promise<Tag[]> {
+		return await this.fetchData<Tag[]>("tags");
+	}
+
+	/**
+	 * Get posts filtered by tag
+	 */
+	async getPostsByTag(slug: string): Promise<Post[]> {
+		if (!slug) {
+			throw new Error("Tag ID is required");
+		}
+		return await this.fetchData<Post[]>(`tags/${slug}/posts`);
 	}
 }
 
-export async function getTags() {
-	try {
-		const raw = await fetch(`${url}/${key}/tags`);
-		const data: Tag[] = await raw.json();
-		return data;
-	} catch (error) {
-		console.log(error);
-	}
-}
+// Export a singleton instance for use throughout the application
+export const marbleApi = new MarbleApiService();
 
-export async function getSinglePost(slug: string) {
-	try {
-		const raw = await fetch(`${url}/${key}/posts/${slug}`);
-		const data: Post = await raw.json();
-		return data;
-	} catch (error) {
-		console.log(error);
-	}
-}
+// Export individual methods for convenience
+export const getPosts = () => marbleApi.getPosts();
+export const getPostBySlug = (slug: string) => marbleApi.getPostBySlug(slug);
+export const getTags = () => marbleApi.getTags();
+export const getPostsByTag = (tagId: string) => marbleApi.getPostsByTag(tagId);

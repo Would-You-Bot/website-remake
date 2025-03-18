@@ -1,7 +1,6 @@
 import { Container } from "@/components/blog/container";
 import { PostCard } from "@/components/blog/post-card";
 import { getPosts } from "@/lib/query";
-import { Fragment } from "react";
 
 export default async function HomePage() {
 	const posts = await getPosts();
@@ -12,9 +11,7 @@ export default async function HomePage() {
 			<Container className="py-10">
 				<ul className="grid justify-center gap-20 grid-cols-[repeat(auto-fill,minmax(0,_400px))] w-full">
 					{posts.map((post) => (
-						<Fragment key={post.id}>
-							<PostCard post={post} />
-						</Fragment>
+						<PostCard key={post.id} post={post} />
 					))}
 				</ul>
 			</Container>
