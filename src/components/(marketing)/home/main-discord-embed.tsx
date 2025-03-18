@@ -13,7 +13,7 @@ import {
 } from "@skyra/discord-components-react";
 import { motion } from "motion/react";
 import { useTheme } from "next-themes";
-import { type FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import profiles from "@/data/profiles.json";
 import { getRandomQuestion, QuestionTypes } from "@/helpers/getRandomQuestion";
 
