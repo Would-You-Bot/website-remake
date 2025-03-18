@@ -10,6 +10,9 @@ const nextConfig = {
 	reactStrictMode: true,
 	output: "standalone",
 	transpilePackages: ["@t3-oss/env-nextjs", "@t3-oss/env-core"],
+	images: {
+		domains: ["api.dicebear.com", "images.marblecms.com"],
+	},
 };
 
 export default nextConfig;
