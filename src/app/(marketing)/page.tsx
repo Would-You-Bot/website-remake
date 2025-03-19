@@ -1,6 +1,7 @@
 import type FeaturedServer from "@/types/FeaturedServer";
 import axios from "axios";
 import Content from "./content";
+import { SchemaMetadata } from "@/components/(marketing)/home/schema-metadata";
 
 export default async function Home() {
 	const serverCount = (
@@ -25,6 +26,7 @@ export default async function Home() {
 				serverCount={serverCount}
 				servers={servers.filter((n: FeaturedServer) => n.name !== "Pornhub")}
 			/>
+			<SchemaMetadata />
 		</main>
 	);
 }
