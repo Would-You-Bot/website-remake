@@ -9,12 +9,18 @@ import type FeaturedServer from "@/types/FeaturedServer";
 import MainDiscordEmbed from "@/components/(marketing)/home/main-discord-embed";
 import { AvatarGroup } from "@/components/(marketing)/home/avatar-group";
 import { ExternalLink } from "lucide-react";
+import { LandingWave } from "@/components/svg/landing-wave";
+import ServerMarquee from "@/components/(marketing)/home/server-marquee";
 
 interface HomeContentProps {
+	serverCount: number;
 	servers: FeaturedServer[];
 }
 
-export default function HomeContent({ servers }: HomeContentProps) {
+export default function HomeContent({
+	serverCount,
+	servers,
+}: HomeContentProps) {
 	return (
 		<>
 			<section className="mt-0 sm:mt-16 lg:mt-28 flex w-full max-w-8xl flex-col items-center justify-between gap-16 px-8 text-center lg:flex-row lg:text-left">
@@ -54,6 +60,38 @@ export default function HomeContent({ servers }: HomeContentProps) {
 					</Link>
 				</motion.div>
 				<MainDiscordEmbed />
+			</section>
+
+			<section id="slider" className="mt-36">
+				<LandingWave className="min-w-[2560px] text-popover" />
+				<div className="w-full bg-popover px-8 pb-12 text-center text-4xl md:text-5xl text-foreground md:pb-28">
+					<div className="">
+						<h2>
+							Trusted by{" "}
+							<span className="font-bold text-primary">
+								{serverCount.toLocaleString()}+
+							</span>{" "}
+							communities
+						</h2>
+						<h3 className="mt-4 text-2xl md:text-3xl px-12">
+							keeping{" "}
+							<span className="font-bold text-secondary">4,000,000+</span> users
+							entertained
+						</h3>
+					</div>
+
+					<div>
+						<ServerMarquee
+							servers={servers.slice(0, Math.ceil(servers.length / 2))}
+							speed={40}
+						/>
+						<ServerMarquee
+							servers={servers.slice(Math.ceil(servers.length / 2))}
+							speed={30}
+							direction="right"
+						/>
+					</div>
+				</div>
 			</section>
 		</>
 	);
