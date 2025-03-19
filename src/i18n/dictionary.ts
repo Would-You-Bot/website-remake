@@ -1,5 +1,6 @@
-import "server-only";
+// import "server-only";
 import { locales, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/types";
 
 /**
  * Dynamically generate the dictionary
