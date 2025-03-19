@@ -1,11 +1,12 @@
-// import "server-only";
 import { locales, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
 
 /**
- * Dynamically generate the dictionary
- * @param locale
- * @returns
+ * Dynamically imports and returns the dictionary for the specified locale
+ *
+ * @param locale - The locale code (e.g., 'en', 'fr', 'es') to load the dictionary for
+ * @returns A promise that resolves to the dictionary object for the specified locale
+ * @throws Will throw an error if the locale module cannot be found
  */
 const generateDictionary = async (locale: Locale) => {
 	const module = await import(`@/i18n/locales/${locale}`);
@@ -13,7 +14,12 @@ const generateDictionary = async (locale: Locale) => {
 };
 
 /**
- * Dynamically generate the dictionary loader object
+ * Creates a mapping of locale codes to their respective dictionary loader functions
+ *
+ * This object maps each supported locale to a function that will dynamically
+ * import the corresponding locale dictionary when called.
+ *
+ * @type {Record<string, () => Promise<Dictionary>>}
  */
 const dictionaries: Record<string, () => Promise<Dictionary>> =
 	Object.fromEntries(
@@ -21,9 +27,16 @@ const dictionaries: Record<string, () => Promise<Dictionary>> =
 	);
 
 /**
- * Get the dictionary for the given locale
- * @param locale
- * @returns
+ * Retrieves the dictionary for the specified locale
+ *
+ * @param locale - The locale code to get the dictionary for
+ * @returns A promise that resolves to the requested locale's dictionary
+ * @remarks If the requested locale is not available, falls back to English ('en')
+ * @example
+ * // Get Spanish translations
+ * const es = await getDictionary('es');
+ * // Use Spanish translation
+ * console.log(es.common.welcome);
  */
 export const getDictionary = async (locale: Locale): Promise<Dictionary> => {
 	return (await (dictionaries[locale] ?? dictionaries.en)()) as Dictionary;

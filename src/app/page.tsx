@@ -5,9 +5,17 @@ import LocaleSwitcher from "@/components/i18n/locale-switcher";
 import { useDictionary } from "@/i18n/hooks/use-dictionary";
 
 export default function Home() {
-	const { dictionary, isLoading } = useDictionary();
+	const { dict, isLoading, error } = useDictionary();
 
-	if (isLoading || !dictionary) {
+	if (error) {
+		return (
+			<div className="flex items-center justify-center min-h-screen">
+				Error loading translations: {error.message}
+			</div>
+		);
+	}
+
+	if (isLoading || !dict) {
 		return (
 			<div className="flex items-center justify-center min-h-screen">
 				Loading...
@@ -29,15 +37,13 @@ export default function Home() {
 				/>
 				<ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
 					<li className="mb-2 tracking-[-.01em]">
-						{dictionary.homepage.getStarted}{" "}
+						{dict.homepage.getStarted}{" "}
 						<code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
 							app/page.tsx
 						</code>
 						.
 					</li>
-					<li className="tracking-[-.01em]">
-						{dictionary.homepage.saveChanges}.
-					</li>
+					<li className="tracking-[-.01em]">{dict.homepage.saveChanges}.</li>
 				</ol>
 
 				<div className="flex gap-4 items-center flex-col sm:flex-row">
