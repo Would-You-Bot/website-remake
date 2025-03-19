@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import { buttonVariants } from "@/ui/button";
+import { Button, buttonVariants } from "@/ui/button";
 
 import Link from "next/link";
 import type FeaturedServer from "@/types/FeaturedServer";
@@ -168,6 +168,40 @@ export default function HomeContent({
 						</>
 					}
 				/>
+			</section>
+
+			<section className="mt-36 w-full bg-card/20 px-9 py-12 border-y-border border border-transparent">
+				<motion.h2
+					initial={{ opacity: 0, transform: "translateY(10px)" }}
+					whileInView={{ opacity: 1, transform: "translateY(0)" }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.65, ease: "easeInOut" }}
+					className="text-center text-5xl font-bold leading-normal text-foreground"
+				>
+					Keep Your Server Active with{" "}
+					<span className="text-primary font-bold">Would</span>{" "}
+					<span className="text-secondary">You</span>
+				</motion.h2>
+				<motion.h3
+					initial={{ opacity: 0, transform: "translateY(10px)" }}
+					whileInView={{ opacity: 1, transform: "translateY(0)" }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.65, ease: "easeInOut" }}
+					className="mt-4 text-center text-xl text-muted-foreground"
+				>
+					Invite To Your Server Now!
+				</motion.h3>
+				<motion.div
+					initial={{ opacity: 0, transform: "translateY(-20px)" }}
+					whileInView={{ opacity: 1, transform: "translateY(0)" }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.65, ease: "easeInOut" }}
+					className="mt-8 flex justify-center"
+				>
+					<Link href="/invite" target="_blank">
+						<Button>Invite</Button>
+					</Link>
+				</motion.div>
 			</section>
 		</>
 	);
