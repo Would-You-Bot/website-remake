@@ -3,9 +3,11 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useState, type FC } from "react";
 import Image, { type ImageProps } from "next/image";
-import DiscordVerifiedIcon from "@/components/svg/discord-verified";
-import DiscordPartneredIcon from "@/components/svg/discord-partnered";
 import { cn } from "@/lib/utils";
+import {
+	DiscordPartneredIcon,
+	DiscordVerifiedIcon,
+} from "@/components/icons/discord";
 
 interface Server {
 	id: string;

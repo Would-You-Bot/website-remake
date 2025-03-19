@@ -3,8 +3,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/ui/avatar";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import type FeaturedServer from "@/types/FeaturedServer";
-import DiscordVerifiedIcon from "@/components/svg/discord-verified";
-import DiscordPartneredIcon from "@/components/svg/discord-partnered";
+import {
+	DiscordPartneredIcon,
+	DiscordVerifiedIcon,
+} from "@/components/icons/discord";
 
 interface AvatarGroupProps {
 	avatars: FeaturedServer[];
