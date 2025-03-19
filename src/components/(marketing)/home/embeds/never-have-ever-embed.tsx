@@ -54,7 +54,7 @@ export default function NeverHaveIEverEmbed() {
 	return (
 		<DiscordMessages
 			lightTheme={theme === "light"}
-			className="overflow-x-hidden rounded-lg text-left shadow"
+			className="overflow-x-hidden rounded-lg text-left shadow p-4 flex flex-col gap-4"
 		>
 			<DiscordMessage
 				profile="wouldyou"
@@ -72,12 +72,17 @@ export default function NeverHaveIEverEmbed() {
 					avatar={randomStaff.avatar}
 					roleColor={randomStaff.roleColor}
 					command="/neverhaveiever"
+					className="mb-2 ml-12 pl-2"
 				/>
 				<DiscordEmbed slot="embeds" color="#1e88e5">
 					<DiscordEmbedDescription slot="description">
 						{currentQuestion}
 					</DiscordEmbedDescription>
-					<DiscordEmbedFooter slot="footer" footerImage="./staff/Pod.webp">
+					<DiscordEmbedFooter
+						slot="footer"
+						footerImage={randomStaff.avatar}
+						className="mt-2 -mb-2"
+					>
 						Requested by {randomStaff.author} | Type: NHIE | ID: 124
 					</DiscordEmbedFooter>
 				</DiscordEmbed>
@@ -134,7 +139,7 @@ export default function NeverHaveIEverEmbed() {
 				</DiscordAttachments>
 			</DiscordMessage>
 			<DiscordMessage
-				className={messageType === "vote" ? "mb-2" : "hidden"}
+				className={`${messageType === "vote" ? "mb-2" : "hidden"} pl-4`}
 				profile="wouldyou"
 				author={profiles.wouldyou.author}
 				avatar={profiles.wouldyou.avatar}
@@ -155,6 +160,7 @@ export default function NeverHaveIEverEmbed() {
 					verified={profiles.wouldyou.verified}
 					lightTheme={theme === "light"}
 					command={true}
+					className="mb-2 ml-12 pl-2"
 				>
 					<p style={{ whiteSpace: "initial" }}>Click to see command</p>
 				</DiscordReply>
@@ -167,7 +173,7 @@ export default function NeverHaveIEverEmbed() {
 				</p>
 			</DiscordMessage>
 			<DiscordMessage
-				className={messageType === "results" ? "" : "hidden"}
+				className={`${messageType === "results" ? "" : "hidden"} pl-4`}
 				profile="wouldyou"
 				author={profiles.wouldyou.author}
 				avatar={profiles.wouldyou.avatar}
@@ -187,6 +193,7 @@ export default function NeverHaveIEverEmbed() {
 					verified={profiles.wouldyou.verified}
 					lightTheme={theme === "light"}
 					command={true}
+					className="mb-2 ml-12 pl-2"
 				>
 					<p style={{ whiteSpace: "initial" }}>Click to see command</p>
 				</DiscordReply>
@@ -195,15 +202,16 @@ export default function NeverHaveIEverEmbed() {
 					color={haveDone ? "#0091ff" : "#f00404"}
 					image={
 						haveDone == null
-							? "/nhie-chart-50-50.webp"
+							? "/images/nhie-chart-50-50.webp"
 							: haveDone
-								? "/nhie-chart-100-have.webp"
-								: "/nhie-chart-100-not.webp"
+								? "/images/nhie-chart-100-have.webp"
+								: "/images/nhie-chart-100-not.webp"
 					}
 				>
 					<DiscordEmbedFooter
 						slot="footer"
 						footerImage={profiles.wouldyou.avatar}
+						className="mt-2 -mb-2"
 					>
 						{profiles.wouldyou.author} | Page 1/2
 					</DiscordEmbedFooter>

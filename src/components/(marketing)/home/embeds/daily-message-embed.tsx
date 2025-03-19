@@ -38,7 +38,7 @@ export default function DailyMessageEmbed({ threadName }: MainProps) {
 	return (
 		<DiscordMessages
 			lightTheme={theme === "light"}
-			className="min-w-fit overflow-x-hidden rounded-lg shadow"
+			className="min-w-fit overflow-x-hidden rounded-lg shadow p-4"
 		>
 			<DiscordMessage
 				profile="wouldyou"
@@ -47,6 +47,7 @@ export default function DailyMessageEmbed({ threadName }: MainProps) {
 				roleColor={profiles.wouldyou.roleColor}
 				bot={profiles.wouldyou.bot}
 				verified={profiles.wouldyou.verified}
+				className="after:-ml-5"
 			>
 				<DiscordMention type="role" color="#1e99">
 					QOTD
@@ -55,7 +56,7 @@ export default function DailyMessageEmbed({ threadName }: MainProps) {
 					<DiscordEmbedDescription slot="description">
 						Would you rather be able to control fire 🔥 or water 💧?
 					</DiscordEmbedDescription>
-					<DiscordEmbedFooter slot="footer">
+					<DiscordEmbedFooter slot="footer" className="mt-2 -mb-2">
 						Daily Message | Type: Mixed | ID: 34
 					</DiscordEmbedFooter>
 				</DiscordEmbed>
@@ -63,6 +64,7 @@ export default function DailyMessageEmbed({ threadName }: MainProps) {
 					slot="thread"
 					name={threadName}
 					lightTheme={theme === "light"}
+					className="mt-2 p-2"
 				>
 					<DiscordThreadMessage
 						profile={randomStaff.author}

@@ -23,7 +23,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 	return (
 		<DiscordMessages
 			lightTheme={theme === "light"}
-			className="overflow-x-hidden rounded-lg shadow"
+			className="overflow-x-hidden rounded-lg shadow p-4 gap-4 flex flex-col"
 		>
 			<DiscordMessage
 				profile="wouldyou"
@@ -41,8 +41,13 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 					roleColor={profiles.woofer.roleColor}
 					command="/higherlower"
 					lightTheme={theme === "light"}
+					className="mb-2 ml-12 pl-2"
 				/>
-				<DiscordEmbed slot="embeds" color="#57f389" image="/higherlower.webp">
+				<DiscordEmbed
+					slot="embeds"
+					color="#57f389"
+					image="/images/higherlower.webp"
+				>
 					<DiscordEmbedDescription slot="description">
 						Do you think that <b>Mcdonalds </b>
 						has higher or lower searches than <b>Wrestling</b>?
@@ -51,6 +56,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 						timestamp={currentDate}
 						slot="footer"
 						footerImage="/staff/woofer21.webp"
+						className="mt-2 -mb-2"
 					>
 						Woofer21 | Game ID: 32c7b7c4-6e6a
 					</DiscordEmbedFooter>
@@ -79,6 +85,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 					bot={profiles.wouldyou.bot}
 					verified={profiles.wouldyou.verified}
 					lightTheme={theme === "light"}
+					className="mb-2 ml-12 pl-2"
 				>
 					<p style={{ whiteSpace: "initial" }}>Click to see command</p>
 				</DiscordReply>
@@ -109,6 +116,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 					avatar={profiles.dominik.avatar}
 					roleColor={profiles.dominik.roleColor}
 					lightTheme={theme === "light"}
+					className="mb-2 ml-12 pl-2"
 				>
 					<p style={{ whiteSpace: "initial" }}>Yep should be McDonalds</p>
 				</DiscordReply>
