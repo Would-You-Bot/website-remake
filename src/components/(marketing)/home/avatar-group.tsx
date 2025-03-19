@@ -13,14 +13,11 @@ interface AvatarGroupProps {
 }
 
 export const AvatarGroup = ({
-	ref,
 	avatars,
 	className = "",
 	orientation = "horizontal",
 	...props
-}: AvatarGroupProps & {
-	ref: React.RefObject<HTMLDivElement>;
-}) => {
+}: AvatarGroupProps) => {
 	const formatMemberCount = (count: number): string => {
 		if (count >= 1000000) {
 			return `${(count / 1000000).toFixed(1)}M`;
@@ -46,7 +43,6 @@ export const AvatarGroup = ({
 
 	return (
 		<div
-			ref={ref}
 			className={cn(
 				"flex select-none",
 				orientation === "vertical" ? "flex-col" : "flex-row",
