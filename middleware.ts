@@ -9,7 +9,6 @@ import Negotiator from "negotiator";
 function getLocale(request: NextRequest): string {
 	const negotiatorHeaders = Object.fromEntries(request.headers.entries());
 
-	// @ts-ignore locales are readonly
 	const locales: string[] = i18n.locales;
 	const languages = new Negotiator({ headers: negotiatorHeaders }).languages(
 		locales,

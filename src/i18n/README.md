@@ -1,6 +1,6 @@
 # How to Set Up a New Locale
 
-Follow these steps to add a new locale to your project:
+Follow these steps to add new locales:
 
 1. **Update the `locales` Configuration**
      - Navigate to the [`data.ts`](./data.ts) file.
@@ -11,28 +11,29 @@ Follow these steps to add a new locale to your project:
       - **Paste** the copied file and **rename it** to match your desired locale code (e.g., `fr.ts` for French).
       - Add your locale-specific translations and content to this new file.
 
-3. **Ensure Type Safety for New Strings**
-      - If you add new strings or translation keys to any locale, **update the `types.ts`** file to reflect the changes.
-      - This will ensure that all locales adhere to the same structure and required keys.
+3. **When Creating New Strings**
+      - **Update the `types.ts`** file to include the new strings key.
+      - Update all other language files with the new string key.
+        - If you do not know the translation, use the english version.
 
 ## Verify and Test
 
-After adding the new locale, make sure to **test** your application to verify that the translations are working correctly.
+After adding the new locale, make sure to **test** that the translations are working correctly.
 
 ## Usage
 
-To use the dictionary on the pages you want, use the following example:
+Copy the following example to use translations.
 
 ```tsx
 import { useDictionary } from "@/i18n/hooks/use-dictionary";
 /* ... */
 
 export default function Home() {
-  const { dictionary, isLoading } = useDictionary();
+  const { dict, isLoading } = useDictionary();
 
   return (
     /* ... */
-    <span>{dictionary.random.string}</span>
+    <span>{dict.random.string}</span>
     /* ... */
   )
 }

@@ -19,7 +19,7 @@ export default function LocaleSwitcher() {
 
 	const switchLocale = async (locale: Locale) => {
 		await updateDictionary(locale);
-		await updateLocale(locale);
+		updateLocale(locale);
 	};
 
 	return (
