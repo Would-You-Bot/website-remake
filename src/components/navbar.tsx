@@ -49,7 +49,7 @@ export default function Navbar() {
 					<button
 						type="button"
 						title={`${isOpen ? "close" : "open"} menu`}
-						className="absolute right-[1.05rem] top-[1.35rem] z-50 flex flex-col gap-[5px] lg:hidden cursor-pointer"
+						className="absolute right-[1.15rem] top-[1.45rem] z-50 flex flex-col gap-[5px] lg:hidden cursor-pointer"
 						onClick={handleIsOpen}
 					>
 						<div
