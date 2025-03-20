@@ -1,0 +1,8 @@
+{
+	"homepage": {
+		"gettingStarted": "Commencez par éditer",
+		"saveChanges": "Enregistrez et voyez vos modifications instantanément",
+		"placeholder": "Ceci est un espace réservé et le décompte est {count}",
+		"greeting": "Bonjour, {name}!"
+	}
+}

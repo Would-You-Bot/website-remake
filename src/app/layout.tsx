@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "next-intl/server";
 import "@/styles/globals.css";
 import Providers from "./providers";
 import Navbar from "@/components/navbar";
@@ -48,19 +50,21 @@ export const metadata: Metadata = {
 	},
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const locale = await getLocale();
+
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang={locale} suppressHydrationWarning>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased w-full relative min-h-dvh flex flex-col`}
 			>
 				<Providers>
 					<Navbar />
-					{children}
+					<NextIntlClientProvider>{children}</NextIntlClientProvider>
 					<Footer />
 				</Providers>
 			</body>

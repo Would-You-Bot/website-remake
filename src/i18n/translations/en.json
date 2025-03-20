@@ -1,0 +1,8 @@
+{
+	"homepage": {
+		"gettingStarted": "Get started by editing",
+		"saveChanges": "Save and see your changes instantly",
+		"placeholder": "This is a placeholder and count is {count}",
+		"greeting": "Hello, {name}!"
+	}
+}
