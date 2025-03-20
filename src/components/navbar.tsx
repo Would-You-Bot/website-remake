@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import clsx from "clsx";
-import { Moon, Sun } from "lucide-react";
+import { Crown, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
@@ -108,8 +108,12 @@ function NavList() {
 			<NavItem href="/commands">Commands</NavItem>
 			<NavItem href="/blog">Blog</NavItem>
 			<NavItem href="/packs">Question Packs</NavItem>
-			<NavItem href="/premium" isPremium>
-				Premium
+			<NavItem
+				href="/premium"
+				isPremium
+				className="flex flex-row items-center gap-2"
+			>
+				<Crown className="size-4" /> Premium
 			</NavItem>
 		</>
 	);
@@ -131,9 +135,9 @@ function NavItem({
 				href={href}
 				className={cn(
 					clsx(
-						"text-lg text-muted-foreground transition-all hover:text-foreground focus-visible:text-foreground focus-visible:underline outline-none",
+						"text-lg text-foreground transition-all hover:text-muted-foreground focus-visible:text-muted-foreground focus-visible:underline outline-none font-semibold",
 						isPremium &&
-							"text-premium/70 hover:text-premium focus-visible:text-premium font-semibold",
+							"text-premium hover:text-premium/70 focus-visible:text-premium/70",
 						className,
 					),
 				)}
