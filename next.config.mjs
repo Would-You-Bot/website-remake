@@ -24,6 +24,12 @@ const nextConfig = {
 				port: "",
 				pathname: "/**",
 			},
+			{
+				protocol: "https",
+				hostname: "startupfa.me",
+				port: "",
+				pathname: "/**",
+			},
 		],
 	},
 	async headers() {
