@@ -58,6 +58,10 @@
 	--color-sidebar-primary: var(--sidebar-primary);
 	--color-sidebar-foreground: var(--sidebar-foreground);
 	--color-sidebar: var(--sidebar);
+
+	--color-premium: var(--premium);
+
+	--color-discord-brand: oklch(57.74% 0.2091 273.85);
 }
 
 :root {
@@ -106,6 +110,8 @@
 	--sidebar-accent-foreground: oklch(0.205 0 0);
 	--sidebar-border: oklch(0.922 0 0);
 	--sidebar-ring: oklch(0.708 0 0);
+
+	--premium: oklch(56.24% 0.115454 83.8963);
 }
 
 .dark {
@@ -152,6 +158,8 @@
 	--sidebar-accent-foreground: oklch(0.985 0 0);
 	--sidebar-border: oklch(1 0 0 / 10%);
 	--sidebar-ring: oklch(0.556 0 0);
+
+	--premium: oklch(0.852 0.199 91.936);
 }
 
 @layer base {
