@@ -1,0 +1,8 @@
+{
+	"homepage": {
+		"gettingStarted": "Comience editando",
+		"saveChanges": "Guarde y vea sus cambios al instante",
+		"placeholder": "Este es un marcador de posición y el recuento es {count}",
+		"greeting": "¡Hola, {name}!"
+	}
+}
