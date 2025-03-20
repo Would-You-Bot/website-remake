@@ -1,4 +1,10 @@
-import type { I18nData } from "@/i18n/types";
+import type { Locale } from "@/i18n/config";
+
+type I18nData = {
+	code: Locale;
+	name: string;
+	flag: string;
+};
 
 export const i18nData: I18nData[] = [
 	{
@@ -25,11 +31,5 @@ export const i18nData: I18nData[] = [
 		code: "it",
 		name: "Italiano",
 		flag: "it",
-	},
-	{
-		code: "tr",
-		name: "Türkçe",
-		flag: "tr",
-		disabled: true,
 	},
 ];

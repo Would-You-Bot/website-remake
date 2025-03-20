@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { i18n } from "@/i18n/config";
+import { locales } from "@/i18n/config";
 
 export function middleware(request: NextRequest) {
 	const pathname = request.nextUrl.pathname;
 	const firstSegment = pathname.split("/")[1] || "";
-
-	if (i18n.locales.includes(firstSegment)) {
+	if (locales.includes(firstSegment as (typeof locales)[number])) {
 		const pathWithoutLocale = pathname.replace(`/${firstSegment}`, "") || "/";
 		const redirectUrl = new URL(pathWithoutLocale, request.url);
 
@@ -19,8 +18,6 @@ export function middleware(request: NextRequest) {
 
 		return response;
 	}
-
-	return NextResponse.next();
 }
 
 export const config = {

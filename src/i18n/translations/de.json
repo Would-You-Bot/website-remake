@@ -1,0 +1,8 @@
+{
+	"homepage": {
+		"gettingStarted": "Los geht's mit dem Bearbeiten",
+		"saveChanges": "Speichern und Änderungen sofort sehen",
+		"placeholder": "Dies ist ein Platzhalter und die Anzahl ist {count}",
+		"greeting": "Hallo, {name}!"
+	}
+}

@@ -1,27 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import LocaleSwitcher from "@/components/i18n/locale-switcher";
-import { useDictionary } from "@/i18n/hooks/use-dictionary";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
-	const { dict, isLoading, error } = useDictionary();
-
-	if (error) {
-		return (
-			<div className="flex justify-center items-center min-h-screen">
-				Error loading translations: {error.message}
-			</div>
-		);
-	}
-
-	if (isLoading || !dict) {
-		return (
-			<div className="flex justify-center items-center min-h-screen">
-				Loading...
-			</div>
-		);
-	}
+	const t = useTranslations("homepage");
 
 	return (
 		<div className="grid grid-rows-[20px_1fr_20px] justify-items-center p-8 font-[family-name:var(--font-geist-sans)] gap-16 items-center min-h-screen pb-20 sm:p-20">
@@ -37,18 +19,18 @@ export default function Home() {
 				/>
 				<ol className="list-decimal list-inside text-center text-sm/6 font-[family-name:var(--font-geist-mono)] sm:text-left">
 					<li className="mb-2 tracking-[-.01em]">
-						{dict.homepage.getStarted}{" "}
+						{t("gettingStarted")}{" "}
 						<code className="bg-black/[.05] rounded dark:bg-white/[.06] font-[family-name:var(--font-geist-mono)] font-semibold px-1 py-0.5">
 							app/page.tsx
 						</code>
 						.
 					</li>
-					<li className="tracking-[-.01em]">{dict.homepage.saveChanges}.</li>
+					<li className="tracking-[-.01em]">{t("saveChanges")}.</li>
 					<li className="tracking-[-.01em]">
-						{dict.testing.placeholder({ count: 23 })}.
+						{t("placeholder", { count: 5 })}.
 					</li>
 					<li className="tracking-[-.01em]">
-						{dict.testing.greet({ name: "Diogo", surname: "Paulos" })}.
+						{t("greeting", { name: "paulos" })}.
 					</li>
 				</ol>
 

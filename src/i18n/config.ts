@@ -1,12 +1,4 @@
-import { i18nData } from "@/i18n/data";
+export type Locale = (typeof locales)[number];
 
-const locales: string[] = i18nData
-	.filter((locale) => !locale.disabled)
-	.map((locale) => locale.code);
-
-export const i18n = {
-	defaultLocale: locales[0],
-	locales: locales,
-} as const;
-
-export type Locale = (typeof i18n.locales)[number];
+export const locales = ["en", "de", "es", "fr", "it"] as const;
+export const defaultLocale: Locale = "en";

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { i18n, type Locale } from "@/i18n/config";
-import { cookies } from "next/headers";
-import { DictionaryProvider } from "@/i18n/hooks/use-dictionary";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "next-intl/server";
 import "@/styles/globals.css";
 
 const geistSans = Geist({
@@ -25,17 +24,14 @@ export default async function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const cookieStore = cookies();
-	const lang =
-		((await cookieStore).get("NEXT_LOCALE")?.value as Locale) ||
-		i18n.defaultLocale;
+	const locale = await getLocale();
 
 	return (
-		<html lang={lang}>
+		<html lang={locale}>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<DictionaryProvider>{children}</DictionaryProvider>
+				<NextIntlClientProvider>{children}</NextIntlClientProvider>
 			</body>
 		</html>
 	);
