@@ -17,8 +17,8 @@ export default function Navbar() {
 	};
 
 	return (
-		<nav className="sticky left-0 top-1 z-50 mb-8 w-full py-6">
-			<div className="max-w-8xl flex items-center justify-between px-8 transition-all duration-300">
+		<nav className="sticky left-0 top-1 z-50 mb-8 w-full py-6 flex h-auto items-center justify-center">
+			<div className="max-w-8xl flex items-center justify-between px-8 transition-all duration-300 w-full">
 				<NavSection>
 					<Link
 						href={"/"}
