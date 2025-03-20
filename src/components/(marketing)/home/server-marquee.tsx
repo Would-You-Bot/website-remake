@@ -8,6 +8,7 @@ import {
 	DiscordPartneredIcon,
 	DiscordVerifiedIcon,
 } from "@/components/icons/discord";
+import FeaturedServer from "@/types/FeaturedServer";
 
 interface Server {
 	id: string;
@@ -32,6 +33,11 @@ const ServerMarquee: FC<MarqueeProps> = ({
 	className,
 }) => {
 	const { theme } = useTheme();
+
+	const isVerified = (server: Server) => server.features.includes("VERIFIED");
+
+	const isPartnered = (server: Server) =>
+		server.features.includes("PARTNERED") && !isVerified(server);
 
 	return (
 		<div
@@ -65,9 +71,8 @@ const ServerMarquee: FC<MarqueeProps> = ({
 						/>
 						<div>
 							<div className="relative flex items-center">
-								{s.features.includes("VERIFIED") && <DiscordVerifiedIcon />}
-								{s.features.includes("PARTNERED") &&
-									!s.features.includes("VERIFIED") && <DiscordPartneredIcon />}
+								{isVerified(s) && <DiscordVerifiedIcon />}
+								{isPartnered(s) && <DiscordPartneredIcon />}
 								<h4 className="ml-2 max-w-[160px] overflow-hidden text-ellipsis whitespace-nowrap text-lg text-foreground">
 									{s.name}
 								</h4>

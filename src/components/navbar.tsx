@@ -19,7 +19,7 @@ export default function Navbar() {
 	return (
 		<nav className="sticky left-0 top-1 z-50 mb-8 w-full py-6 flex h-auto items-center justify-center">
 			<div className="max-w-8xl flex items-center justify-between px-8 transition-all duration-300 w-full">
-				<NavSection>
+				<NavSection className="px-6">
 					<Link
 						href={"/"}
 						className="flex items-center gap-4 xs:gap-6 outline-none focus-visible:ring-2 focus-visible:ring-offset-8 focus-visible:ring-offset-background focus-visible:ring-primary rounded-sm"
@@ -42,7 +42,7 @@ export default function Navbar() {
 						isOpen && "right-0 top-0 z-10 h-screen w-screen rounded-none",
 					)}
 				>
-					<ul className="hidden w-max gap-6 px-6 lg:flex items-center decoration-transparent">
+					<ul className="hidden w-max gap-6 px-2 lg:flex items-center decoration-transparent">
 						<NavList />
 					</ul>
 
@@ -75,7 +75,7 @@ export default function Navbar() {
 					</ul>
 				</NavSection>
 
-				<NavSection className="hidden lg:flex">
+				<NavSection className="hidden lg:flex p-2 gap-2">
 					<ThemeToggle />
 					<DiscordLoginButton className="h-12 rounded-md px-6" />
 				</NavSection>
@@ -137,7 +137,7 @@ function NavItem({
 					clsx(
 						"text-lg text-foreground transition-all hover:text-muted-foreground focus-visible:text-muted-foreground focus-visible:underline outline-none font-semibold",
 						isPremium &&
-							"text-premium hover:text-premium/70 focus-visible:text-premium/70",
+							"text-premium hover:text-premium/70 focus-visible:text-premium/70 bg-premium/5 focus-visible:bg-premium/[2.5%] hover:bg-premium/[2.5%] py-1.5 px-3 rounded-md -mx-3",
 						className,
 					),
 				)}

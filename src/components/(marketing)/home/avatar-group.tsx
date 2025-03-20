@@ -60,7 +60,7 @@ export const AvatarGroup = ({
 					>
 						<Avatar
 							className={cn(
-								"border-[2px] border-background bg-background group-hover:scale-105 group-hover:z-50 transition-all",
+								"border-[2px] border-background bg-background group-hover:scale-105 group-hover:z-50 transition-all size-10",
 							)}
 						>
 							<AvatarImage
@@ -71,8 +71,8 @@ export const AvatarGroup = ({
 								<Image
 									src="https://cdn.discordapp.com/embed/avatars/0.png"
 									alt="Fallback Discord Avatar"
-									width={90}
-									height={90}
+									width={512}
+									height={512}
 								/>
 							</AvatarFallback>
 						</Avatar>
@@ -92,10 +92,10 @@ export const AvatarGroup = ({
 				</Tooltip>
 			))}
 			<Tooltip>
-				<TooltipTrigger>
+				<TooltipTrigger className="group">
 					<Avatar
 						className={cn(
-							"border-[2px] border-background bg-background -ml-3 z-10",
+							"border-[2px] border-background bg-background -ml-3 z-10 group-hover:scale-105 group-hover:z-50 transition-all size-10",
 						)}
 					>
 						<AvatarImage src="" />

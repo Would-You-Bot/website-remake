@@ -69,7 +69,8 @@ export default function HomeContent({
 							buttonVariants({ variant: "default" }),
 						)}
 					>
-						Unleash the Fun <ExternalLink />
+						Unleash the Fun
+						<ExternalLink />
 					</Link>
 				</motion.div>
 				<MainDiscordEmbed />
