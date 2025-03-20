@@ -1,5 +1,6 @@
 import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@/ui/tooltip";
+import { NextIntlClientProvider } from "next-intl";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
 	return (
@@ -10,7 +11,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 				enableSystem
 				disableTransitionOnChange
 			>
-				<TooltipProvider delayDuration={0}>{children}</TooltipProvider>
+				<TooltipProvider delayDuration={0}>
+					<NextIntlClientProvider>{children}</NextIntlClientProvider>
+				</TooltipProvider>
 			</ThemeProvider>
 		</>
 	);

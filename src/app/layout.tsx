@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import "@/styles/globals.css";
 import Providers from "./providers";
@@ -64,7 +63,7 @@ export default async function RootLayout({
 			>
 				<Providers>
 					<Navbar />
-					<NextIntlClientProvider>{children}</NextIntlClientProvider>
+					{children}
 					<Footer />
 				</Providers>
 			</body>
