@@ -1,6 +1,6 @@
 import { i18nData } from "@/i18n/data";
 
-export const locales: string[] = i18nData
+const locales: string[] = i18nData
 	.filter((locale) => !locale.disabled)
 	.map((locale) => locale.code);
 

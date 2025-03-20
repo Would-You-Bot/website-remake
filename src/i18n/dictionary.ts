@@ -1,4 +1,4 @@
-import { locales, type Locale } from "@/i18n/config";
+import { i18n, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
 
 /**
@@ -23,7 +23,7 @@ const generateDictionary = async (locale: Locale) => {
  */
 const dictionaries: Record<string, () => Promise<Dictionary>> =
 	Object.fromEntries(
-		locales.map((locale) => [locale, () => generateDictionary(locale)]),
+		i18n.locales.map((locale) => [locale, () => generateDictionary(locale)]),
 	);
 
 /**
