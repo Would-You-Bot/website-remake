@@ -16,10 +16,13 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import profiles from "@/data/profiles.json";
 import { getRandomQuestion, QuestionTypes } from "@/helpers/getRandomQuestion";
+import { useTranslations } from "next-intl";
+import { NumberOneEmoji, NumberTwoEmoji } from "@/components/icons/emoji";
 
 const staff = Object.keys(profiles).slice(1);
 
 export default function MainDiscordEmbed() {
+	const t = useTranslations();
 	const { theme } = useTheme();
 	const [replayedRounds, setReplayedRounds] = useState(0);
 	const [currentQuestion, setCurrentQuestion] = useState(
@@ -72,62 +75,39 @@ export default function MainDiscordEmbed() {
 						author={randomStaff.author}
 						avatar={randomStaff.avatar}
 						roleColor={randomStaff.roleColor}
-						command="/wouldyourather"
+						command={t("home.cta.mainEmbed.command")}
 						lightTheme={theme === "light"}
 						className="mb-2 ml-12 pl-2"
 					/>
 					<DiscordEmbed slot="embeds" color="#1e88e5">
 						<DiscordEmbedDescription slot="description">
-							{currentQuestion}
+							{
+								//@ts-ignore -- ignoring error because unable to get the types to match.
+								t(currentQuestion)
+							}
 						</DiscordEmbedDescription>
 						<DiscordEmbedFooter
 							slot="footer"
 							footerImage={randomStaff.avatar}
 							className="mt-2 -mb-2"
 						>
-							Requested by {randomStaff.author} | Type: General | ID: 64
+							{t("home.discordEmbed.footer", {
+								author: randomStaff.author,
+								type: "General",
+								id: "64",
+							})}
 						</DiscordEmbedFooter>
 					</DiscordEmbed>
 					<DiscordAttachments slot="components">
 						<DiscordActionRow>
-							<DiscordButton type="secondary">Results</DiscordButton>
-							<DiscordButton type="primary">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 36 36"
-									width="36"
-									height="36"
-									className="h-5 w-5"
-								>
-									<title>Number 1 Icon</title>
-									<path
-										fill="#3B88C3"
-										d="M36 32a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v28z"
-									/>
-									<path
-										fill="#FFF"
-										d="M16.462 11.175h-1.829c-1.488 0-2.108-1.085-2.108-2.139 0-1.085.775-2.14 2.108-2.14h4.402c1.334 0 2.078.961 2.078 2.201V26.74c0 1.551-.992 2.418-2.326 2.418-1.333 0-2.325-.867-2.325-2.418V11.175z"
-									/>
-								</svg>
+							<DiscordButton type="secondary">
+								{t("home.discordEmbed.btns.result")}
 							</DiscordButton>
 							<DiscordButton type="primary">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 36 36"
-									width="36"
-									height="36"
-									className="h-5 w-5"
-								>
-									<title>Number 2 Icon</title>
-									<path
-										fill="#3B88C3"
-										d="M36 32a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v28z"
-									/>
-									<path
-										fill="#FFF"
-										d="M23.086 24.907c1.365 0 2.42.62 2.42 2.046 0 1.427-1.055 2.047-2.233 2.047H12.917c-1.364 0-2.418-.62-2.418-2.047 0-.65.403-1.209.713-1.581 2.573-3.069 5.364-5.86 7.721-9.271.558-.806 1.085-1.768 1.085-2.884 0-1.271-.961-2.387-2.233-2.387-3.566 0-1.86 5.023-4.837 5.023-1.488 0-2.264-1.054-2.264-2.264 0-3.906 3.473-7.038 7.287-7.038 3.815 0 6.883 2.512 6.883 6.449 0 4.309-4.805 8.589-7.441 11.906h5.673z"
-									/>
-								</svg>
+								<NumberOneEmoji />
+							</DiscordButton>
+							<DiscordButton type="primary">
+								<NumberTwoEmoji />
 							</DiscordButton>
 						</DiscordActionRow>
 						<DiscordActionRow>
@@ -138,7 +118,7 @@ export default function MainDiscordEmbed() {
 									emoji="/emojis/refresh.svg"
 									emojiName="refresh"
 								>
-									New Question
+									{t("home.discordEmbed.btns.newQuestion")}
 								</DiscordButton>
 							) : (
 								<DiscordButton
@@ -149,7 +129,7 @@ export default function MainDiscordEmbed() {
 									emoji="/emojis/external.svg"
 									emojiName="external"
 								>
-									Invite Would You
+									{t("home.discordEmbed.btns.invite")}
 								</DiscordButton>
 							)}
 						</DiscordActionRow>

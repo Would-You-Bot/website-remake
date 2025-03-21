@@ -8,7 +8,7 @@ import {
 	DiscordPartneredIcon,
 	DiscordVerifiedIcon,
 } from "@/components/icons/discord";
-import FeaturedServer from "@/types/FeaturedServer";
+import { useTranslations } from "next-intl";
 
 interface Server {
 	id: string;
@@ -32,6 +32,7 @@ const ServerMarquee: FC<MarqueeProps> = ({
 	direction,
 	className,
 }) => {
+	const t = useTranslations("home.servers.marquee");
 	const { theme } = useTheme();
 
 	const isVerified = (server: Server) => server.features.includes("VERIFIED");
@@ -63,7 +64,7 @@ const ServerMarquee: FC<MarqueeProps> = ({
 					>
 						<Avatar
 							src={s.iconURL}
-							alt={`${s.name}'s server icon`}
+							alt={t("iconAlt", { server: s.name })}
 							fallbackSrc="/logo.svg"
 							width={60}
 							height={60}
@@ -78,7 +79,7 @@ const ServerMarquee: FC<MarqueeProps> = ({
 								</h4>
 							</div>
 							<p className="text-left text-sm text-foreground/60">
-								{s.memberCount.toLocaleString()} Members
+								{t("members", { count: s.memberCount })}
 							</p>
 						</div>
 					</Link>

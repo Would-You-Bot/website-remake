@@ -6,7 +6,11 @@ const jiti = createJiti(fileURLToPath(import.meta.url));
 
 await jiti.import("./src/env");
 
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin({
+	experimental: {
+		createMessagesDeclaration: "./src/i18n/translations/en.json",
+	},
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

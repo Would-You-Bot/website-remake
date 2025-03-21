@@ -4,73 +4,75 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { Settings } from "lucide-react";
-
-const recommendedLinks = [
-	{
-		name: "Home",
-		link: "/",
-		EventTarget: "_self",
-	},
-	{
-		name: "Commands",
-		link: "/commands",
-		EventTarget: "_self",
-	},
-	{
-		name: "Team",
-		link: "/team",
-		EventTarget: "_self",
-	},
-	{
-		name: "Reddit",
-		link: "/reddit",
-		EventTarget: "_blank",
-	},
-];
-
-const Links = [
-	{
-		name: "Support Server",
-		link: "/discord",
-		EventTarget: "_blank",
-	},
-	{
-		name: "Invite",
-		link: "/invite",
-		EventTarget: "_blank",
-	},
-	{
-		name: "Status",
-		link: "/status",
-		EventTarget: "_self",
-	},
-];
-
-const LegalLinks = [
-	{
-		name: "Legal Notice",
-		link: "/legal",
-		EventTarget: "_self",
-	},
-	{
-		name: "Privacy Policy",
-		link: "/privacy",
-		EventTarget: "_self",
-	},
-	{
-		name: "Terms of Service",
-		link: "/terms",
-		EventTarget: "_self",
-	},
-	{
-		name: "Refund Policy",
-		link: "/refunds",
-		EventTarget: "_self",
-	},
-];
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+	const t = useTranslations();
 	const { theme } = useTheme();
+
+	const recommendedLinks = [
+		{
+			name: t("footer.recommended.home"),
+			link: "/",
+			EventTarget: "_self",
+		},
+		{
+			name: t("footer.recommended.commands"),
+			link: "/commands",
+			EventTarget: "_self",
+		},
+		{
+			name: t("footer.recommended.team"),
+			link: "/team",
+			EventTarget: "_self",
+		},
+		{
+			name: t("footer.recommended.reddit"),
+			link: "/reddit",
+			EventTarget: "_blank",
+		},
+	];
+
+	const Links = [
+		{
+			name: t("footer.links.support"),
+			link: "/discord",
+			EventTarget: "_blank",
+		},
+		{
+			name: t("footer.links.invite"),
+			link: "/invite",
+			EventTarget: "_blank",
+		},
+		{
+			name: t("footer.links.status"),
+			link: "/status",
+			EventTarget: "_self",
+		},
+	];
+
+	const LegalLinks = [
+		{
+			name: t("footer.legal.legal"),
+			link: "/legal",
+			EventTarget: "_self",
+		},
+		{
+			name: t("footer.legal.privacy"),
+			link: "/privacy",
+			EventTarget: "_self",
+		},
+		{
+			name: t("footer.legal.terms"),
+			link: "/terms",
+			EventTarget: "_self",
+		},
+		{
+			name: t("footer.legal.refund"),
+			link: "/refunds",
+			EventTarget: "_self",
+		},
+	];
 
 	return (
 		<footer className="mt-20 mx-auto w-full max-w-8xl px-8 py-8">
@@ -79,25 +81,28 @@ export default function Footer() {
 					<div className="flex items-center text-xl font-bold text-foreground">
 						<Image
 							src="/Logo.svg"
-							alt="Logo"
+							alt={t("brand.logo.alt")}
 							className="rounded-full"
 							width={40}
 							height={40}
 							priority
 						/>
-						<p className="ml-3">Would You</p>
+						<p className="ml-3">{t("brand.name")}</p>
 					</div>
 
 					<p className="text-center text-sm md:text-left">
-						&copy; {new Date().getFullYear()}{" "}
-						<Link
-							href="https://rivo.gg/"
-							target="_blank"
-							className="transition-all hover:text-foreground outline-none focus-visible:text-foreground focus-visible:underline"
-						>
-							<b>Rivo</b>
-						</Link>
-						. All rights reserved.
+						{t.rich("footer.legal.copyright", {
+							date: new Date(),
+							link: (content) => (
+								<Link
+									href="https://rivo.gg/"
+									target="_blank"
+									className="transition-all font-bold hover:text-foreground outline-none focus-visible:text-foreground focus-visible:underline"
+								>
+									{content}
+								</Link>
+							),
+						})}
 					</p>
 
 					{/* <StatusBadge /> */}
@@ -108,7 +113,7 @@ export default function Footer() {
 						// onClick={showCookieDialog}
 					>
 						<Settings className="size-4 mt-1" />
-						Manage Cookies
+						{t("footer.btns.cookie")}
 					</button>
 
 					<a
@@ -122,7 +127,7 @@ export default function Footer() {
 									? "https://startupfa.me/badges/featured-badge-small.webp"
 									: "https://startupfa.me/badges/featured-badge-small-dark.webp"
 							}
-							alt="Would You - Entertain Your Discord Server | Startup Fame"
+							alt={t("footer.btns.startup.alt")}
 							width="224"
 							height="36"
 						/>
@@ -130,7 +135,9 @@ export default function Footer() {
 				</div>
 
 				<div className="flex w-full flex-col items-center md:items-start">
-					<p className="mb-2 text-lg font-bold text-foreground">Recommended</p>
+					<p className="mb-2 text-lg font-bold text-foreground">
+						{t("footer.recommended.title")}
+					</p>
 					<div className="flex flex-col items-center gap-2 md:items-start">
 						{recommendedLinks.map((link) => (
 							<Link
@@ -146,7 +153,9 @@ export default function Footer() {
 				</div>
 
 				<div className="flex w-full flex-col items-center md:items-start">
-					<p className="mb-2 text-lg font-bold text-foreground">Links</p>
+					<p className="mb-2 text-lg font-bold text-foreground">
+						{t("footer.links.title")}
+					</p>
 					<div className="flex flex-col items-center gap-2 md:items-start">
 						{Links.map((link) => (
 							<Link
@@ -162,7 +171,9 @@ export default function Footer() {
 				</div>
 
 				<div className="flex w-full flex-col items-center md:items-start">
-					<p className="mb-2 text-lg font-bold text-foreground">Legal</p>
+					<p className="mb-2 text-lg font-bold text-foreground">
+						{t("footer.legal.title")}
+					</p>
 					<div className="flex flex-col items-center gap-2 md:items-start">
 						{LegalLinks.map((link) => (
 							<Link
@@ -181,21 +192,28 @@ export default function Footer() {
 			<div>
 				<hr className="border border-border" />
 				<p className="mt-8 text-center text-sm text-muted-foreground">
-					Made with <span className="text-secondary">♥</span> by{" "}
-					<Link
-						href="/team"
-						className="underline hover:text-foreground focus-visible:text-foreground outline-none transition-all"
-					>
-						Would You Team
-					</Link>{" "}
-					&{" "}
-					<Link
-						href="https://github.com/Would-You-Bot/website-app/graphs/contributors"
-						target="_blank"
-						className="underline hover:text-foreground focus-visible:text-foreground outline-none transition-all"
-					>
-						Contributors
-					</Link>
+					{t.rich("footer.love", {
+						secondary: (content) => (
+							<span className="text-secondary">{content}</span>
+						),
+						teamLink: (content) => (
+							<Link
+								href="/team"
+								className="underline hover:text-foreground focus-visible:text-foreground outline-none transition-all"
+							>
+								{content}
+							</Link>
+						),
+						contribLink: (content) => (
+							<Link
+								href="https://github.com/Would-You-Bot/website-app/graphs/contributors"
+								target="_blank"
+								className="underline hover:text-foreground focus-visible:text-foreground outline-none transition-all"
+							>
+								{content}
+							</Link>
+						),
+					})}
 				</p>
 			</div>
 		</footer>

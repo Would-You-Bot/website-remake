@@ -13,6 +13,7 @@ import {
 import profiles from "@/data/profiles.json";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface MainProps {
 	threadName: string;
@@ -21,6 +22,7 @@ interface MainProps {
 const staff = Object.keys(profiles).slice(1);
 
 export default function DailyMessageEmbed({ threadName }: MainProps) {
+	const t = useTranslations("home");
 	const { theme } = useTheme();
 	const [randomStaff, setRandomStaff] = useState<(typeof profiles)["wouldyou"]>(
 		profiles.wouldyou,
@@ -50,14 +52,14 @@ export default function DailyMessageEmbed({ threadName }: MainProps) {
 				className="after:-ml-5"
 			>
 				<DiscordMention type="role" color="#1e99">
-					QOTD
+					{t("features.daily.embed.mention")}
 				</DiscordMention>
 				<DiscordEmbed slot="embeds" color="#1e88e5">
 					<DiscordEmbedDescription slot="description">
-						Would you rather be able to control fire 🔥 or water 💧?
+						{t("features.daily.embed.description")}
 					</DiscordEmbedDescription>
 					<DiscordEmbedFooter slot="footer" className="mt-2 -mb-2">
-						Daily Message | Type: Mixed | ID: 34
+						{t("features.daily.embed.footer")}
 					</DiscordEmbedFooter>
 				</DiscordEmbed>
 				<DiscordThread
@@ -72,7 +74,7 @@ export default function DailyMessageEmbed({ threadName }: MainProps) {
 						avatar={randomStaff.avatar}
 						roleColor={randomStaff.roleColor}
 					>
-						Wow that...
+						{t("features.daily.embed.thread.message")}
 					</DiscordThreadMessage>
 				</DiscordThread>
 			</DiscordMessage>

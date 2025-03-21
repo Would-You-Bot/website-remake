@@ -16,12 +16,14 @@ import profiles from "@/data/profiles.json";
 import { useTheme } from "next-themes";
 import { FC, useEffect, useState } from "react";
 import { CheckEmoji, CrossEmoji } from "@/components/icons/emoji";
+import { useTranslations } from "next-intl";
 
 type MessageType = "vote" | "results" | null;
 
 const staff = Object.keys(profiles).slice(1);
 
 export default function NeverHaveIEverEmbed() {
+	const t = useTranslations();
 	const { theme } = useTheme();
 	const [haveDone, setHaveDone] = useState<boolean | null>(null);
 	const [messageType, setMessageType] = useState<MessageType>(null);
@@ -71,19 +73,26 @@ export default function NeverHaveIEverEmbed() {
 					author={randomStaff.author}
 					avatar={randomStaff.avatar}
 					roleColor={randomStaff.roleColor}
-					command="/neverhaveiever"
+					command={t("home.features.neverHaveEver.embed.command")}
 					className="mb-2 ml-12 pl-2"
 				/>
 				<DiscordEmbed slot="embeds" color="#1e88e5">
 					<DiscordEmbedDescription slot="description">
-						{currentQuestion}
+						{
+							//@ts-ignore -- ignoring error because unable to get the types to match.
+							t(currentQuestion)
+						}
 					</DiscordEmbedDescription>
 					<DiscordEmbedFooter
 						slot="footer"
 						footerImage={randomStaff.avatar}
 						className="mt-2 -mb-2"
 					>
-						Requested by {randomStaff.author} | Type: NHIE | ID: 124
+						{t("home.discordEmbed.footer", {
+							author: randomStaff.author,
+							type: "NHIE",
+							id: "124",
+						})}
 					</DiscordEmbedFooter>
 				</DiscordEmbed>
 				<DiscordAttachments slot="components">
@@ -92,7 +101,7 @@ export default function NeverHaveIEverEmbed() {
 							type="secondary"
 							onClick={() => setMessageType("results")}
 						>
-							Results
+							{t("home.discordEmbed.btns.result")}
 						</DiscordButton>
 						<DiscordButton
 							type="primary"
@@ -121,7 +130,7 @@ export default function NeverHaveIEverEmbed() {
 								emoji="/emojis/refresh.svg"
 								emojiName="refresh"
 							>
-								New Question
+								{t("home.discordEmbed.btns.newQuestion")}
 							</DiscordButton>
 						) : (
 							<DiscordButton
@@ -132,7 +141,7 @@ export default function NeverHaveIEverEmbed() {
 								emoji="/emojis/external.svg"
 								emojiName="external"
 							>
-								Invite Would You
+								{t("home.discordEmbed.btns.invite")}
 							</DiscordButton>
 						)}
 					</DiscordActionRow>
@@ -162,14 +171,15 @@ export default function NeverHaveIEverEmbed() {
 					command={true}
 					className="mb-2 ml-12 pl-2"
 				>
-					<p style={{ whiteSpace: "initial" }}>Click to see command</p>
+					<p style={{ whiteSpace: "initial" }}>
+						{t("home.features.neverHaveEver.embed.reply.click")}
+					</p>
 				</DiscordReply>
 				<p>
-					You&apos;ve voted that you{" "}
-					<span className="font-bold">
-						{haveDone ? "have" : "have not"} done it
-					</span>
-					.
+					{t.rich("home.features.neverHaveEver.embed.vote.description", {
+						b: (content) => <b>{content}</b>,
+						haveDone: haveDone ? "0" : "1",
+					})}
 				</p>
 			</DiscordMessage>
 			<DiscordMessage
@@ -195,7 +205,9 @@ export default function NeverHaveIEverEmbed() {
 					command={true}
 					className="mb-2 ml-12 pl-2"
 				>
-					<p style={{ whiteSpace: "initial" }}>Click to see command</p>
+					<p style={{ whiteSpace: "initial" }}>
+						{t("home.features.neverHaveEver.embed.reply.click")}
+					</p>
 				</DiscordReply>
 				<DiscordEmbed
 					slot="embeds"
@@ -213,7 +225,9 @@ export default function NeverHaveIEverEmbed() {
 						footerImage={profiles.wouldyou.avatar}
 						className="mt-2 -mb-2"
 					>
-						{profiles.wouldyou.author} | Page 1/2
+						{t("home.features.neverHaveEver.embed.footer", {
+							author: profiles.wouldyou.author,
+						})}
 					</DiscordEmbedFooter>
 				</DiscordEmbed>
 				<DiscordAttachments slot="components">
@@ -226,7 +240,7 @@ export default function NeverHaveIEverEmbed() {
 							emoji="/emojis/external.svg"
 							emojiName="external"
 						>
-							Invite Would You
+							{t("home.discordEmbed.btns.invite")}
 						</DiscordButton>
 					</DiscordActionRow>
 				</DiscordAttachments>

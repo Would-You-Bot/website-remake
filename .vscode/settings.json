@@ -1,0 +1,29 @@
+{
+	"i18n-ally.localesPaths": ["src/i18n/translations"],
+	"i18n-ally.keystyle": "nested",
+	"i18n-ally.enabledFrameworks": ["next-intl"],
+	"i18n-ally.annotations": false,
+	"i18n-ally.extract.autoDetect": true,
+	"i18n-ally.keysInUse": [
+		"questions.rather.1",
+		"questions.rather.2",
+		"questions.rather.3",
+		"questions.rather.4",
+		"questions.rather.5",
+		"questions.rather.6",
+		"questions.rather.7",
+		"questions.rather.8",
+		"questions.rather.9",
+		"questions.rather.10",
+		"questions.never.1",
+		"questions.never.2",
+		"questions.never.3",
+		"questions.never.4",
+		"questions.never.5",
+		"questions.never.6",
+		"questions.never.7",
+		"questions.never.8",
+		"questions.never.9",
+		"questions.never.10"
+	]
+}

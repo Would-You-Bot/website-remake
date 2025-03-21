@@ -7,6 +7,7 @@ import {
 	DiscordPartneredIcon,
 	DiscordVerifiedIcon,
 } from "@/components/icons/discord";
+import { useTranslations } from "next-intl";
 
 interface AvatarGroupProps {
 	avatars: FeaturedServer[];
@@ -20,15 +21,7 @@ export const AvatarGroup = ({
 	orientation = "horizontal",
 	...props
 }: AvatarGroupProps) => {
-	const formatMemberCount = (count: number): string => {
-		if (count >= 1000000) {
-			return `${(count / 1000000).toFixed(1)}M`;
-		}
-		if (count >= 1000) {
-			return `${(count / 1000).toFixed(1)}k`;
-		}
-		return count.toString();
-	};
+	const t = useTranslations("home.cta.avatarGroup");
 
 	const handleClick = () => {
 		const element = document.getElementById("slider");
@@ -65,12 +58,12 @@ export const AvatarGroup = ({
 						>
 							<AvatarImage
 								src={avatar.iconURL}
-								alt={`${avatar.name}'s Server Avatar`}
+								alt={t("server.alt", { server: avatar.name })}
 							/>
 							<AvatarFallback>
 								<Image
 									src="https://cdn.discordapp.com/embed/avatars/0.png"
-									alt="Fallback Discord Avatar"
+									alt={t("fallback.alt")}
 									width={512}
 									height={512}
 								/>
@@ -85,7 +78,9 @@ export const AvatarGroup = ({
 								{isPartnered(avatar) && <DiscordPartneredIcon />}
 							</div>
 							<span className="text-muted-foreground">
-								{formatMemberCount(avatar.memberCount)} Members
+								{t("server.memberCount", {
+									count: avatar.memberCount,
+								})}
 							</span>
 						</div>
 					</TooltipContent>
@@ -100,12 +95,12 @@ export const AvatarGroup = ({
 					>
 						<AvatarImage src="" />
 						<AvatarFallback className="bg-primary">
-							<span className="text-sm">+99</span>
+							<span className="text-sm">{t("server.additional.text")}</span>
 						</AvatarFallback>
 					</Avatar>
 				</TooltipTrigger>
 				<TooltipContent>
-					<p>And more</p>
+					<p>{t("server.additional.tooltip")}</p>
 				</TooltipContent>
 			</Tooltip>
 		</div>

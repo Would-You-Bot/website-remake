@@ -15,6 +15,7 @@ import FeatureItem from "@/components/(marketing)/home/feature-item";
 import DailyMessageEmbed from "@/components/(marketing)/home/embeds/daily-message-embed";
 import HigherLowerEmbed from "@/components/(marketing)/home/embeds/higher-lower-embed";
 import NeverHaveIEverEmbed from "@/components/(marketing)/home/embeds/never-have-ever-embed";
+import { useTranslations } from "next-intl";
 
 interface HomeContentProps {
 	serverCount: number;
@@ -25,14 +26,9 @@ export default function HomeContent({
 	serverCount,
 	servers,
 }: HomeContentProps) {
+	const t = useTranslations("home");
 	const date = new Date();
 	const currentDate = date.toLocaleString();
-
-	const threadName = `${[
-		date.getFullYear(),
-		date.getMonth() + 1,
-		date.getDate(),
-	].join("/")} - Daily Message`;
 
 	return (
 		<>
@@ -45,20 +41,21 @@ export default function HomeContent({
 					className="flex flex-col items-center lg:block"
 				>
 					<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8">
-						Entertain Your
-						<br />
-						<span className="text-primary">Discord</span>{" "}
-						<span className="text-secondary">Server</span>
+						{t.rich("cta.title", {
+							primary: (content) => (
+								<span className="text-primary">{content}</span>
+							),
+							secondary: (content) => (
+								<span className="text-secondary">{content}</span>
+							),
+							br: () => <br />,
+						})}
 					</h1>
-					<p className="text-lg text-muted-foreground">
-						Play fun and entertaining games with Would You, featuring user polls
-						and customization. Play Would You Rather, Truth or Dare, Never Have
-						I Ever, Higher or Lower, and What Would You Do!
-					</p>
+					<p className="text-lg text-muted-foreground">{t("cta.subtitle")}</p>
 					<div className="flex flex-col lg:flex-row mt-8 items-center gap-2">
 						<AvatarGroup avatars={servers.reverse().slice(0, 5)} />
 						<span className="text-muted-foreground">
-							Trusted by your favorite servers!
+							{t("cta.avatarGroup.subtitle")}
 						</span>
 					</div>
 					<Link
@@ -69,7 +66,7 @@ export default function HomeContent({
 							buttonVariants({ variant: "default" }),
 						)}
 					>
-						Unleash the Fun
+						{t("cta.button")}
 						<ExternalLink />
 					</Link>
 				</motion.div>
@@ -81,16 +78,20 @@ export default function HomeContent({
 				<div className="w-full bg-popover px-8 pb-12 text-center text-4xl md:text-5xl text-foreground md:pb-28">
 					<div className="">
 						<h2>
-							Trusted by{" "}
-							<span className="font-bold text-primary">
-								{serverCount.toLocaleString()}+
-							</span>{" "}
-							communities
+							{t.rich("servers.title", {
+								count: serverCount,
+								primary: (content) => (
+									<span className="font-bold text-primary">{content}</span>
+								),
+							})}
 						</h2>
 						<h3 className="mt-4 text-2xl md:text-3xl px-12">
-							keeping{" "}
-							<span className="font-bold text-secondary">4,000,000+</span> users
-							entertained
+							{t.rich("servers.subtitle", {
+								count: 4000000,
+								secondary: (content) => (
+									<span className="font-bold text-secondary">{content}</span>
+								),
+							})}
 						</h3>
 					</div>
 
@@ -116,23 +117,28 @@ export default function HomeContent({
 					transition={{ duration: 0.6, ease: "easeInOut" }}
 					className="flex flex-col items-center"
 				>
-					<h2 className="text-primary text-6xl font-bold">Features</h2>
+					<h2 className="text-primary text-6xl font-bold">
+						{t("features.title")}
+					</h2>
 					<h3 className="mt-4 text-center text-2xl">
-						What Does Would You Offer To Your Server?
+						{t("features.subtitle")}
 					</h3>
 				</motion.div>
 
 				<FeatureItem
 					reverse
-					right={<DailyMessageEmbed threadName={threadName} />}
+					right={
+						<DailyMessageEmbed
+							threadName={t("features.daily.embed.thread.name", { date })}
+						/>
+					}
 					left={
 						<>
 							<h4 className="text-center text-3xl font-bold md:text-left">
-								Increase user engagement
+								{t("features.daily.title")}
 							</h4>
 							<p className="mx-auto text-center text-lg text-muted-foreground md:text-left">
-								Keep your community engaged and active with daily &quot;Would
-								You Rather&quot; messages!
+								{t("features.daily.subtitle")}
 							</p>
 						</>
 					}
@@ -142,12 +148,10 @@ export default function HomeContent({
 					left={
 						<>
 							<h4 className="text-center text-3xl font-bold md:text-left">
-								Entertain your server
+								{t("features.higherOrLower.title")}
 							</h4>
 							<p className="text-center text-lg text-muted-foreground md:text-left">
-								Entertain your Discord server with fun and interactive games
-								like Would You Rather, Truth or Dare, Never Have I Ever, Higher
-								or Lower, and What Would You Do!
+								{t("features.higherOrLower.subtitle")}
 							</p>
 						</>
 					}
@@ -160,11 +164,10 @@ export default function HomeContent({
 					left={
 						<>
 							<h4 className="text-center text-3xl font-bold md:text-left">
-								Upgrade your server
+								{t("features.neverHaveEver.title")}
 							</h4>
 							<p className="text-center text-lg text-foreground/70 md:text-left">
-								Upgrade your server with Would You, featuring a wide variety of
-								games and customized questions.
+								{t("features.neverHaveEver.subtitle")}
 							</p>
 						</>
 					}
@@ -179,9 +182,14 @@ export default function HomeContent({
 					transition={{ duration: 0.65, ease: "easeInOut" }}
 					className="text-center text-5xl font-bold leading-normal text-foreground"
 				>
-					Keep Your Server Active with{" "}
-					<span className="text-primary font-bold">Would</span>{" "}
-					<span className="text-secondary">You</span>
+					{t.rich("lowerCta.title", {
+						primary: (content) => (
+							<span className="text-primary">{content}</span>
+						),
+						secondary: (content) => (
+							<span className="text-secondary">{content}</span>
+						),
+					})}
 				</motion.h2>
 				<motion.h3
 					initial={{ opacity: 0, transform: "translateY(10px)" }}
@@ -190,7 +198,7 @@ export default function HomeContent({
 					transition={{ duration: 0.65, ease: "easeInOut" }}
 					className="mt-4 text-center text-xl text-muted-foreground"
 				>
-					Invite To Your Server Now!
+					{t("lowerCta.subtitle")}
 				</motion.h3>
 				<motion.div
 					initial={{ opacity: 0, transform: "translateY(-20px)" }}
@@ -200,7 +208,7 @@ export default function HomeContent({
 					className="mt-8 flex justify-center"
 				>
 					<Link href="/invite" target="_blank">
-						<Button>Invite</Button>
+						<Button>{t("lowerCta.button")}</Button>
 					</Link>
 				</motion.div>
 			</section>

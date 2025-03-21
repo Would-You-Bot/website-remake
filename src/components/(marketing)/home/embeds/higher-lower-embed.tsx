@@ -13,13 +13,16 @@ import {
 } from "@skyra/discord-components-react";
 import profiles from "@/data/profiles.json";
 import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
 
 interface MainProps {
 	currentDate: string;
 }
 
 export default function HigherLowerEmbed({ currentDate }: MainProps) {
+	const t = useTranslations("home");
 	const { theme } = useTheme();
+
 	return (
 		<DiscordMessages
 			lightTheme={theme === "light"}
@@ -39,7 +42,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 					author={profiles.woofer.author}
 					avatar={profiles.woofer.avatar}
 					roleColor={profiles.woofer.roleColor}
-					command="/higherlower"
+					command={t("features.higherOrLower.embed.command")}
 					lightTheme={theme === "light"}
 					className="mb-2 ml-12 pl-2"
 				/>
@@ -49,8 +52,9 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 					image="/images/higherlower.webp"
 				>
 					<DiscordEmbedDescription slot="description">
-						Do you think that <b>Mcdonalds </b>
-						has higher or lower searches than <b>Wrestling</b>?
+						{t.rich("features.higherOrLower.embed.description", {
+							b: (content) => <b>{content}</b>,
+						})}
 					</DiscordEmbedDescription>
 					<DiscordEmbedFooter
 						timestamp={currentDate}
@@ -58,13 +62,21 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 						footerImage="/staff/woofer21.webp"
 						className="mt-2 -mb-2"
 					>
-						Woofer21 | Game ID: 32c7b7c4-6e6a
+						{t("discordEmbed.footer", {
+							author: profiles.woofer.author,
+							type: "Higher or Lower",
+							id: "32",
+						})}
 					</DiscordEmbedFooter>
 				</DiscordEmbed>
 				<DiscordAttachments slot="components">
 					<DiscordActionRow>
-						<DiscordButton type="success">Higher</DiscordButton>
-						<DiscordButton type="destructive">Lower</DiscordButton>
+						<DiscordButton type="success">
+							{t("features.higherOrLower.embed.btns.higher")}
+						</DiscordButton>
+						<DiscordButton type="destructive">
+							{t("features.higherOrLower.embed.btns.lower")}
+						</DiscordButton>
 					</DiscordActionRow>
 				</DiscordAttachments>
 			</DiscordMessage>
@@ -87,9 +99,11 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 					lightTheme={theme === "light"}
 					className="mb-2 ml-12 pl-2"
 				>
-					<p style={{ whiteSpace: "initial" }}>Click to see command</p>
+					<p style={{ whiteSpace: "initial" }}>
+						{t("features.higherOrLower.embed.reply.click")}
+					</p>
 				</DiscordReply>
-				McDonalds probably has a lot more
+				{t("features.higherOrLower.embed.reply.1")}
 			</DiscordMessage>
 
 			<DiscordMessage
@@ -99,7 +113,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 				roleColor={profiles.dominik.roleColor}
 				lightTheme={theme === "light"}
 			>
-				Yep should be McDonalds
+				{t("features.higherOrLower.embed.reply.2")}
 			</DiscordMessage>
 
 			<DiscordMessage
@@ -118,9 +132,11 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 					lightTheme={theme === "light"}
 					className="mb-2 ml-12 pl-2"
 				>
-					<p style={{ whiteSpace: "initial" }}>Yep should be McDonalds</p>
+					<p style={{ whiteSpace: "initial" }}>
+						{t("features.higherOrLower.embed.reply.2")}
+					</p>
 				</DiscordReply>
-				Soooo, we gonna press higher?
+				{t("features.higherOrLower.embed.reply.3")}
 			</DiscordMessage>
 
 			<DiscordMessage
@@ -132,7 +148,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 				verified={profiles.invalid.verified}
 				lightTheme={theme === "light"}
 			>
-				Yep!
+				{t("features.higherOrLower.embed.reply.4")}
 			</DiscordMessage>
 		</DiscordMessages>
 	);

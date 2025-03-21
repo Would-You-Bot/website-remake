@@ -8,8 +8,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import DiscordLoginButton from "./(marketing)/discord-login";
+import { useTranslations } from "next-intl";
 
 export default function Navbar() {
+	const t = useTranslations("brand");
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleIsOpen = () => {
@@ -26,13 +28,13 @@ export default function Navbar() {
 					>
 						<Image
 							src="/logo.svg"
-							alt="Would You Logo"
+							alt={t("logo.alt")}
 							width={30}
 							height={30}
 							className="rounded-full"
 							priority
 						/>
-						<p className="text-xl font-bold">Would You</p>
+						<p className="text-xl font-bold">{t("name")}</p>
 					</Link>
 				</NavSection>
 
@@ -103,17 +105,19 @@ function NavSection({
 }
 
 function NavList() {
+	const t = useTranslations("nav");
+
 	return (
 		<>
-			<NavItem href="/commands">Commands</NavItem>
-			<NavItem href="/blog">Blog</NavItem>
-			<NavItem href="/packs">Question Packs</NavItem>
+			<NavItem href="/commands">{t("commands")}</NavItem>
+			<NavItem href="/blog">{t("blog")}</NavItem>
+			<NavItem href="/packs">{t("questionPack")}</NavItem>
 			<NavItem
 				href="/premium"
 				isPremium
 				className="flex flex-row items-center gap-2"
 			>
-				<Crown className="size-4" /> Premium
+				<Crown className="size-4" /> {t("premium")}
 			</NavItem>
 		</>
 	);
