@@ -26,7 +26,8 @@
 			"@/utils": ["src/lib/utils.ts"],
 			"@/lib/*": ["src/lib/*"],
 			"@/hooks/*": ["src/hooks/*"],
-			"@/styles/*": ["src/styles/*"]
+			"@/styles/*": ["src/styles/*"],
+			"@/i18n/*": ["src/i18n/*"]
 		}
 	},
 	"include": [
