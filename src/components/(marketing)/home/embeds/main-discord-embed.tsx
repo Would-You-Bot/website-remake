@@ -1,5 +1,8 @@
 "use client";
 
+import { NumberOneEmoji, NumberTwoEmoji } from "@/components/icons/emoji";
+import profiles from "@/data/profiles.json";
+import { QuestionTypes, getRandomQuestion } from "@/helpers/getRandomQuestion";
 import {
 	DiscordActionRow,
 	DiscordAttachments,
@@ -12,12 +15,9 @@ import {
 	DiscordMessages,
 } from "@skyra/discord-components-react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import profiles from "@/data/profiles.json";
-import { getRandomQuestion, QuestionTypes } from "@/helpers/getRandomQuestion";
-import { useTranslations } from "next-intl";
-import { NumberOneEmoji, NumberTwoEmoji } from "@/components/icons/emoji";
 
 const staff = Object.keys(profiles).slice(1);
 
@@ -58,7 +58,7 @@ export default function MainDiscordEmbed() {
 		>
 			<DiscordMessages
 				lightTheme={theme === "light"}
-				className="mx-auto w-auto overflow-x-hidden rounded-lg text-left shadow sm:w-2/3 lg:w-auto p-4"
+				className="mx-auto w-auto overflow-x-hidden rounded-lg py-4 text-left shadow sm:w-2/3 lg:w-auto"
 			>
 				<DiscordMessage
 					profile="wouldyou"
@@ -68,6 +68,7 @@ export default function MainDiscordEmbed() {
 					bot={profiles.wouldyou.bot}
 					verified={profiles.wouldyou.verified}
 					edited={replayedRounds > 0}
+					className="px-4 py-1 hover:bg-black/5"
 				>
 					<DiscordCommand
 						slot="reply"
@@ -89,7 +90,7 @@ export default function MainDiscordEmbed() {
 						<DiscordEmbedFooter
 							slot="footer"
 							footerImage={randomStaff.avatar}
-							className="mt-2 -mb-2"
+							className="-mb-2 mt-2"
 						>
 							{t("home.discordEmbed.footer", {
 								author: randomStaff.author,

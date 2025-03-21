@@ -1,7 +1,7 @@
+import { SchemaMetadata } from "@/components/(marketing)/home/schema-metadata";
 import type FeaturedServer from "@/types/FeaturedServer";
 import axios from "axios";
 import Content from "./content";
-import { SchemaMetadata } from "@/components/(marketing)/home/schema-metadata";
 
 export default async function Home() {
 	const serverCount = (

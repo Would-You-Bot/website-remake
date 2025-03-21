@@ -1,4 +1,7 @@
 "use client";
+import { CheckEmoji, CrossEmoji } from "@/components/icons/emoji";
+import profiles from "@/data/profiles.json";
+import { QuestionTypes, getRandomQuestion } from "@/helpers/getRandomQuestion";
 import {
 	DiscordActionRow,
 	DiscordAttachments,
@@ -11,12 +14,9 @@ import {
 	DiscordMessages,
 	DiscordReply,
 } from "@skyra/discord-components-react";
-import { getRandomQuestion, QuestionTypes } from "@/helpers/getRandomQuestion";
-import profiles from "@/data/profiles.json";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { FC, useEffect, useState } from "react";
-import { CheckEmoji, CrossEmoji } from "@/components/icons/emoji";
-import { useTranslations } from "next-intl";
 
 type MessageType = "vote" | "results" | null;
 
@@ -56,7 +56,7 @@ export default function NeverHaveIEverEmbed() {
 	return (
 		<DiscordMessages
 			lightTheme={theme === "light"}
-			className="overflow-x-hidden rounded-lg text-left shadow p-4 flex flex-col gap-4"
+			className="flex flex-col gap-4 overflow-x-hidden rounded-lg py-4 text-left shadow"
 		>
 			<DiscordMessage
 				profile="wouldyou"
@@ -66,6 +66,7 @@ export default function NeverHaveIEverEmbed() {
 				bot={profiles.wouldyou.bot}
 				verified={profiles.wouldyou.verified}
 				edited={replayedRounds > 0}
+				className="px-4 py-1 hover:bg-black/5"
 			>
 				<DiscordCommand
 					slot="reply"
@@ -74,7 +75,7 @@ export default function NeverHaveIEverEmbed() {
 					avatar={randomStaff.avatar}
 					roleColor={randomStaff.roleColor}
 					command={t("home.features.neverHaveEver.embed.command")}
-					className="mb-2 ml-12 pl-2"
+					className="mb-1 ml-[3.5rem] pl-2"
 				/>
 				<DiscordEmbed slot="embeds" color="#1e88e5">
 					<DiscordEmbedDescription slot="description">
@@ -86,7 +87,7 @@ export default function NeverHaveIEverEmbed() {
 					<DiscordEmbedFooter
 						slot="footer"
 						footerImage={randomStaff.avatar}
-						className="mt-2 -mb-2"
+						className="-mb-2 mt-2"
 					>
 						{t("home.discordEmbed.footer", {
 							author: randomStaff.author,
@@ -169,7 +170,7 @@ export default function NeverHaveIEverEmbed() {
 					verified={profiles.wouldyou.verified}
 					lightTheme={theme === "light"}
 					command={true}
-					className="mb-2 ml-12 pl-2"
+					className="mb-1 ml-[3.5rem] pl-2"
 				>
 					<p style={{ whiteSpace: "initial" }}>
 						{t("home.features.neverHaveEver.embed.reply.click")}
@@ -203,7 +204,7 @@ export default function NeverHaveIEverEmbed() {
 					verified={profiles.wouldyou.verified}
 					lightTheme={theme === "light"}
 					command={true}
-					className="mb-2 ml-12 pl-2"
+					className="mb-1 ml-[3.5rem] pl-2"
 				>
 					<p style={{ whiteSpace: "initial" }}>
 						{t("home.features.neverHaveEver.embed.reply.click")}
@@ -223,7 +224,7 @@ export default function NeverHaveIEverEmbed() {
 					<DiscordEmbedFooter
 						slot="footer"
 						footerImage={profiles.wouldyou.avatar}
-						className="mt-2 -mb-2"
+						className="-mb-2 mt-2"
 					>
 						{t("home.features.neverHaveEver.embed.footer", {
 							author: profiles.wouldyou.author,

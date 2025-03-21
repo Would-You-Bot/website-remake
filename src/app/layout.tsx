@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { getLocale } from "next-intl/server";
+import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
-import Providers from "./providers";
-import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import Providers from "./providers";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -59,7 +59,7 @@ export default async function RootLayout({
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased w-full relative min-h-dvh flex flex-col`}
+				className={`${geistSans.variable} ${geistMono.variable} relative flex min-h-dvh w-full flex-col antialiased`}
 			>
 				<Providers>
 					<Navbar />

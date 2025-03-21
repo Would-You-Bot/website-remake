@@ -1,13 +1,13 @@
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/ui/tooltip";
-import { Avatar, AvatarFallback, AvatarImage } from "@/ui/avatar";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import type FeaturedServer from "@/types/FeaturedServer";
 import {
 	DiscordPartneredIcon,
 	DiscordVerifiedIcon,
 } from "@/components/icons/discord";
+import { cn } from "@/lib/utils";
+import type FeaturedServer from "@/types/FeaturedServer";
+import { Avatar, AvatarFallback, AvatarImage } from "@/ui/avatar";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/ui/tooltip";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 interface AvatarGroupProps {
 	avatars: FeaturedServer[];
@@ -53,7 +53,7 @@ export const AvatarGroup = ({
 					>
 						<Avatar
 							className={cn(
-								"border-[2px] border-background bg-background group-hover:scale-105 group-hover:z-50 transition-all size-10",
+								"size-10 border-[2px] border-background bg-background transition-all group-hover:z-50 group-hover:scale-105",
 							)}
 						>
 							<AvatarImage
@@ -90,7 +90,7 @@ export const AvatarGroup = ({
 				<TooltipTrigger className="group">
 					<Avatar
 						className={cn(
-							"border-[2px] border-background bg-background -ml-3 z-10 group-hover:scale-105 group-hover:z-50 transition-all size-10",
+							"-ml-3 z-10 size-10 border-[2px] border-background bg-background transition-all group-hover:z-50 group-hover:scale-105",
 						)}
 					>
 						<AvatarImage src="" />

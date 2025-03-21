@@ -1,14 +1,14 @@
-import Marquee from "react-fast-marquee";
-import { useTheme } from "next-themes";
-import Link from "next/link";
-import { useState, type FC } from "react";
-import Image, { type ImageProps } from "next/image";
-import { cn } from "@/lib/utils";
 import {
 	DiscordPartneredIcon,
 	DiscordVerifiedIcon,
 } from "@/components/icons/discord";
+import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
+import Image, { type ImageProps } from "next/image";
+import Link from "next/link";
+import { type FC, useState } from "react";
+import Marquee from "react-fast-marquee";
 
 interface Server {
 	id: string;
@@ -74,11 +74,11 @@ const ServerMarquee: FC<MarqueeProps> = ({
 							<div className="relative flex items-center">
 								{isVerified(s) && <DiscordVerifiedIcon />}
 								{isPartnered(s) && <DiscordPartneredIcon />}
-								<h4 className="ml-2 max-w-[160px] overflow-hidden text-ellipsis whitespace-nowrap text-lg text-foreground">
+								<h4 className="ml-2 max-w-[160px] overflow-hidden text-ellipsis whitespace-nowrap text-foreground text-lg">
 									{s.name}
 								</h4>
 							</div>
-							<p className="text-left text-sm text-foreground/60">
+							<p className="text-left text-foreground/60 text-sm">
 								{t("members", { count: s.memberCount })}
 							</p>
 						</div>

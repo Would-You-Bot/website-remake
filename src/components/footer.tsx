@@ -1,10 +1,10 @@
 "use client";
 
+import { Settings } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
-import { Settings } from "lucide-react";
-import { useTranslations } from "next-intl";
 
 export default function Footer() {
 	const t = useTranslations();
@@ -75,10 +75,10 @@ export default function Footer() {
 	];
 
 	return (
-		<footer className="mt-20 mx-auto w-full max-w-8xl px-8 py-8">
+		<footer className="mx-auto mt-20 w-full max-w-8xl px-8 py-8">
 			<div className="mb-8 flex flex-col justify-between gap-4 text-muted-foreground md:flex-row">
-				<div className="flex w-full flex-col items-center md:mr-4 md:items-start gap-3">
-					<div className="flex items-center text-xl font-bold text-foreground">
+				<div className="flex w-full flex-col items-center gap-3 md:mr-4 md:items-start">
+					<div className="flex items-center font-bold text-foreground text-xl">
 						<Image
 							src="/Logo.svg"
 							alt={t("brand.logo.alt")}
@@ -97,7 +97,7 @@ export default function Footer() {
 								<Link
 									href="https://rivo.gg/"
 									target="_blank"
-									className="transition-all font-bold hover:text-foreground outline-none focus-visible:text-foreground focus-visible:underline"
+									className="font-bold outline-none transition-all hover:text-foreground focus-visible:text-foreground focus-visible:underline"
 								>
 									{content}
 								</Link>
@@ -109,17 +109,18 @@ export default function Footer() {
 
 					<button
 						type="button"
-						className="gap-1 pl-0 flex flex-row items-center cursor-pointer hover:text-foreground focus-visible:text-foreground focus-visible:underline outline-none"
+						className="flex cursor-pointer flex-row items-center gap-1 pl-0 outline-none hover:text-foreground focus-visible:text-foreground focus-visible:underline"
 						// onClick={showCookieDialog}
 					>
-						<Settings className="size-4 mt-1" />
+						<Settings className="mt-1 size-4" />
 						{t("footer.btns.cookie")}
 					</button>
 
 					<a
 						href="https://startupfa.me/s/would-you?utm_source=wouldyoubot.gg"
 						target="_blank"
-						rel="noreferrer"
+						rel="noopener noreferrer"
+						title={t("footer.btns.startup.alt")}
 					>
 						<Image
 							src={
@@ -135,7 +136,7 @@ export default function Footer() {
 				</div>
 
 				<div className="flex w-full flex-col items-center md:items-start">
-					<p className="mb-2 text-lg font-bold text-foreground">
+					<p className="mb-2 font-bold text-foreground text-lg">
 						{t("footer.recommended.title")}
 					</p>
 					<div className="flex flex-col items-center gap-2 md:items-start">
@@ -144,7 +145,7 @@ export default function Footer() {
 								key={link.name}
 								href={link.link}
 								target={link.EventTarget}
-								className="transition-all hover:text-foreground focus-visible:text-foreground focus-visible:underline outline-none"
+								className="outline-none transition-all hover:text-foreground focus-visible:text-foreground focus-visible:underline"
 							>
 								{link.name}
 							</Link>
@@ -153,7 +154,7 @@ export default function Footer() {
 				</div>
 
 				<div className="flex w-full flex-col items-center md:items-start">
-					<p className="mb-2 text-lg font-bold text-foreground">
+					<p className="mb-2 font-bold text-foreground text-lg">
 						{t("footer.links.title")}
 					</p>
 					<div className="flex flex-col items-center gap-2 md:items-start">
@@ -162,7 +163,7 @@ export default function Footer() {
 								key={link.name}
 								href={link.link}
 								target={link.EventTarget}
-								className="transition-all hover:text-foreground focus-visible:text-foreground focus-visible:underline outline-none"
+								className="outline-none transition-all hover:text-foreground focus-visible:text-foreground focus-visible:underline"
 							>
 								{link.name}
 							</Link>
@@ -171,7 +172,7 @@ export default function Footer() {
 				</div>
 
 				<div className="flex w-full flex-col items-center md:items-start">
-					<p className="mb-2 text-lg font-bold text-foreground">
+					<p className="mb-2 font-bold text-foreground text-lg">
 						{t("footer.legal.title")}
 					</p>
 					<div className="flex flex-col items-center gap-2 md:items-start">
@@ -180,7 +181,7 @@ export default function Footer() {
 								key={link.name}
 								href={link.link}
 								target={link.EventTarget}
-								className="transition-all hover:text-foreground focus-visible:text-foreground focus-visible:underline outline-none"
+								className="outline-none transition-all hover:text-foreground focus-visible:text-foreground focus-visible:underline"
 							>
 								{link.name}
 							</Link>
@@ -191,7 +192,7 @@ export default function Footer() {
 
 			<div>
 				<hr className="border border-border" />
-				<p className="mt-8 text-center text-sm text-muted-foreground">
+				<p className="mt-8 text-center text-muted-foreground text-sm">
 					{t.rich("footer.love", {
 						secondary: (content) => (
 							<span className="text-secondary">{content}</span>
@@ -199,7 +200,7 @@ export default function Footer() {
 						teamLink: (content) => (
 							<Link
 								href="/team"
-								className="underline hover:text-foreground focus-visible:text-foreground outline-none transition-all"
+								className="underline outline-none transition-all hover:text-foreground focus-visible:text-foreground"
 							>
 								{content}
 							</Link>
@@ -208,7 +209,7 @@ export default function Footer() {
 							<Link
 								href="https://github.com/Would-You-Bot/website-app/graphs/contributors"
 								target="_blank"
-								className="underline hover:text-foreground focus-visible:text-foreground outline-none transition-all"
+								className="underline outline-none transition-all hover:text-foreground focus-visible:text-foreground"
 							>
 								{content}
 							</Link>

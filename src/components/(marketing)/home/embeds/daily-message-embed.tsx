@@ -1,5 +1,6 @@
 "use client";
 
+import profiles from "@/data/profiles.json";
 import {
 	DiscordEmbed,
 	DiscordEmbedDescription,
@@ -10,10 +11,9 @@ import {
 	DiscordThread,
 	DiscordThreadMessage,
 } from "@skyra/discord-components-react";
-import profiles from "@/data/profiles.json";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
 
 interface MainProps {
 	threadName: string;
@@ -40,7 +40,7 @@ export default function DailyMessageEmbed({ threadName }: MainProps) {
 	return (
 		<DiscordMessages
 			lightTheme={theme === "light"}
-			className="min-w-fit overflow-x-hidden rounded-lg shadow p-4"
+			className="min-w-fit overflow-x-hidden rounded-lg py-4 shadow"
 		>
 			<DiscordMessage
 				profile="wouldyou"
@@ -49,7 +49,7 @@ export default function DailyMessageEmbed({ threadName }: MainProps) {
 				roleColor={profiles.wouldyou.roleColor}
 				bot={profiles.wouldyou.bot}
 				verified={profiles.wouldyou.verified}
-				className="after:-ml-5"
+				className="px-4 py-1"
 			>
 				<DiscordMention type="role" color="#1e99">
 					{t("features.daily.embed.mention")}
@@ -58,7 +58,7 @@ export default function DailyMessageEmbed({ threadName }: MainProps) {
 					<DiscordEmbedDescription slot="description">
 						{t("features.daily.embed.description")}
 					</DiscordEmbedDescription>
-					<DiscordEmbedFooter slot="footer" className="mt-2 -mb-2">
+					<DiscordEmbedFooter slot="footer" className="-mb-2 mt-2">
 						{t("features.daily.embed.footer")}
 					</DiscordEmbedFooter>
 				</DiscordEmbed>

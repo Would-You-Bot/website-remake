@@ -1,4 +1,5 @@
 "use client";
+import profiles from "@/data/profiles.json";
 import {
 	DiscordActionRow,
 	DiscordAttachments,
@@ -11,9 +12,8 @@ import {
 	DiscordMessages,
 	DiscordReply,
 } from "@skyra/discord-components-react";
-import profiles from "@/data/profiles.json";
-import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
 
 interface MainProps {
 	currentDate: string;
@@ -26,7 +26,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 	return (
 		<DiscordMessages
 			lightTheme={theme === "light"}
-			className="overflow-x-hidden rounded-lg shadow p-4 gap-4 flex flex-col"
+			className="flex flex-col gap-4 overflow-x-hidden rounded-lg py-4 shadow"
 		>
 			<DiscordMessage
 				profile="wouldyou"
@@ -35,6 +35,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 				roleColor={profiles.wouldyou.roleColor}
 				bot={profiles.wouldyou.bot}
 				verified={profiles.wouldyou.verified}
+				className="px-4 py-1 hover:bg-black/5"
 			>
 				<DiscordCommand
 					slot="reply"
@@ -44,7 +45,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 					roleColor={profiles.woofer.roleColor}
 					command={t("features.higherOrLower.embed.command")}
 					lightTheme={theme === "light"}
-					className="mb-2 ml-12 pl-2"
+					className="mb-1 ml-[3.5rem] pl-2"
 				/>
 				<DiscordEmbed
 					slot="embeds"
@@ -60,7 +61,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 						timestamp={currentDate}
 						slot="footer"
 						footerImage="/staff/woofer21.webp"
-						className="mt-2 -mb-2"
+						className="-mb-2 mt-2"
 					>
 						{t("discordEmbed.footer", {
 							author: profiles.woofer.author,
@@ -69,7 +70,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 						})}
 					</DiscordEmbedFooter>
 				</DiscordEmbed>
-				<DiscordAttachments slot="components">
+				<DiscordAttachments slot="components" className="mt-1">
 					<DiscordActionRow>
 						<DiscordButton type="success">
 							{t("features.higherOrLower.embed.btns.higher")}
@@ -87,6 +88,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 				avatar={profiles.paulos.avatar}
 				roleColor={profiles.paulos.roleColor}
 				lightTheme={theme === "light"}
+				className="px-4 py-1 hover:bg-black/5"
 			>
 				<DiscordReply
 					slot="reply"
@@ -97,7 +99,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 					bot={profiles.wouldyou.bot}
 					verified={profiles.wouldyou.verified}
 					lightTheme={theme === "light"}
-					className="mb-2 ml-12 pl-2"
+					className="mb-1 ml-[3.5rem] pl-2"
 				>
 					<p style={{ whiteSpace: "initial" }}>
 						{t("features.higherOrLower.embed.reply.click")}
@@ -112,6 +114,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 				avatar={profiles.dominik.avatar}
 				roleColor={profiles.dominik.roleColor}
 				lightTheme={theme === "light"}
+				className="px-4 py-1 hover:bg-black/5"
 			>
 				{t("features.higherOrLower.embed.reply.2")}
 			</DiscordMessage>
@@ -122,6 +125,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 				avatar={profiles.tee.avatar}
 				roleColor={profiles.tee.roleColor}
 				lightTheme={theme === "light"}
+				className="px-4 py-1 hover:bg-black/5"
 			>
 				<DiscordReply
 					slot="reply"
@@ -130,7 +134,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 					avatar={profiles.dominik.avatar}
 					roleColor={profiles.dominik.roleColor}
 					lightTheme={theme === "light"}
-					className="mb-2 ml-12 pl-2"
+					className="mb-1 ml-[3.5rem] pl-2"
 				>
 					<p style={{ whiteSpace: "initial" }}>
 						{t("features.higherOrLower.embed.reply.2")}
@@ -147,6 +151,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 				bot={profiles.invalid.bot}
 				verified={profiles.invalid.verified}
 				lightTheme={theme === "light"}
+				className="px-4 py-1 hover:bg-black/5"
 			>
 				{t("features.higherOrLower.embed.reply.4")}
 			</DiscordMessage>

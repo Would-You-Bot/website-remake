@@ -1,5 +1,5 @@
-import { getRequestConfig } from "next-intl/server";
 import { getUserLocale } from "@/i18n/services/locale";
+import { getRequestConfig } from "next-intl/server";
 
 const path = "@/i18n/translations";
 

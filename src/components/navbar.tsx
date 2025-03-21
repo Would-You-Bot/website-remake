@@ -3,12 +3,12 @@
 import { cn } from "@/lib/utils";
 import clsx from "clsx";
 import { Crown, Moon, Sun } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import DiscordLoginButton from "./(marketing)/discord-login";
-import { useTranslations } from "next-intl";
 
 export default function Navbar() {
 	const t = useTranslations("brand");
@@ -19,12 +19,12 @@ export default function Navbar() {
 	};
 
 	return (
-		<nav className="sticky left-0 top-1 z-50 mb-8 w-full py-6 flex h-auto items-center justify-center">
-			<div className="max-w-8xl flex items-center justify-between px-8 transition-all duration-300 w-full">
+		<nav className="sticky top-1 left-0 z-50 mb-8 flex h-auto w-full items-center justify-center py-6">
+			<div className="flex w-full max-w-8xl items-center justify-between px-8 transition-all duration-300">
 				<NavSection className="px-6">
 					<Link
 						href={"/"}
-						className="flex items-center gap-4 xs:gap-6 outline-none focus-visible:ring-2 focus-visible:ring-offset-8 focus-visible:ring-offset-background focus-visible:ring-primary rounded-sm"
+						className="flex items-center gap-4 xs:gap-6 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-8 focus-visible:ring-offset-background"
 					>
 						<Image
 							src="/logo.svg"
@@ -34,24 +34,24 @@ export default function Navbar() {
 							className="rounded-full"
 							priority
 						/>
-						<p className="text-xl font-bold">{t("name")}</p>
+						<p className="font-bold text-xl">{t("name")}</p>
 					</Link>
 				</NavSection>
 
 				<NavSection
 					className={clsx(
-						"absolute lg:static right-7 top-6 w-16 lg:w-min",
-						isOpen && "right-0 top-0 z-10 h-screen w-screen rounded-none",
+						"absolute top-6 right-7 w-16 lg:static lg:w-min",
+						isOpen && "top-0 right-0 z-10 h-screen w-screen rounded-none",
 					)}
 				>
-					<ul className="hidden w-max gap-6 px-2 lg:flex items-center decoration-transparent">
+					<ul className="hidden w-max items-center gap-6 px-2 decoration-transparent lg:flex">
 						<NavList />
 					</ul>
 
 					<button
 						type="button"
 						title={`${isOpen ? "close" : "open"} menu`}
-						className="absolute right-[1.15rem] top-[1.45rem] z-50 flex flex-col gap-[5px] lg:hidden cursor-pointer"
+						className="absolute top-[1.45rem] right-[1.15rem] z-50 flex cursor-pointer flex-col gap-[5px] lg:hidden"
 						onClick={handleIsOpen}
 					>
 						<div
@@ -67,8 +67,8 @@ export default function Navbar() {
 
 					<ul
 						className={cn(
-							"mb-auto flex flex-col items-center justify-center h-full w-full gap-8 p-4 lg:hidden transition-all duration-300 pointer-events-none opacity-0 scale-125",
-							isOpen && "pointer-events-auto opacity-100 bg-background/70",
+							"pointer-events-none mb-auto flex h-full w-full scale-125 flex-col items-center justify-center gap-8 p-4 opacity-0 transition-all duration-300 lg:hidden",
+							isOpen && "pointer-events-auto bg-background/70 opacity-100",
 						)}
 					>
 						<ThemeToggle />
@@ -77,7 +77,7 @@ export default function Navbar() {
 					</ul>
 				</NavSection>
 
-				<NavSection className="hidden lg:flex p-2 gap-2">
+				<NavSection className="hidden gap-2 p-2 lg:flex">
 					<ThemeToggle />
 					<DiscordLoginButton className="h-12 rounded-md px-6" />
 				</NavSection>
@@ -94,7 +94,7 @@ function NavSection({
 		<div
 			className={cn(
 				clsx(
-					"h-16 flex gap-4 items-center justify-center rounded-2xl border border-border bg-background/50 px-4 xs:px-6 backdrop-blur-md transition-all duration-300",
+					"flex h-16 items-center justify-center gap-4 rounded-2xl border border-border bg-background/50 px-4 xs:px-6 backdrop-blur-md transition-all duration-300",
 					className,
 				),
 			)}
@@ -139,9 +139,9 @@ function NavItem({
 				href={href}
 				className={cn(
 					clsx(
-						"text-lg text-foreground transition-all hover:text-muted-foreground focus-visible:text-muted-foreground focus-visible:underline outline-none font-semibold",
+						"font-semibold text-foreground text-lg outline-none transition-all hover:text-muted-foreground focus-visible:text-muted-foreground focus-visible:underline",
 						isPremium &&
-							"text-premium hover:text-premium/70 focus-visible:text-premium/70 bg-premium/5 focus-visible:bg-premium/[2.5%] hover:bg-premium/[2.5%] py-1.5 px-3 rounded-md -mx-3",
+							"-mx-3 rounded-md bg-premium/5 px-3 py-1.5 text-premium hover:bg-premium/[2.5%] hover:text-premium/70 focus-visible:bg-premium/[2.5%] focus-visible:text-premium/70",
 						className,
 					),
 				)}
@@ -167,13 +167,13 @@ function ThemeToggle() {
 	return (
 		<button
 			type="button"
-			className="flex p-2 aspect-square cursor-pointer rounded-xl items-center justify-center text-muted-foreground hover:text-foreground transition"
+			className="flex aspect-square cursor-pointer items-center justify-center rounded-xl p-2 text-muted-foreground transition hover:text-foreground"
 			onClick={() => setTheme(theme === "light" ? "dark" : "light")}
 		>
 			{theme === "light" ? (
-				<Moon className="w-6 h-6 sm:w-7 sm:h-7" />
+				<Moon className="h-6 w-6 sm:h-7 sm:w-7" />
 			) : (
-				<Sun className="w-6 h-6 sm:w-7 sm:h-7" />
+				<Sun className="h-6 w-6 sm:h-7 sm:w-7" />
 			)}
 		</button>
 	);
