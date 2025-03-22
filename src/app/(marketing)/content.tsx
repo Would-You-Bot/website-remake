@@ -79,7 +79,7 @@ export default function HomeContent({
 			>
 				<LandingWave className="min-w-[2560px] text-popover" />
 				<div className="w-full bg-popover px-8 pb-12 text-center text-4xl text-foreground md:pb-28 md:text-5xl">
-					<div className="">
+					<div className="mx-auto w-fit max-w-screen">
 						<h2>
 							{t.rich("servers.title", {
 								count: serverCount,
