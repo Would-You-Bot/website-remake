@@ -40,3 +40,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+src/i18n/translations/*.d.json.ts
+
+# VSCode settings
+.vscode/*
+!.vscode/settings.default.json
+!.vscode/extensions.json
+!.vscode/tailwind.json
+.vscode/settings.json
+.github/copilot-instructions.md

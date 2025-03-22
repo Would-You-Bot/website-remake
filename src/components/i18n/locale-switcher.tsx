@@ -1,17 +1,17 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
-	DropdownMenuTrigger,
+	DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import Flag from "react-world-flags";
+import type { Locale } from "@/i18n/config";
 import { i18nData } from "@/i18n/data";
 import { setUserLocale } from "@/i18n/services/locale";
-import type { Locale } from "@/i18n/config";
 import { useLocale } from "next-intl";
+import Flag from "react-world-flags";
 
 export default function LocaleSwitcher() {
 	const locale = useLocale();
@@ -22,7 +22,7 @@ export default function LocaleSwitcher() {
 				<Button variant="outline">
 					<Flag
 						code={i18nData.find((l) => l.code === locale)?.flag}
-						className="w-5 h-3"
+						className="h-3 w-5"
 					/>
 					<span className="ml-2 uppercase">{locale}</span>
 				</Button>
@@ -32,9 +32,12 @@ export default function LocaleSwitcher() {
 					<DropdownMenuItem
 						key={locale.code}
 						onClick={() => setUserLocale(locale.code as Locale)}
-						className="capitalize flex items-center gap-2 cursor-pointer"
+						className="flex cursor-pointer items-center gap-2 capitalize"
 					>
-						<Flag code={locale.flag} className="w-5 h-3" />
+						<Flag
+							code={locale.flag}
+							className="h-3 w-5"
+						/>
 						<span>{locale.name}</span>
 					</DropdownMenuItem>
 				))}

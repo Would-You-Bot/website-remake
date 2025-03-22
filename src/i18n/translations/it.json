@@ -1,8 +1,1 @@
-{
-	"homepage": {
-		"gettingStarted": "Inizia modificando",
-		"saveChanges": "Salva e vedi le modifiche istantaneamente",
-		"placeholder": "Questo è un segnaposto e il conteggio è {count}",
-		"greeting": "Ciao, {name}!"
-	}
-}
+{}
