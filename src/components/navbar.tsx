@@ -29,7 +29,7 @@ export default function Navbar() {
 						className="flex items-center gap-4 xs:gap-6 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-8 focus-visible:ring-offset-background"
 					>
 						<Image
-							src="/logo.svg"
+							src="/Logo.svg"
 							alt={t("logo.alt")}
 							width={30}
 							height={30}
