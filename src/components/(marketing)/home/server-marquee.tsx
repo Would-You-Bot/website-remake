@@ -1,6 +1,6 @@
 import {
 	DiscordPartneredIcon,
-	DiscordVerifiedIcon,
+	DiscordVerifiedIcon
 } from "@/components/icons/discord";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
@@ -30,7 +30,7 @@ const ServerMarquee: FC<MarqueeProps> = ({
 	servers,
 	speed,
 	direction,
-	className,
+	className
 }) => {
 	const t = useTranslations("home.servers.marquee");
 	const { theme } = useTheme();
@@ -44,8 +44,9 @@ const ServerMarquee: FC<MarqueeProps> = ({
 		<div
 			className={cn(
 				"relative mx-auto my-auto mt-8 max-w-7xl overflow-hidden",
-				className,
+				className
 			)}
+			tabIndex={-1}
 		>
 			<Marquee
 				className="flex w-max items-center overflow-hidden"
@@ -54,6 +55,7 @@ const ServerMarquee: FC<MarqueeProps> = ({
 				direction={direction ?? "left"}
 				gradient={true}
 				gradientColor={theme === "light" ? "var(--popover)" : "var(--popover)"}
+				autoFill
 			>
 				{servers.map((s: Server) => (
 					<Link

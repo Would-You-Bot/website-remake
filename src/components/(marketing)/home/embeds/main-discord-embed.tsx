@@ -2,7 +2,10 @@
 
 import { NumberOneEmoji, NumberTwoEmoji } from "@/components/icons/emoji";
 import profiles from "@/data/profiles.json";
-import { QuestionTypes, getRandomQuestion } from "@/helpers/getRandomQuestion";
+import {
+	QuestionTypes,
+	getRandomQuestion
+} from "@/helpers/get-random-question";
 import {
 	DiscordActionRow,
 	DiscordAttachments,
@@ -12,7 +15,7 @@ import {
 	DiscordEmbedDescription,
 	DiscordEmbedFooter,
 	DiscordMessage,
-	DiscordMessages,
+	DiscordMessages
 } from "@skyra/discord-components-react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
@@ -26,10 +29,10 @@ export default function MainDiscordEmbed() {
 	const { theme } = useTheme();
 	const [replayedRounds, setReplayedRounds] = useState(0);
 	const [currentQuestion, setCurrentQuestion] = useState(
-		getRandomQuestion(QuestionTypes.WYR),
+		getRandomQuestion(QuestionTypes.WYR)
 	);
 	const [randomStaff, setRandomStaff] = useState<(typeof profiles)["wouldyou"]>(
-		profiles.wouldyou,
+		profiles.wouldyou
 	);
 
 	// Generates a random staff member on mount
@@ -37,7 +40,7 @@ export default function MainDiscordEmbed() {
 		setRandomStaff(
 			profiles[
 				staff[Math.floor(Math.random() * staff.length)] as keyof typeof profiles
-			],
+			]
 		);
 	}, []);
 
@@ -80,7 +83,10 @@ export default function MainDiscordEmbed() {
 						lightTheme={theme === "light"}
 						className="mb-2 ml-12 pl-2"
 					/>
-					<DiscordEmbed slot="embeds" color="#1e88e5">
+					<DiscordEmbed
+						slot="embeds"
+						color="#1e88e5"
+					>
 						<DiscordEmbedDescription slot="description">
 							{
 								//@ts-ignore -- ignoring error because unable to get the types to match.
@@ -95,7 +101,7 @@ export default function MainDiscordEmbed() {
 							{t("home.discordEmbed.footer", {
 								author: randomStaff.author,
 								type: "General",
-								id: "64",
+								id: "64"
 							})}
 						</DiscordEmbedFooter>
 					</DiscordEmbed>

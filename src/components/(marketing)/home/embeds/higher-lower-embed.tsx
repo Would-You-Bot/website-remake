@@ -10,7 +10,7 @@ import {
 	DiscordEmbedFooter,
 	DiscordMessage,
 	DiscordMessages,
-	DiscordReply,
+	DiscordReply
 } from "@skyra/discord-components-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
@@ -35,7 +35,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 				roleColor={profiles.wouldyou.roleColor}
 				bot={profiles.wouldyou.bot}
 				verified={profiles.wouldyou.verified}
-				className="px-4 py-1 hover:bg-black/5"
+				className="px-4 py-1"
 			>
 				<DiscordCommand
 					slot="reply"
@@ -54,7 +54,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 				>
 					<DiscordEmbedDescription slot="description">
 						{t.rich("features.higherOrLower.embed.description", {
-							b: (content) => <b>{content}</b>,
+							b: (content) => <b>{content}</b>
 						})}
 					</DiscordEmbedDescription>
 					<DiscordEmbedFooter
@@ -66,11 +66,14 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 						{t("discordEmbed.footer", {
 							author: profiles.woofer.author,
 							type: "Higher or Lower",
-							id: "32",
+							id: "32"
 						})}
 					</DiscordEmbedFooter>
 				</DiscordEmbed>
-				<DiscordAttachments slot="components" className="mt-1">
+				<DiscordAttachments
+					slot="components"
+					className="mt-1"
+				>
 					<DiscordActionRow>
 						<DiscordButton type="success">
 							{t("features.higherOrLower.embed.btns.higher")}
@@ -101,9 +104,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 					lightTheme={theme === "light"}
 					className="mb-1 ml-[3.5rem] pl-2"
 				>
-					<p style={{ whiteSpace: "initial" }}>
-						{t("features.higherOrLower.embed.reply.click")}
-					</p>
+					{t("features.higherOrLower.embed.reply.click")}
 				</DiscordReply>
 				{t("features.higherOrLower.embed.reply.1")}
 			</DiscordMessage>
@@ -136,9 +137,7 @@ export default function HigherLowerEmbed({ currentDate }: MainProps) {
 					lightTheme={theme === "light"}
 					className="mb-1 ml-[3.5rem] pl-2"
 				>
-					<p style={{ whiteSpace: "initial" }}>
-						{t("features.higherOrLower.embed.reply.2")}
-					</p>
+					{t("features.higherOrLower.embed.reply.2")}
 				</DiscordReply>
 				{t("features.higherOrLower.embed.reply.3")}
 			</DiscordMessage>

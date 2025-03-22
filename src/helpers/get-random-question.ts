@@ -2,7 +2,7 @@ export enum QuestionTypes {
 	/** Would You Rather */
 	WYR = "rather",
 	/** Never Have I Ever */
-	NHIE = "nhie",
+	NHIE = "nhie"
 }
 
 type QuestionKey =
@@ -21,7 +21,7 @@ const questions: Record<QuestionTypes, QuestionKey[]> = {
 		"questions.rather.7",
 		"questions.rather.8",
 		"questions.rather.9",
-		"questions.rather.10",
+		"questions.rather.10"
 	],
 	nhie: [
 		"questions.never.1",
@@ -33,14 +33,16 @@ const questions: Record<QuestionTypes, QuestionKey[]> = {
 		"questions.never.7",
 		"questions.never.8",
 		"questions.never.9",
-		"questions.never.10",
-	],
+		"questions.never.10"
+	]
 };
 
 export const getRandomQuestion = (
-	type: keyof typeof questions,
+	type: keyof typeof questions
 ): QuestionKey => {
-	if (!type || !questions[type]) return "questions.error";
+	if (!type || !questions[type]) {
+		return "questions.error";
+	}
 	const questionsOfType = questions[type];
 	const randomIndex = Math.floor(Math.random() * questionsOfType.length);
 	return questionsOfType[randomIndex];

@@ -9,7 +9,7 @@ import {
 	DiscordMessage,
 	DiscordMessages,
 	DiscordThread,
-	DiscordThreadMessage,
+	DiscordThreadMessage
 } from "@skyra/discord-components-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
@@ -25,7 +25,7 @@ export default function DailyMessageEmbed({ threadName }: MainProps) {
 	const t = useTranslations("home");
 	const { theme } = useTheme();
 	const [randomStaff, setRandomStaff] = useState<(typeof profiles)["wouldyou"]>(
-		profiles.wouldyou,
+		profiles.wouldyou
 	);
 
 	// Generates a random staff member on mount
@@ -33,7 +33,7 @@ export default function DailyMessageEmbed({ threadName }: MainProps) {
 		setRandomStaff(
 			profiles[
 				staff[Math.floor(Math.random() * staff.length)] as keyof typeof profiles
-			],
+			]
 		);
 	}, []);
 
@@ -51,14 +51,23 @@ export default function DailyMessageEmbed({ threadName }: MainProps) {
 				verified={profiles.wouldyou.verified}
 				className="px-4 py-1"
 			>
-				<DiscordMention type="role" color="#1e99">
+				<DiscordMention
+					type="role"
+					color="#1e99"
+				>
 					{t("features.daily.embed.mention")}
 				</DiscordMention>
-				<DiscordEmbed slot="embeds" color="#1e88e5">
+				<DiscordEmbed
+					slot="embeds"
+					color="#1e88e5"
+				>
 					<DiscordEmbedDescription slot="description">
 						{t("features.daily.embed.description")}
 					</DiscordEmbedDescription>
-					<DiscordEmbedFooter slot="footer" className="-mb-2 mt-2">
+					<DiscordEmbedFooter
+						slot="footer"
+						className="-mb-2 mt-2"
+					>
 						{t("features.daily.embed.footer")}
 					</DiscordEmbedFooter>
 				</DiscordEmbed>

@@ -1,7 +1,10 @@
 "use client";
 import { CheckEmoji, CrossEmoji } from "@/components/icons/emoji";
 import profiles from "@/data/profiles.json";
-import { QuestionTypes, getRandomQuestion } from "@/helpers/getRandomQuestion";
+import {
+	QuestionTypes,
+	getRandomQuestion
+} from "@/helpers/get-random-question";
 import {
 	DiscordActionRow,
 	DiscordAttachments,
@@ -12,11 +15,11 @@ import {
 	DiscordEmbedFooter,
 	DiscordMessage,
 	DiscordMessages,
-	DiscordReply,
+	DiscordReply
 } from "@skyra/discord-components-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type MessageType = "vote" | "results" | null;
 
@@ -29,10 +32,10 @@ export default function NeverHaveIEverEmbed() {
 	const [messageType, setMessageType] = useState<MessageType>(null);
 	const [replayedRounds, setReplayedRounds] = useState(0);
 	const [currentQuestion, setCurrentQuestion] = useState(
-		getRandomQuestion(QuestionTypes.NHIE),
+		getRandomQuestion(QuestionTypes.NHIE)
 	);
 	const [randomStaff, setRandomStaff] = useState<(typeof profiles)["wouldyou"]>(
-		profiles.wouldyou,
+		profiles.wouldyou
 	);
 
 	// Generates a random staff member on mount
@@ -40,7 +43,7 @@ export default function NeverHaveIEverEmbed() {
 		setRandomStaff(
 			profiles[
 				staff[Math.floor(Math.random() * staff.length)] as keyof typeof profiles
-			],
+			]
 		);
 	}, []);
 
@@ -51,6 +54,15 @@ export default function NeverHaveIEverEmbed() {
 			setCurrentQuestion(getRandomQuestion(QuestionTypes.NHIE));
 			setReplayedRounds(replayedRounds + 1);
 		}
+	};
+
+	const getImage = (bool: boolean | null) => {
+		if (bool === null) {
+			return "/images/nhie-chart-50-50.webp";
+		}
+		return bool
+			? "/images/nhie-chart-100-have.webp"
+			: "/images/nhie-chart-100-not.webp";
 	};
 
 	return (
@@ -77,7 +89,10 @@ export default function NeverHaveIEverEmbed() {
 					command={t("home.features.neverHaveEver.embed.command")}
 					className="mb-1 ml-[3.5rem] pl-2"
 				/>
-				<DiscordEmbed slot="embeds" color="#1e88e5">
+				<DiscordEmbed
+					slot="embeds"
+					color="#1e88e5"
+				>
 					<DiscordEmbedDescription slot="description">
 						{
 							//@ts-ignore -- ignoring error because unable to get the types to match.
@@ -92,7 +107,7 @@ export default function NeverHaveIEverEmbed() {
 						{t("home.discordEmbed.footer", {
 							author: randomStaff.author,
 							type: "NHIE",
-							id: "124",
+							id: "124"
 						})}
 					</DiscordEmbedFooter>
 				</DiscordEmbed>
@@ -172,16 +187,12 @@ export default function NeverHaveIEverEmbed() {
 					command={true}
 					className="mb-1 ml-[3.5rem] pl-2"
 				>
-					<p style={{ whiteSpace: "initial" }}>
-						{t("home.features.neverHaveEver.embed.reply.click")}
-					</p>
+					{t("home.features.neverHaveEver.embed.reply.click")}
 				</DiscordReply>
-				<p>
-					{t.rich("home.features.neverHaveEver.embed.vote.description", {
-						b: (content) => <b>{content}</b>,
-						haveDone: haveDone ? "0" : "1",
-					})}
-				</p>
+				{t.rich("home.features.neverHaveEver.embed.vote.description", {
+					b: (content) => <b>{content}</b>,
+					haveDone: haveDone ? "0" : "1"
+				})}
 			</DiscordMessage>
 			<DiscordMessage
 				className={`${messageType === "results" ? "" : "hidden"} pl-4`}
@@ -206,20 +217,12 @@ export default function NeverHaveIEverEmbed() {
 					command={true}
 					className="mb-1 ml-[3.5rem] pl-2"
 				>
-					<p style={{ whiteSpace: "initial" }}>
-						{t("home.features.neverHaveEver.embed.reply.click")}
-					</p>
+					{t("home.features.neverHaveEver.embed.reply.click")}
 				</DiscordReply>
 				<DiscordEmbed
 					slot="embeds"
 					color={haveDone ? "#0091ff" : "#f00404"}
-					image={
-						haveDone == null
-							? "/images/nhie-chart-50-50.webp"
-							: haveDone
-								? "/images/nhie-chart-100-have.webp"
-								: "/images/nhie-chart-100-not.webp"
-					}
+					image={getImage(haveDone)}
 				>
 					<DiscordEmbedFooter
 						slot="footer"
@@ -227,7 +230,7 @@ export default function NeverHaveIEverEmbed() {
 						className="-mb-2 mt-2"
 					>
 						{t("home.features.neverHaveEver.embed.footer", {
-							author: profiles.wouldyou.author,
+							author: profiles.wouldyou.author
 						})}
 					</DiscordEmbedFooter>
 				</DiscordEmbed>

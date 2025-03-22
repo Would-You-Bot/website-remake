@@ -1,9 +1,9 @@
 import {
 	DiscordPartneredIcon,
-	DiscordVerifiedIcon,
+	DiscordVerifiedIcon
 } from "@/components/icons/discord";
 import { cn } from "@/lib/utils";
-import type FeaturedServer from "@/types/FeaturedServer";
+import type FeaturedServer from "@/types/featured-server";
 import { Avatar, AvatarFallback, AvatarImage } from "@/ui/avatar";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/ui/tooltip";
 import { useTranslations } from "next-intl";
@@ -37,11 +37,12 @@ export const AvatarGroup = ({
 		server.features.includes("PARTNERED") && !isVerified(server);
 
 	return (
+		// biome-ignore lint/nursery/noStaticElementInteractions: <no way to fix it>
 		<div
 			className={cn(
 				"flex select-none",
 				orientation === "vertical" ? "flex-col" : "flex-row",
-				className,
+				className
 			)}
 			onClick={handleClick}
 			{...props}
@@ -53,7 +54,7 @@ export const AvatarGroup = ({
 					>
 						<Avatar
 							className={cn(
-								"size-10 border-[2px] border-background bg-background transition-all group-hover:z-50 group-hover:scale-105",
+								"size-10 border-[2px] border-background bg-background transition-all group-hover:z-50 group-hover:scale-105"
 							)}
 						>
 							<AvatarImage
@@ -79,7 +80,7 @@ export const AvatarGroup = ({
 							</div>
 							<span className="text-muted-foreground">
 								{t("server.memberCount", {
-									count: avatar.memberCount,
+									count: avatar.memberCount
 								})}
 							</span>
 						</div>
@@ -90,7 +91,7 @@ export const AvatarGroup = ({
 				<TooltipTrigger className="group">
 					<Avatar
 						className={cn(
-							"-ml-3 z-10 size-10 border-[2px] border-background bg-background transition-all group-hover:z-50 group-hover:scale-105",
+							"-ml-3 z-10 size-10 border-[2px] border-background bg-background transition-all group-hover:z-50 group-hover:scale-105"
 						)}
 					>
 						<AvatarImage src="" />

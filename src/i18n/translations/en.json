@@ -1,185 +1,185 @@
 {
-	"home": {
-		"cta": {
-			"title": "Entertain Your <br></br><primary>Discord</primary> <secondary>Server</secondary>",
-			"subtitle": "Play fun and entertaining games with Would You, featuring user polls and customization. Play Would You Rather, Truth or Dare, Never Have I Ever, Higher or Lower, and What Would You Do!",
-			"avatarGroup": {
-				"subtitle": "Trusted by your favorite servers!",
-				"server": {
-					"alt": "{server}'s Server Avatar",
-					"memberCount": "{count, number, ::K} Members",
-					"additional": {
-						"text": "+99",
-						"tooltip": "And more!"
-					}
-				},
-				"fallback": {
-					"alt": "Fallback Discord Avatar"
-				}
-			},
-			"button": "Unleash the Fun",
-			"mainEmbed": {
-				"command": "/wouldyourather"
-			}
-		},
-		"discordEmbed": {
-			"footer": "Requested by {author} | Type: {type} | ID: {id}",
-			"btns": {
-				"number1Title": "Number 1 Icon",
-				"number2Title": "Number 2 Icon",
-				"checkEmojiTitle": "Check Emoji",
-				"crossEmojiTitle": "Cross Emoji",
-				"result": "Results",
-				"newQuestion": "New Question",
-				"invite": "Invite Would You"
-			}
-		},
-		"servers": {
-			"title": "Trusted by <primary>{count, number}+</primary> communities",
-			"subtitle": "keeping <secondary>{count, number}+</secondary> users entertained",
-			"marquee": {
-				"iconAlt": "{server}'s server icon",
-				"members": "{count, number, ::K} Members"
-			}
-		},
-		"features": {
-			"title": "Features",
-			"subtitle": "What Does Would You Offer To Your Server?",
-			"daily": {
-				"title": "Increase user engagement",
-				"subtitle": "Keep your community engaged and active with daily \"Would You Rather\" messages!",
-				"embed": {
-					"mention": "QOTD",
-					"description": "Would you rather be able to control fire 🔥 or water 💧?",
-					"footer": "Daily Message | Type: Mixed | ID: 34",
-					"thread": {
-						"message": "Wow that...",
-						"name": "{date, date, short} - Daily Message"
-					}
-				}
-			},
-			"higherOrLower": {
-				"title": "Entertain your server",
-				"subtitle": "Entertain your Discord server with fun and interactive games like Would You Rather, Truth or Dare, Never Have I Ever, Higher or Lower, and What Would You Do!",
-				"embed": {
-					"command": "/higherlower",
-					"description": "Do you think that <b>Mcdonalds</b> has higher or lower searches than <b>Wrestling</b>?",
-					"btns": {
-						"higher": "Higher",
-						"lower": "Lower"
-					},
-					"reply": {
-						"1": "McDonalds probably has a lot more",
-						"2": "Yep should be McDonalds",
-						"3": "Soooo, we gonna press higher?",
-						"4": "Yep!",
-						"click": "Click to see command"
-					}
-				}
-			},
-			"neverHaveEver": {
-				"title": "Upgrade your server",
-				"subtitle": "Upgrade your server with Would You, featuring a wide variety of games and customized questions.",
-				"embed": {
-					"command": "/neverhaveiever",
-					"reply": {
-						"click": "Click to see command"
-					},
-					"vote": {
-						"description": "You've voted that you <b>{haveDone, select, 0 {have} 1 {have not} other {unknown}}</b> done it."
-					},
-					"footer": "{author} | Page 1/2"
-				}
-			}
-		},
-		"lowerCta": {
-			"title": "Keep Your Server Active with <primary>Would</primary> <secondary>You</secondary>",
-			"subtitle": "Invite To Your Server Now!",
-			"button": "Invite"
-		}
-	},
-	"questions": {
-		"rather": {
-			"1": "Would you rather always be 10 minutes late or 20 minutes early?",
-			"2": "Would you rather be able to speak all languages or be able to play every musical instrument?",
-			"3": "Would you rather have a rewind button or a pause button in your life?",
-			"4": "Would you rather have super strength or super speed?",
-			"5": "Would you rather live in a haunted house or a house with no electricity?",
-			"6": "Would you rather have no one show up to your wedding or to your funeral?",
-			"7": "Would you rather not be able to taste or not be able to smell?",
-			"8": "Would you rather always have to say everything on your mind or never speak again?",
-			"9": "Would you rather be famous when you are alive and forgotten when you die, or unknown when you are alive but famous after you die?",
-			"10": "Would you rather be a millionaire but have no friends, or have close friends but be broke?"
-		},
-		"never": {
-			"1": "Never have I ever watched the Ghostbusters remake.",
-			"2": "Never have I ever 'cleaned up' by piling everything into a closet.",
-			"3": "Never have I ever sung karaoke.",
-			"4": "Never have I ever watched an episode of Gilmore Girls.",
-			"5": "Never have I ever pretended to know a stranger.",
-			"6": "Never have I ever worn sleepwear and pretended it was clothing.",
-			"7": "Never have I ever said 'excuse me' when there was no one around.",
-			"8": "Never have I ever sang in the shower.",
-			"9": "Never have I ever blamed farts on an animal.",
-			"10": "Never have I ever slept in regular clothing."
-		}
-	},
-	"icons": {
-		"discord": {
-			"logo": "Discord Logo Icon",
-			"partner": "Discord Partner Icon",
-			"verified": "Discord Verified Icon"
-		},
-		"home": {
-			"wave": "Landing Wave"
-		}
-	},
-	"brand": {
-		"name": "Would You",
-		"logo": {
-			"alt": "Would You Logo"
-		}
-	},
-	"nav": {
-		"commands": "Commands",
-		"blog": "Blog",
-		"questionPack": "Question Packs",
-		"premium": "Premium"
-	},
-	"footer": {
-		"recommended": {
-			"home": "Home",
-			"commands": "Commands",
-			"team": "Team",
-			"reddit": "Reddit",
-			"title": "Recommended"
-		},
-		"links": {
-			"support": "Support Server",
-			"invite": "Invite",
-			"status": "Status",
-			"title": "Links"
-		},
-		"legal": {
-			"legal": "Legal Notice",
-			"privacy": "Privacy Policy",
-			"terms": "Terms of Service",
-			"refund": "Refund Policy",
-			"copyright": "© {date, date, ::y} <link>Rivo</link>. All rights reserved.",
-			"title": "Legal"
-		},
-		"btns": {
-			"startup": {
-				"alt": "Would You - Entertain Your Discord Server | Startup Fame"
-			},
-			"cookie": "Manage Cookies"
-		},
-		"love": "Made with <secondary>♥</secondary> by <teamLink>Would You Team</teamLink> & <contribLink>Contributors</contribLink>"
-	},
-	"discordBtn": {
-		"login": {
-			"long": "Login with Discord",
-			"short": "Login"
-		}
-	}
+  "home": {
+    "cta": {
+      "title": "Entertain Your <br></br><primary>Discord</primary> <secondary>Server</secondary>",
+      "subtitle": "Play fun and entertaining games with Would You, featuring user polls and customization. Play Would You Rather, Truth or Dare, Never Have I Ever, Higher or Lower, and What Would You Do!",
+      "avatarGroup": {
+        "subtitle": "Trusted by your favorite servers!",
+        "server": {
+          "alt": "{server}'s Server Avatar",
+          "memberCount": "{count, number, ::K} Members",
+          "additional": {
+            "text": "+99",
+            "tooltip": "And more!"
+          }
+        },
+        "fallback": {
+          "alt": "Fallback Discord Avatar"
+        }
+      },
+      "button": "Unleash the Fun",
+      "mainEmbed": {
+        "command": "/wouldyourather"
+      }
+    },
+    "discordEmbed": {
+      "footer": "Requested by {author} | Type: {type} | ID: {id}",
+      "btns": {
+        "number1Title": "Number 1 Icon",
+        "number2Title": "Number 2 Icon",
+        "checkEmojiTitle": "Check Emoji",
+        "crossEmojiTitle": "Cross Emoji",
+        "result": "Results",
+        "newQuestion": "New Question",
+        "invite": "Invite Would You"
+      }
+    },
+    "servers": {
+      "title": "Trusted by <primary>{count, number}+</primary> communities",
+      "subtitle": "keeping <secondary>{count, number}+</secondary> users entertained",
+      "marquee": {
+        "iconAlt": "{server}'s server icon",
+        "members": "{count, number, ::K} Members"
+      }
+    },
+    "features": {
+      "title": "Features",
+      "subtitle": "What Does Would You Offer To Your Server?",
+      "daily": {
+        "title": "Increase user engagement",
+        "subtitle": "Keep your community engaged and active with daily \"Would You Rather\" messages!",
+        "embed": {
+          "mention": "QOTD",
+          "description": "Would you rather be able to control fire 🔥 or water 💧?",
+          "footer": "Daily Message | Type: Mixed | ID: 34",
+          "thread": {
+            "message": "Wow that...",
+            "name": "{date, date, short} - Daily Message"
+          }
+        }
+      },
+      "higherOrLower": {
+        "title": "Entertain your server",
+        "subtitle": "Entertain your Discord server with fun and interactive games like Would You Rather, Truth or Dare, Never Have I Ever, Higher or Lower, and What Would You Do!",
+        "embed": {
+          "command": "/higherlower",
+          "description": "Do you think that <b>Mcdonalds</b> has higher or lower searches than <b>Wrestling</b>?",
+          "btns": {
+            "higher": "Higher",
+            "lower": "Lower"
+          },
+          "reply": {
+            "1": "McDonalds probably has a lot more",
+            "2": "Yep should be McDonalds",
+            "3": "Soooo, we gonna press higher?",
+            "4": "Yep!",
+            "click": "Click to see command"
+          }
+        }
+      },
+      "neverHaveEver": {
+        "title": "Upgrade your server",
+        "subtitle": "Upgrade your server with Would You, featuring a wide variety of games and customized questions.",
+        "embed": {
+          "command": "/neverhaveiever",
+          "reply": {
+            "click": "Click to see command"
+          },
+          "vote": {
+            "description": "You've voted that you <b>{haveDone, select, 0 {have} 1 {have not} other {unknown}}</b> done it."
+          },
+          "footer": "{author} | Page 1/2"
+        }
+      }
+    },
+    "lowerCta": {
+      "title": "Keep Your Server Active with <primary>Would</primary> <secondary>You</secondary>",
+      "subtitle": "Invite To Your Server Now!",
+      "button": "Invite"
+    }
+  },
+  "questions": {
+    "rather": {
+      "1": "Would you rather always be 10 minutes late or 20 minutes early?",
+      "2": "Would you rather be able to speak all languages or be able to play every musical instrument?",
+      "3": "Would you rather have a rewind button or a pause button in your life?",
+      "4": "Would you rather have super strength or super speed?",
+      "5": "Would you rather live in a haunted house or a house with no electricity?",
+      "6": "Would you rather have no one show up to your wedding or to your funeral?",
+      "7": "Would you rather not be able to taste or not be able to smell?",
+      "8": "Would you rather always have to say everything on your mind or never speak again?",
+      "9": "Would you rather be famous when you are alive and forgotten when you die, or unknown when you are alive but famous after you die?",
+      "10": "Would you rather be a millionaire but have no friends, or have close friends but be broke?"
+    },
+    "never": {
+      "1": "Never have I ever watched the Ghostbusters remake.",
+      "2": "Never have I ever 'cleaned up' by piling everything into a closet.",
+      "3": "Never have I ever sung karaoke.",
+      "4": "Never have I ever watched an episode of Gilmore Girls.",
+      "5": "Never have I ever pretended to know a stranger.",
+      "6": "Never have I ever worn sleepwear and pretended it was clothing.",
+      "7": "Never have I ever said 'excuse me' when there was no one around.",
+      "8": "Never have I ever sang in the shower.",
+      "9": "Never have I ever blamed farts on an animal.",
+      "10": "Never have I ever slept in regular clothing."
+    }
+  },
+  "icons": {
+    "discord": {
+      "logo": "Discord Logo Icon",
+      "partner": "Discord Partner Icon",
+      "verified": "Discord Verified Icon"
+    },
+    "home": {
+      "wave": "Landing Wave"
+    }
+  },
+  "brand": {
+    "name": "Would You",
+    "logo": {
+      "alt": "Would You Logo"
+    }
+  },
+  "nav": {
+    "commands": "Commands",
+    "blog": "Blog",
+    "questionPack": "Question Packs",
+    "premium": "Premium"
+  },
+  "footer": {
+    "recommended": {
+      "home": "Home",
+      "commands": "Commands",
+      "team": "Team",
+      "reddit": "Reddit",
+      "title": "Recommended"
+    },
+    "links": {
+      "support": "Support Server",
+      "invite": "Invite",
+      "status": "Status",
+      "title": "Links"
+    },
+    "legal": {
+      "legal": "Legal Notice",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "refund": "Refund Policy",
+      "copyright": "© {date, date, ::y} <link>Rivo</link>. All rights reserved.",
+      "title": "Legal"
+    },
+    "btns": {
+      "startup": {
+        "alt": "Would You - Entertain Your Discord Server | Startup Fame"
+      },
+      "cookie": "Manage Cookies"
+    },
+    "love": "Made with <secondary>♥</secondary> by <teamLink>Would You Team</teamLink> & <contribLink>Contributors</contribLink>"
+  },
+  "discordBtn": {
+    "login": {
+      "long": "Login with Discord",
+      "short": "Login"
+    }
+  }
 }

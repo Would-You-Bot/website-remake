@@ -12,7 +12,7 @@ import NeverHaveIEverEmbed from "@/components/(marketing)/home/embeds/never-have
 import FeatureItem from "@/components/(marketing)/home/feature-item";
 import ServerMarquee from "@/components/(marketing)/home/server-marquee";
 import { LandingWave } from "@/components/icons/landing-wave";
-import type FeaturedServer from "@/types/FeaturedServer";
+import type FeaturedServer from "@/types/featured-server";
 import { ExternalLink } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -24,7 +24,7 @@ interface HomeContentProps {
 
 export default function HomeContent({
 	serverCount,
-	servers,
+	servers
 }: HomeContentProps) {
 	const t = useTranslations("home");
 	const date = new Date();
@@ -48,7 +48,7 @@ export default function HomeContent({
 							secondary: (content) => (
 								<span className="text-secondary">{content}</span>
 							),
-							br: () => <br />,
+							br: () => <br />
 						})}
 					</h1>
 					<p className="text-lg text-muted-foreground">{t("cta.subtitle")}</p>
@@ -63,7 +63,7 @@ export default function HomeContent({
 						target="_blank"
 						className={cn(
 							"mt-8 flex w-fit justify-center gap-2",
-							buttonVariants({ variant: "default" }),
+							buttonVariants({ variant: "default" })
 						)}
 					>
 						{t("cta.button")}
@@ -73,7 +73,10 @@ export default function HomeContent({
 				<MainDiscordEmbed />
 			</section>
 
-			<section id="slider" className="mt-36">
+			<section
+				id="slider"
+				className="mt-36"
+			>
 				<LandingWave className="min-w-[2560px] text-popover" />
 				<div className="w-full bg-popover px-8 pb-12 text-center text-4xl text-foreground md:pb-28 md:text-5xl">
 					<div className="">
@@ -82,7 +85,7 @@ export default function HomeContent({
 								count: serverCount,
 								primary: (content) => (
 									<span className="font-bold text-primary">{content}</span>
-								),
+								)
 							})}
 						</h2>
 						<h3 className="mt-4 px-12 text-2xl md:text-3xl">
@@ -90,7 +93,7 @@ export default function HomeContent({
 								count: 4000000,
 								secondary: (content) => (
 									<span className="font-bold text-secondary">{content}</span>
-								),
+								)
 							})}
 						</h3>
 					</div>
@@ -188,7 +191,7 @@ export default function HomeContent({
 						),
 						secondary: (content) => (
 							<span className="text-secondary">{content}</span>
-						),
+						)
 					})}
 				</motion.h2>
 				<motion.h3
@@ -207,7 +210,10 @@ export default function HomeContent({
 					transition={{ duration: 0.65, ease: "easeInOut" }}
 					className="mt-8 flex justify-center"
 				>
-					<Link href="/invite" target="_blank">
+					<Link
+						href="/invite"
+						target="_blank"
+					>
 						<Button>{t("lowerCta.button")}</Button>
 					</Link>
 				</motion.div>

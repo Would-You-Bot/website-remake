@@ -14,64 +14,64 @@ export default function Footer() {
 		{
 			name: t("footer.recommended.home"),
 			link: "/",
-			EventTarget: "_self",
+			EventTarget: "_self"
 		},
 		{
 			name: t("footer.recommended.commands"),
 			link: "/commands",
-			EventTarget: "_self",
+			EventTarget: "_self"
 		},
 		{
 			name: t("footer.recommended.team"),
 			link: "/team",
-			EventTarget: "_self",
+			EventTarget: "_self"
 		},
 		{
 			name: t("footer.recommended.reddit"),
 			link: "/reddit",
-			EventTarget: "_blank",
-		},
+			EventTarget: "_blank"
+		}
 	];
 
 	const Links = [
 		{
 			name: t("footer.links.support"),
 			link: "/discord",
-			EventTarget: "_blank",
+			EventTarget: "_blank"
 		},
 		{
 			name: t("footer.links.invite"),
 			link: "/invite",
-			EventTarget: "_blank",
+			EventTarget: "_blank"
 		},
 		{
 			name: t("footer.links.status"),
 			link: "/status",
-			EventTarget: "_self",
-		},
+			EventTarget: "_self"
+		}
 	];
 
 	const LegalLinks = [
 		{
 			name: t("footer.legal.legal"),
 			link: "/legal",
-			EventTarget: "_self",
+			EventTarget: "_self"
 		},
 		{
 			name: t("footer.legal.privacy"),
 			link: "/privacy",
-			EventTarget: "_self",
+			EventTarget: "_self"
 		},
 		{
 			name: t("footer.legal.terms"),
 			link: "/terms",
-			EventTarget: "_self",
+			EventTarget: "_self"
 		},
 		{
 			name: t("footer.legal.refund"),
 			link: "/refunds",
-			EventTarget: "_self",
-		},
+			EventTarget: "_self"
+		}
 	];
 
 	return (
@@ -101,7 +101,7 @@ export default function Footer() {
 								>
 									{content}
 								</Link>
-							),
+							)
 						})}
 					</p>
 
@@ -213,7 +213,7 @@ export default function Footer() {
 							>
 								{content}
 							</Link>
-						),
+						)
 					})}
 				</p>
 			</div>

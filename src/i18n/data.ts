@@ -10,26 +10,26 @@ export const i18nData: I18nData[] = [
 	{
 		code: "en",
 		name: "English (US)",
-		flag: "us",
+		flag: "us"
 	},
 	{
 		code: "de",
 		name: "Deutsch",
-		flag: "de",
+		flag: "de"
 	},
 	{
 		code: "es",
 		name: "Español",
-		flag: "es",
+		flag: "es"
 	},
 	{
 		code: "fr",
 		name: "Français",
-		flag: "fr",
+		flag: "fr"
 	},
 	{
 		code: "it",
 		name: "Italiano",
-		flag: "it",
-	},
+		flag: "it"
+	}
 ];

@@ -1,7 +1,7 @@
 "use server";
 
 export async function SchemaMetadata() {
-	return (
+	return await (
 		<>
 			<script type="application/ld+json">
 				{`{

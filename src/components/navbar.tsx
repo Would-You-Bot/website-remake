@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { type PropsWithChildren, useEffect, useState } from "react";
 import DiscordLoginButton from "./(marketing)/discord-login";
 
 export default function Navbar() {
@@ -15,7 +15,9 @@ export default function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleIsOpen = () => {
-		if (window.innerWidth < 1024) setIsOpen(!isOpen);
+		if (window.innerWidth < 1024) {
+			setIsOpen(!isOpen);
+		}
 	};
 
 	return (
@@ -34,14 +36,14 @@ export default function Navbar() {
 							className="rounded-full"
 							priority
 						/>
-						<p className="font-bold text-xl">{t("name")}</p>
+						<p className="whitespace-nowrap font-bold text-xl">{t("name")}</p>
 					</Link>
 				</NavSection>
 
 				<NavSection
 					className={clsx(
 						"absolute top-6 right-7 w-16 lg:static lg:w-min",
-						isOpen && "top-0 right-0 z-10 h-screen w-screen rounded-none",
+						isOpen && "top-0 right-0 z-10 h-screen w-screen rounded-none"
 					)}
 				>
 					<ul className="hidden w-max items-center gap-6 px-2 decoration-transparent lg:flex">
@@ -68,7 +70,7 @@ export default function Navbar() {
 					<ul
 						className={cn(
 							"pointer-events-none mb-auto flex h-full w-full scale-125 flex-col items-center justify-center gap-8 p-4 opacity-0 transition-all duration-300 lg:hidden",
-							isOpen && "pointer-events-auto bg-background/70 opacity-100",
+							isOpen && "pointer-events-auto bg-background/70 opacity-100"
 						)}
 					>
 						<ThemeToggle />
@@ -88,15 +90,15 @@ export default function Navbar() {
 
 function NavSection({
 	children,
-	className,
-}: React.PropsWithChildren<{ className?: string }>) {
+	className
+}: PropsWithChildren<{ className?: string }>) {
 	return (
 		<div
 			className={cn(
 				clsx(
 					"flex h-16 items-center justify-center gap-4 rounded-2xl border border-border bg-background/50 px-4 xs:px-6 backdrop-blur-md transition-all duration-300",
-					className,
-				),
+					className
+				)
 			)}
 		>
 			{children}
@@ -127,8 +129,8 @@ function NavItem({
 	children,
 	href,
 	className,
-	isPremium = false,
-}: React.PropsWithChildren<{
+	isPremium = false
+}: PropsWithChildren<{
 	href: string;
 	className?: string;
 	isPremium?: boolean;
@@ -142,8 +144,8 @@ function NavItem({
 						"font-semibold text-foreground text-lg outline-none transition-all hover:text-muted-foreground focus-visible:text-muted-foreground focus-visible:underline",
 						isPremium &&
 							"-mx-3 rounded-md bg-premium/5 px-3 py-1.5 text-premium hover:bg-premium/[2.5%] hover:text-premium/70 focus-visible:bg-premium/[2.5%] focus-visible:text-premium/70",
-						className,
-					),
+						className
+					)
 				)}
 			>
 				{children}

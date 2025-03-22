@@ -1,51 +1,51 @@
 {
-	"wouldyou": {
-		"author": "Would You",
-		"avatar": "./Logo.svg",
-		"roleColor": "#1e88e5",
-		"bot": true,
-		"verified": true
-	},
-	"sky": {
-		"author": "ForGetFulSkyBro",
-		"avatar": "./staff/Sky.webp",
-		"roleColor": "#f1c40f",
-		"bot": false,
-		"verified": false
-	},
-	"dominik": {
-		"author": "Dominik",
-		"avatar": "./staff/Dominik.webp",
-		"roleColor": "#55CBCD",
-		"bot": false,
-		"verified": false
-	},
-	"paulos": {
-		"author": "Paulos",
-		"avatar": "./staff/Paulos.webp",
-		"roleColor": "#EC7C26",
-		"bot": false,
-		"verified": false
-	},
-	"woofer": {
-		"author": "Woofer21",
-		"avatar": "./staff/Woofer21.webp",
-		"roleColor": "#ee0605",
-		"bot": false,
-		"verified": false
-	},
-	"tee": {
-		"author": "Taqib",
-		"avatar": "./staff/tee.webp",
-		"roleColor": "#ee0605",
-		"bot": false,
-		"verified": false
-	},
-	"invalid": {
-		"author": "InvalidKiller",
-		"avatar": "./staff/Invalid.webp",
-		"roleColor": "#f8dd3f",
-		"bot": false,
-		"verified": false
-	}
+  "wouldyou": {
+    "author": "Would You",
+    "avatar": "./Logo.svg",
+    "roleColor": "#1e88e5",
+    "bot": true,
+    "verified": true
+  },
+  "sky": {
+    "author": "ForGetFulSkyBro",
+    "avatar": "./staff/Sky.webp",
+    "roleColor": "#f1c40f",
+    "bot": false,
+    "verified": false
+  },
+  "dominik": {
+    "author": "Dominik",
+    "avatar": "./staff/Dominik.webp",
+    "roleColor": "#55CBCD",
+    "bot": false,
+    "verified": false
+  },
+  "paulos": {
+    "author": "Paulos",
+    "avatar": "./staff/Paulos.webp",
+    "roleColor": "#EC7C26",
+    "bot": false,
+    "verified": false
+  },
+  "woofer": {
+    "author": "Woofer21",
+    "avatar": "./staff/Woofer21.webp",
+    "roleColor": "#ee0605",
+    "bot": false,
+    "verified": false
+  },
+  "tee": {
+    "author": "Taqib",
+    "avatar": "./staff/tee.webp",
+    "roleColor": "#ee0605",
+    "bot": false,
+    "verified": false
+  },
+  "invalid": {
+    "author": "InvalidKiller",
+    "avatar": "./staff/Invalid.webp",
+    "roleColor": "#f8dd3f",
+    "bot": false,
+    "verified": false
+  }
 }

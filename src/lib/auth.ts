@@ -5,7 +5,7 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 
 export const auth = betterAuth({
 	database: prismaAdapter(prisma, {
-		provider: "postgresql",
+		provider: "postgresql"
 	}),
 	socialProviders: {
 		discord: {
@@ -18,9 +18,9 @@ export const auth = betterAuth({
 					name: profile.global_name || profile.username,
 					email: "hello@wouldyoubot.gg",
 					image: profile.avatar || undefined,
-					banner: profile.banner || undefined,
+					banner: profile.banner || undefined
 				};
-			},
-		},
-	},
+			}
+		}
+	}
 });

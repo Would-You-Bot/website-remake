@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import type { SVGProps } from "react";
-import React from "react";
 
 export function LandingWave(props: SVGProps<SVGSVGElement>) {
 	const t = useTranslations();
