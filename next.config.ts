@@ -6,7 +6,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 const jiti = createJiti(fileURLToPath(import.meta.url));
 
 const loadEnv = async () => {
-  await jiti.import("./src/env");
+	await jiti.import("./src/env");
 };
 loadEnv().catch(console.error);
 
