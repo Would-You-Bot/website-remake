@@ -16,24 +16,26 @@
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "allowArbitraryExtensions": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "types": ["@testing-library/jest-dom"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "@/ui/*": ["src/components/ui/*"],
       "@/utils": ["src/lib/utils.ts"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "next.config.js"
+    "next.config.js",
+    "src/__tests__/**/*.{ts,tsx,js,jsx}"
   ],
   "exclude": ["node_modules"]
 }
