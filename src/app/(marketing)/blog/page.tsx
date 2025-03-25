@@ -1,5 +1,5 @@
-import { Container } from "@/components/blog/container";
-import { PostCard } from "@/components/blog/post-card";
+import { Container } from "@/components/(marketing)/blog/container";
+import { PostCard } from "@/components/(marketing)/blog/post-card";
 import { getPosts } from "@/lib/query";
 
 export default async function HomePage() {
@@ -9,17 +9,16 @@ export default async function HomePage() {
 	}
 
 	return (
-		<section>
-			<Container className="py-10">
-				<ul className="grid w-full grid-cols-[repeat(auto-fill,minmax(0,_400px))] justify-center gap-20">
-					{posts.map((post) => (
-						<PostCard
-							key={post.id}
-							post={post}
-						/>
-					))}
-				</ul>
-			</Container>
-		</section>
+		<Container className="py-10">
+			<ul className="flex flex-wrap justify-center gap-16">
+				{posts.map((post) => (
+					<PostCard
+						key={post.id}
+						post={post}
+						className="basis-md"
+					/>
+				))}
+			</ul>
+		</Container>
 	);
 }

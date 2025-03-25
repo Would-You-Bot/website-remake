@@ -29,9 +29,7 @@
     ".vscode/tailwind.json"
   ],
   "i18n-ally.localesPaths": [
-    "src/i18n/translations",
-    "src/i18n",
-    "src/components/i18n"
+    "src/i18n/translations"
   ],
   "i18n-ally.keystyle": "nested",
   "i18n-ally.enabledFrameworks": [

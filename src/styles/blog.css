@@ -59,10 +59,10 @@
         margin-left: 0.05em;
         vertical-align: -0.3em;
       }
+    }
 
-      p {
-        @apply m-0 inline;
-      }
+    blockquote p {
+      @apply m-0 inline;
     }
 
     ul {
@@ -71,6 +71,19 @@
 
     ol {
       @apply list-decimal pl-6;
+    }
+
+    pre {
+      @apply border rounded-md p-2 bg-zinc-100 dark:bg-zinc-800 relative;
+
+      /* &::after {
+        @apply absolute top-2 right-2 block text-xs text-foreground text-center p-1 bg-zinc-500/25 rounded-[5px] cursor-pointer;
+        content: "Copy";
+      } */
+    }
+
+    code {
+      @apply text-sm  rounded-md p-1 w-full h-full;
     }
   }
 }

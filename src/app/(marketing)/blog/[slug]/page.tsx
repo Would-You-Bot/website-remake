@@ -1,10 +1,10 @@
-import { Attribution } from "@/components/blog/attribution";
-import { Container } from "@/components/blog/container";
-import { PostAuthor } from "@/components/blog/post-author";
-import { PostCoverImage } from "@/components/blog/post-cover-image";
-import { PostMetadata } from "@/components/blog/post-metadata";
-import { Prose } from "@/components/blog/prose";
-import { SocialShare } from "@/components/blog/social-share";
+import { Attribution } from "@/components/(marketing)/blog/attribution";
+import { Container } from "@/components/(marketing)/blog/container";
+import { PostAuthor } from "@/components/(marketing)/blog/post-author";
+import { PostCoverImage } from "@/components/(marketing)/blog/post-cover-image";
+import { PostMetadata } from "@/components/(marketing)/blog/post-metadata";
+import { Prose } from "@/components/(marketing)/blog/prose";
+import { SocialShare } from "@/components/(marketing)/blog/social-share";
 import { calculateReadingTime, formatDate } from "@/lib/blog";
 import { getPostBySlug, getPosts } from "@/lib/query";
 import { SiteMetadata } from "@/lib/site";

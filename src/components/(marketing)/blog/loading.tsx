@@ -1,4 +1,4 @@
-import { Container } from "@/components/blog/container";
+import { Container } from "@/components/(marketing)/blog/container";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export function Loading() {
