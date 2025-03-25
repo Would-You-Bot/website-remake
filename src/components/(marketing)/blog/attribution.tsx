@@ -4,7 +4,9 @@ import Link from "next/link";
 export function Attribution({
 	attribution
 }: { attribution: { author: string; url: string } | null }) {
-	if (!attribution) { return null; }
+	if (!attribution) {
+		return null;
+	}
 
 	return (
 		<div className="mt-8 text-muted-foreground text-sm italic">
