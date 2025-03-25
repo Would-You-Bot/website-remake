@@ -10,7 +10,7 @@ export function PostMetadata({
 	readingTime: string;
 }) {
 	return (
-		<div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
+		<div className="flex flex-wrap items-center justify-center gap-4 text-muted-foreground text-sm">
 			<div className="flex items-center gap-1">
 				<Calendar className="size-4" />
 				<time

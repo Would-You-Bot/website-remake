@@ -1,14 +1,16 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import type { Author } from "@/types/post";
 
-export function PostAuthor({
-	author
-}: { author: { name: string; image: string } }) {
-	if (!author) return null;
+export function PostAuthor({ authors }: { authors: Author[] }) {
+	if (!authors) {
+		return null;
+	}
 
-	return (
+	return authors.map((author) => (
 		<div
 			className="flex items-center gap-2"
 			aria-label={`Author: ${author.name}`}
+			key={author.name}
 		>
 			<Avatar>
 				<AvatarImage
@@ -23,5 +25,5 @@ export function PostAuthor({
 			</Avatar>
 			<p className="text-muted-foreground">{author.name}</p>
 		</div>
-	);
+	));
 }

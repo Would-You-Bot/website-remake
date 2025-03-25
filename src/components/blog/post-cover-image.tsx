@@ -6,7 +6,7 @@ export function PostCoverImage({ src, alt }: { src: string; alt: string }) {
 			<Image
 				src={src || "/images/placeholder-post.jpg"}
 				alt={alt}
-				className="object-cover aspect-video size-full max-sm:max-h-[360px] rounded-lg md:rounded-xl"
+				className="aspect-video size-full rounded-lg object-cover max-sm:max-h-[360px] md:rounded-xl"
 				sizes="(max-width: 768px) 100vw, (max-width: 1200px) 85vw, 80vw"
 				loading="eager"
 				priority

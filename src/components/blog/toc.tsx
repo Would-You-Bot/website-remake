@@ -19,10 +19,14 @@ export function TableOfContents({ content }: TableOfContentsProps) {
 	const [activeHeading, setActiveHeading] = useState<string>("");
 
 	useEffect(() => {
-		if (!content) return;
+		if (!content) {
+			return;
+		}
 
 		const div = document.querySelector("div.blog-post");
-		if (!div) return;
+		if (!div) {
+			return;
+		}
 
 		const headingElements = div.querySelectorAll("h1, h2, h3, h4, h5, h6");
 
@@ -39,7 +43,9 @@ export function TableOfContents({ content }: TableOfContentsProps) {
 
 	// Set up intersection observer to highlight active heading
 	useEffect(() => {
-		if (typeof window === "undefined" || headings.length === 0) return;
+		if (typeof window === "undefined" || headings.length === 0) {
+			return;
+		}
 
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -58,13 +64,17 @@ export function TableOfContents({ content }: TableOfContentsProps) {
 		// Observe all heading elements in the document
 		for (const { id } of headings) {
 			const element = document.getElementById(id);
-			if (element) observer.observe(element);
+			if (element) {
+				observer.observe(element);
+			}
 		}
 
 		return () => {
 			for (const { id } of headings) {
 				const element = document.getElementById(id);
-				if (element) observer.unobserve(element);
+				if (element) {
+					observer.unobserve(element);
+				}
 			}
 		};
 	}, [headings]);
@@ -93,7 +103,7 @@ export function TableOfContents({ content }: TableOfContentsProps) {
 							key={heading.id}
 							onClick={() => scrollToHeading(heading.id)}
 							className={cn(
-								"block text-left w-full text-sm py-1 px-2 rounded-md transition-colors hover:bg-muted",
+								"block w-full rounded-md px-2 py-1 text-left text-sm transition-colors hover:bg-muted",
 								activeHeading === heading.id
 									? "font-medium text-primary"
 									: "text-muted-foreground",

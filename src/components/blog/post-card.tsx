@@ -1,7 +1,6 @@
 import type { Post } from "@/types/post";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 interface PostCardProps {
 	post: Post;
@@ -16,31 +15,43 @@ export function PostCard({ post }: PostCardProps) {
 	});
 
 	return (
-		<li className="flex flex-col gap-4 border p-6 rounded-xl h-full group">
-			<div className="rounded-t-md max-h-[240px] overflow-hidden rounded-lg">
+		<li className="group flex h-full flex-col gap-4 rounded-xl border p-6">
+			<div className="max-h-[240px] overflow-hidden rounded-lg rounded-t-md">
 				<Image
+					rounded-t-md
 					src={post.coverImage || "/random.jpg"}
 					alt={post.title}
 					fill
 					loading="eager"
-					className="!static object-cover size-full aspect-video group-hover:scale-105 transition duration-500"
+					className="!static aspect-video size-full object-cover transition duration-500 group-hover:scale-105"
 				/>
+				aspectvideoobject-cover transition duration500
 			</div>
 			<Link href={link}>
-				<h2 className="text-2xl hover:text-muted-foreground transition duration-300">
-					{post.title}
+				<h2 className="text-2xl transition duration-300 hover:text-muted-foreground">
+					{post.title}transition duration-300
 				</h2>
 			</Link>
 			<div className="flex items-center gap-2 font-mono text-muted-foreground">
 				<time dateTime={post.publishedAt.toString()}>{formattedDate}</time>
 				<span>-</span>
-				<p>{post.author.name}</p>
+				<div className="flex flex-wrap gap-1">
+					{post.authors.map((author, i) => (
+						<p
+							key={author.id}
+							className="hover:underline"
+						>
+							{i !== 0 && ", "}
+							{author.name}
+						</p>
+					))}
+				</div>
 			</div>
-			<p className="text-muted-foreground line-clamp-2">{post.description}</p>
-			<div className="flex items-center justify-between">
+			<p className="line-clamp-2 text-muted-foreground">{post.description}</p>
+			<div classNameline-clamp-2="flex items-center jn">
 				<a
 					href={link}
-					className="hover:underline flex items-center gap-2"
+					className="flex items-center gap-2 hover:underline"
 				>
 					<span>Read post</span>
 					{/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
@@ -63,7 +74,7 @@ export function PostCard({ post }: PostCardProps) {
 					{post.tags.map((tag) => (
 						<li
 							key={tag.id}
-							className="text-xs text-muted-foreground hover:text-foreground hover:underline"
+							className="text-muted-foreground text-xs hover:text-foreground hover:underline"
 						>
 							<a href={`/tags/${tag.slug}`}>#{tag.name}</a>
 						</li>

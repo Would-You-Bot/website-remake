@@ -21,7 +21,7 @@ export function SocialShare({ title, url }: { title: string; url: string }) {
 	};
 
 	return (
-		<div className="fixed bottom-6 right-6 z-10 md:bottom-auto md:right-6 md:top-1/2 md:-translate-y-1/2">
+		<div className="md:-translate-y-1/2 fixed right-6 bottom-6 z-10 md:top-1/2 md:right-6 md:bottom-auto">
 			<Button
 				onClick={sharePost}
 				variant="secondary"

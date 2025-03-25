@@ -77,7 +77,7 @@ export type Post = {
 	coverImage: string;
 	publishedAt: Date;
 	updatedAt?: Date;
-	author: Author;
+	authors: Author[];
 	category: Category;
 	tags: Tag[];
 	attribution: Attribution | null;
@@ -111,7 +111,7 @@ export type PostPreview = Pick<
 	| "description"
 	| "coverImage"
 	| "publishedAt"
-	| "author"
+	| "authors"
 	| "category"
 	| "tags"
 	| "featured"

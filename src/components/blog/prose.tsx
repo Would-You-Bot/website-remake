@@ -10,13 +10,13 @@ export function Prose({ children, html, className }: ProseProps) {
 	return (
 		<article
 			className={cn(
-				"prose prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl prose-headings:font-serif prose-headings:font-normal mx-auto",
+				"prose mx-auto prose-img:rounded-xl prose-p:text-justify prose-h1:font-bold prose-headings:font-normal prose-headings:font-serif prose-a:text-blue-600 prose-h1:text-xl",
 				className
 			)}
 		>
 			{html ? (
-				// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
 				<div
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
 					dangerouslySetInnerHTML={{ __html: html }}
 					className="blog-post"
 				/>
