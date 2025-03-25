@@ -1,3 +1,10 @@
 {
-	"recommendations": ["biomejs.biome"]
+	"recommendations": [
+		"lokalise.i18n-ally",
+		"aaron-bond.better-comments",
+		"biomejs.biome",
+		"yoavbls.pretty-ts-errors",
+		"bradlc.vscode-tailwindcss",
+		"dangmai.workspace-default-settings"
+	]
 }
