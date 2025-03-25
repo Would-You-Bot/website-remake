@@ -3,7 +3,7 @@ import { Calendar, Clock } from "lucide-react";
 
 export function PostMetadata({
 	publishedAt,
-	readingTime,
+	readingTime
 }: {
 	publishedAt: Date;
 	updatedAt?: Date;

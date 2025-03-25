@@ -24,7 +24,7 @@ type PageProps = {
 
 export async function generateMetadata(
 	{ params }: PageProps,
-	parent: ResolvingMetadata,
+	parent: ResolvingMetadata
 ): Promise<Metadata> {
 	try {
 		const slug = (await params).slug;
@@ -33,7 +33,7 @@ export async function generateMetadata(
 		if (!post)
 			return {
 				title: "Post not found",
-				description: "The requested blog post could not be found",
+				description: "The requested blog post could not be found"
 			};
 
 		const previousImages = (await parent).openGraph?.images || [];
@@ -48,7 +48,7 @@ export async function generateMetadata(
 			authors: [{ name: post.author.name }],
 			keywords: [
 				...(post.tags?.map((tag) => tag.name) || []),
-				post.category.name,
+				post.category.name
 			],
 			twitter: {
 				title: post.title,
@@ -60,10 +60,10 @@ export async function generateMetadata(
 						url: ogImage,
 						width: 1200,
 						height: 630,
-						alt: post.title,
+						alt: post.title
 					},
-					...previousImages,
-				],
+					...previousImages
+				]
 			},
 			openGraph: {
 				type: "article",
@@ -75,9 +75,9 @@ export async function generateMetadata(
 						url: ogImage,
 						width: 1200,
 						height: 630,
-						alt: post.title,
+						alt: post.title
 					},
-					...previousImages,
+					...previousImages
 				],
 				title: post.title,
 				description: post.description || SiteMetadata.description,
@@ -87,14 +87,14 @@ export async function generateMetadata(
 					: undefined,
 				authors: [post.author.name],
 				section: post.category.name,
-				tags: post.tags?.map((tag) => tag.name),
-			},
+				tags: post.tags?.map((tag) => tag.name)
+			}
 		};
 	} catch (error) {
 		console.error("Error generating metadata:", error);
 		return {
 			title: "Blog Post",
-			description: SiteMetadata.description,
+			description: SiteMetadata.description
 		};
 	}
 }
@@ -105,7 +105,7 @@ export async function generateStaticParams() {
 		if (!posts || !posts.length) return [];
 
 		return posts.map((post) => ({
-			slug: post.slug,
+			slug: post.slug
 		}));
 	} catch (error) {
 		console.error("Error generating static params:", error);
@@ -125,7 +125,10 @@ async function Page({ params }: PageProps) {
 
 		return (
 			<article className="pb-16">
-				<SocialShare title={post.title} url={postUrl} />
+				<SocialShare
+					title={post.title}
+					url={postUrl}
+				/>
 
 				<Container className="min-h-[calc(100vh-100px)] py-14">
 					<Link

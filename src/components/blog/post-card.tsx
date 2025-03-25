@@ -12,7 +12,7 @@ export function PostCard({ post }: PostCardProps) {
 	const formattedDate = new Date(post.publishedAt).toLocaleDateString("en-US", {
 		day: "2-digit",
 		month: "2-digit",
-		year: "numeric",
+		year: "numeric"
 	});
 
 	return (
@@ -38,7 +38,10 @@ export function PostCard({ post }: PostCardProps) {
 			</div>
 			<p className="text-muted-foreground line-clamp-2">{post.description}</p>
 			<div className="flex items-center justify-between">
-				<a href={link} className="hover:underline flex items-center gap-2">
+				<a
+					href={link}
+					className="hover:underline flex items-center gap-2"
+				>
 					<span>Read post</span>
 					{/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
 					<svg

@@ -31,7 +31,7 @@ export function TableOfContents({ content }: TableOfContentsProps) {
 			.map((el) => ({
 				id: el.id,
 				text: el.textContent || "",
-				level: Number.parseInt(el.tagName.substring(1)),
+				level: Number.parseInt(el.tagName.substring(1))
 			}));
 
 		setHeadings(extractedHeadings);
@@ -51,8 +51,8 @@ export function TableOfContents({ content }: TableOfContentsProps) {
 			},
 			{
 				rootMargin: "-100px 0px -80% 0px",
-				threshold: 0,
-			},
+				threshold: 0
+			}
 		);
 
 		// Observe all heading elements in the document
@@ -102,7 +102,7 @@ export function TableOfContents({ content }: TableOfContentsProps) {
 								heading.level === 3 && "pl-6",
 								heading.level === 4 && "pl-8",
 								heading.level === 5 && "pl-10",
-								heading.level === 6 && "pl-12",
+								heading.level === 6 && "pl-12"
 							)}
 						>
 							{heading.text}

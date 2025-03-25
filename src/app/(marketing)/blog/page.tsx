@@ -11,7 +11,10 @@ export default async function HomePage() {
 			<Container className="py-10">
 				<ul className="grid justify-center gap-20 grid-cols-[repeat(auto-fill,minmax(0,_400px))] w-full">
 					{posts.map((post) => (
-						<PostCard key={post.id} post={post} />
+						<PostCard
+							key={post.id}
+							post={post}
+						/>
 					))}
 				</ul>
 			</Container>

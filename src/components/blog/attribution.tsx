@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 export function Attribution({
-	attribution,
+	attribution
 }: { attribution: { author: string; url: string } | null }) {
 	if (!attribution) return null;
 

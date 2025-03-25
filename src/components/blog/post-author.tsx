@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export function PostAuthor({
-	author,
+	author
 }: { author: { name: string; image: string } }) {
 	if (!author) return null;
 

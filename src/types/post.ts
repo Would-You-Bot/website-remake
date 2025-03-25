@@ -51,7 +51,7 @@ export type Tag = {
 export enum PostStatus {
 	DRAFT = "draft",
 	PUBLISHED = "published",
-	ARCHIVED = "archived",
+	ARCHIVED = "archived"
 }
 
 /**

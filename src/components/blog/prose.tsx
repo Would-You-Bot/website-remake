@@ -11,12 +11,15 @@ export function Prose({ children, html, className }: ProseProps) {
 		<article
 			className={cn(
 				"prose prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl prose-headings:font-serif prose-headings:font-normal mx-auto",
-				className,
+				className
 			)}
 		>
 			{html ? (
 				// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-				<div dangerouslySetInnerHTML={{ __html: html }} className="blog-post" />
+				<div
+					dangerouslySetInnerHTML={{ __html: html }}
+					className="blog-post"
+				/>
 			) : (
 				children
 			)}

@@ -9,7 +9,7 @@ export function SocialShare({ title, url }: { title: string; url: string }) {
 			navigator
 				.share({
 					title,
-					url,
+					url
 				})
 				.catch((err) => console.error("Error sharing:", err));
 		} else {
