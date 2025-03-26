@@ -1,0 +1,89 @@
+@reference "./globals.css";
+
+@layer base {
+  .blog-post {
+    * {
+      @apply mb-4;
+    }
+
+    p {
+      @apply text-base md:text-lg;
+    }
+
+    h1 {
+      @apply text-3xl md:text-4xl font-bold;
+    }
+
+    h2 {
+      @apply text-2xl md:text-3xl font-bold;
+    }
+
+    h3 {
+      @apply text-xl md:text-2xl font-bold;
+    }
+
+    h4 {
+      @apply text-lg md:text-xl font-bold;
+    }
+
+    a {
+      @apply text-primary underline;
+    }
+
+    img {
+      @apply w-full h-auto aspect-video object-cover object-center rounded-lg md:rounded-xl;
+    }
+
+    iframe {
+      @apply w-full aspect-video rounded-lg md:rounded-xl;
+    }
+
+    blockquote {
+      @apply my-4 italic border-l-8 border-zinc-300 p-2 pr-4 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800 rounded-[0.4rem];
+      quotes: "\201C" "\201D" "\2018" "\2019";
+
+      &::before {
+        @apply text-zinc-400 dark:text-zinc-600;
+        content: open-quote;
+        font-size: 3em;
+        line-height: 0.1em;
+        margin-right: 0.10em;
+        vertical-align: -0.3em;
+      }
+
+      &::after {
+        @apply text-zinc-400 dark:text-zinc-600;
+        content: close-quote;
+        font-size: 3em;
+        line-height: 0.1em;
+        margin-left: 0.05em;
+        vertical-align: -0.3em;
+      }
+    }
+
+    blockquote p {
+      @apply m-0 inline;
+    }
+
+    ul {
+      @apply list-disc pl-6;
+    }
+
+    ol {
+      @apply list-decimal pl-6;
+    }
+
+    pre {
+      @apply border rounded-md p-2 bg-zinc-100 dark:bg-zinc-800 relative;
+
+      /* &::after {
+        @apply absolute top-2 right-2 block text-xs text-foreground text-center p-1 bg-zinc-500/25 rounded-[5px] cursor-pointer;
+        content: "Copy";
+      } */
+    }
+
+    code {
+      @apply text-sm  rounded-md p-1 w-full h-full;
+    }
+  }
+}

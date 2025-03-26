@@ -38,6 +38,12 @@ const nextConfig: NextConfig = {
 				hostname: "startupfa.me",
 				port: "",
 				pathname: "/**"
+			},
+			{
+				protocol: "https",
+				hostname: "images.marblecms.com",
+				port: "",
+				pathname: "/**"
 			}
 		]
 	},
