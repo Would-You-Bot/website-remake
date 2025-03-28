@@ -1,7 +1,7 @@
 import { setUserLocale } from "@/i18n/services/locale";
 import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
-import { CreditCard, LogOut, Settings, User } from "lucide-react";
+import { CreditCard, Languages, LogOut, Settings, User } from "lucide-react";
 import { type Locale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import Flag from "react-world-flags";
@@ -72,7 +72,8 @@ export default function DiscordLoginButton({
 							Profile
 						</DropdownMenuItem>
 						<DropdownMenuSub>
-							<DropdownMenuSubTrigger alwaysLeft>
+							<DropdownMenuSubTrigger>
+								<Languages className="size-4 text-muted-foreground" />
 								Language
 							</DropdownMenuSubTrigger>
 							<DropdownMenuSubContent>
