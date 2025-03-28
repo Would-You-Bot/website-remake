@@ -130,7 +130,10 @@ export default function DiscordLoginButton({
 							Manage Subscription
 						</DropdownMenuItem>
 						<DropdownMenuSeparator />
-						<DropdownMenuItem variant="destructive">
+						<DropdownMenuItem
+							variant="destructive"
+							onClick={() => authClient.signOut()}
+						>
 							<LogOut className="size-4" />
 							Logout
 						</DropdownMenuItem>
