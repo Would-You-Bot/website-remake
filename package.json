@@ -54,5 +54,6 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "ultracite": "4.2.0"
-  }
+  },
+  "packageManager": "pnpm@10.6.5"
 }
