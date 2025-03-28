@@ -7,6 +7,17 @@ export const auth = betterAuth({
 	database: prismaAdapter(prisma, {
 		provider: "postgresql"
 	}),
+	user: {
+		deleteUser: {
+			enabled: true
+		},
+		additionalFields: {
+			language: {
+				type: "string",
+				default: "en"
+			}
+		}
+	},
 	socialProviders: {
 		discord: {
 			clientId: env.DISCORD_CLIENT_ID,
@@ -16,9 +27,15 @@ export const auth = betterAuth({
 			mapProfileToUser: (profile) => {
 				return {
 					name: profile.global_name || profile.username,
-					email: "hello@wouldyoubot.gg",
-					image: profile.avatar || undefined,
-					banner: profile.banner || undefined
+					email: "internal@wouldyoubot.gg",
+					image:
+						`https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.${profile.avatar?.startsWith("a") ? "gif" : "webp"}` ||
+						undefined,
+					banner:
+						`https://cdn.discordapp.com/banners/${profile.id}/${profile.banner}.${profile.banner?.startsWith("a") ? "gif" : "webp"}` ||
+						undefined,
+					emailVerified: profile.verified,
+					language: "en"
 				};
 			}
 		}
