@@ -1,8 +1,16 @@
 import { setUserLocale } from "@/i18n/services/locale";
 import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
-import { CreditCard, Languages, LogOut, Settings, User } from "lucide-react";
+import {
+	CreditCard,
+	Languages,
+	LogOut,
+	Settings,
+	ShieldUser,
+	User
+} from "lucide-react";
 import { type Locale, useTranslations } from "next-intl";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Flag from "react-world-flags";
 import DiscordIcon from "./icons/discord";
@@ -119,10 +127,34 @@ export default function DiscordLoginButton({
 								</DropdownMenuRadioGroup>
 							</DropdownMenuSubContent>
 						</DropdownMenuSub>
-						<DropdownMenuItem>
-							<Settings className="size-4" />
-							Settings
-						</DropdownMenuItem>
+						<DropdownMenuSub>
+							<DropdownMenuSubTrigger>
+								<Link
+									href={"/settings"}
+									className="flex w-full items-center gap-2"
+								>
+									<Settings className="size-4 text-muted-foreground" />
+									Settings
+								</Link>
+							</DropdownMenuSubTrigger>
+							<DropdownMenuSubContent>
+								<DropdownMenuGroup>
+									<DropdownMenuLabel>Account Settings</DropdownMenuLabel>
+									<Link href={"/settings/profile"}>
+										<DropdownMenuItem>
+											<User className="size-4" />
+											Profile
+										</DropdownMenuItem>
+									</Link>
+									<Link href={"/settings/privacy"}>
+										<DropdownMenuItem>
+											<ShieldUser className="size-4" />
+											Privacy
+										</DropdownMenuItem>
+									</Link>
+								</DropdownMenuGroup>
+							</DropdownMenuSubContent>
+						</DropdownMenuSub>
 						<DropdownMenuSeparator />
 						<DropdownMenuItem>
 							<CreditCard className="size-4" />
