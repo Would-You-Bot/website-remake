@@ -31,10 +31,8 @@ export default function DiscordLoginButton({
 	className
 }: DiscordLoginButtonProps) {
 	const t = useTranslations("discordBtn.login");
-	const { data: session, isPending, error } = authClient.useSession();
+	const { data: session, isPending } = authClient.useSession();
 	const pathname = usePathname();
-
-	console.log(session);
 
 	const handleLogin = async () => {
 		await authClient.signIn.social({
