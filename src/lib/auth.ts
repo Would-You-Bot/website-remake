@@ -28,12 +28,12 @@ export const auth = betterAuth({
 				return {
 					name: profile.global_name || profile.username,
 					email: "internal@wouldyoubot.gg",
-					image: profile.avatar 
-					  ? `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.${profile.avatar.startsWith("a") ? "gif" : "webp"}` 
-					  : undefined,
+					image: profile.avatar
+						? `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.${profile.avatar.startsWith("a") ? "gif" : "webp"}`
+						: undefined,
 					banner: profile.banner
-					  ? `https://cdn.discordapp.com/banners/${profile.id}/${profile.banner}.${profile.banner.startsWith("a") ? "gif" : "webp"}`
-					  : undefined,
+						? `https://cdn.discordapp.com/banners/${profile.id}/${profile.banner}.${profile.banner.startsWith("a") ? "gif" : "webp"}`
+						: undefined,
 					emailVerified: profile.verified,
 					language: "en"
 				};
