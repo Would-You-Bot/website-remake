@@ -59,14 +59,15 @@ export default function DiscordLoginButton({
 	if (session) {
 		return (
 			<DropdownMenu>
-				<DropdownMenuTrigger className="cursor-pointer">
+				<DropdownMenuTrigger className="flex cursor-pointer items-center gap-2">
 					<Avatar>
 						<AvatarImage
-							className="h-12 w-12"
+							className="h-8 w-8"
 							src={session.user.image || ""}
 						/>
 						<AvatarFallback>{t("nav.profile.avatar.fallback")}</AvatarFallback>
 					</Avatar>
+					{session.user.name}
 				</DropdownMenuTrigger>
 				<DropdownMenuContent
 					side="bottom"
