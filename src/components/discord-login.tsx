@@ -38,7 +38,7 @@ interface DiscordLoginButtonProps {
 export default function DiscordLoginButton({
 	className
 }: DiscordLoginButtonProps) {
-	const t = useTranslations("discordBtn.login");
+	const t = useTranslations();
 	const { data: session, isPending } = authClient.useSession();
 	const pathname = usePathname();
 
@@ -65,7 +65,7 @@ export default function DiscordLoginButton({
 							className="h-12 w-12"
 							src={session.user.image || ""}
 						/>
-						<AvatarFallback>WY</AvatarFallback>
+						<AvatarFallback>{t("nav.profile.avatar.fallback")}</AvatarFallback>
 					</Avatar>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent
@@ -73,16 +73,18 @@ export default function DiscordLoginButton({
 					align="end"
 				>
 					<DropdownMenuGroup>
-						<DropdownMenuLabel>Account</DropdownMenuLabel>
+						<DropdownMenuLabel>
+							{t("nav.profile.dropdown.account.label")}
+						</DropdownMenuLabel>
 						<DropdownMenuSeparator />
 						<DropdownMenuItem>
 							<User className="size-4" />
-							Profile
+							{t("nav.profile.dropdown.account.profile")}
 						</DropdownMenuItem>
 						<DropdownMenuSub>
 							<DropdownMenuSubTrigger>
 								<Languages className="size-4 text-muted-foreground" />
-								Language
+								{t("nav.profile.dropdown.account.language")}
 							</DropdownMenuSubTrigger>
 							<DropdownMenuSubContent>
 								<DropdownMenuRadioGroup
@@ -101,28 +103,28 @@ export default function DiscordLoginButton({
 											code="de"
 											className="size-4"
 										/>
-										German
+										Deutsch
 									</DropdownMenuRadioItem>
 									<DropdownMenuRadioItem value="fr">
 										<Flag
 											code="fr"
 											className="size-4"
 										/>
-										French
+										Français
 									</DropdownMenuRadioItem>
 									<DropdownMenuRadioItem value="es">
 										<Flag
 											code="es"
 											className="size-4"
 										/>
-										Spanish
+										Española
 									</DropdownMenuRadioItem>
 									<DropdownMenuRadioItem value="it">
 										<Flag
 											code="it"
 											className="size-4"
 										/>
-										Italian
+										Italiana
 									</DropdownMenuRadioItem>
 								</DropdownMenuRadioGroup>
 							</DropdownMenuSubContent>
@@ -134,22 +136,24 @@ export default function DiscordLoginButton({
 									className="flex w-full items-center gap-2"
 								>
 									<Settings className="size-4 text-muted-foreground" />
-									Settings
+									{t("nav.profile.dropdown.account.settings.sub.title")}
 								</Link>
 							</DropdownMenuSubTrigger>
 							<DropdownMenuSubContent>
 								<DropdownMenuGroup>
-									<DropdownMenuLabel>Account Settings</DropdownMenuLabel>
+									<DropdownMenuLabel>
+										{t("nav.profile.dropdown.account.settings.sub.label")}
+									</DropdownMenuLabel>
 									<Link href={"/settings/profile"}>
 										<DropdownMenuItem>
 											<User className="size-4" />
-											Profile
+											{t("nav.profile.dropdown.account.settings.sub.profile")}
 										</DropdownMenuItem>
 									</Link>
 									<Link href={"/settings/privacy"}>
 										<DropdownMenuItem>
 											<ShieldUser className="size-4" />
-											Privacy
+											{t("nav.profile.dropdown.account.settings.sub.privacy")}
 										</DropdownMenuItem>
 									</Link>
 								</DropdownMenuGroup>
@@ -158,7 +162,7 @@ export default function DiscordLoginButton({
 						<DropdownMenuSeparator />
 						<DropdownMenuItem>
 							<CreditCard className="size-4" />
-							Manage Subscription
+							{t("nav.profile.dropdown.account.manageSubscription")}
 						</DropdownMenuItem>
 						<DropdownMenuSeparator />
 						<DropdownMenuItem
@@ -166,7 +170,7 @@ export default function DiscordLoginButton({
 							onClick={() => authClient.signOut()}
 						>
 							<LogOut className="size-4" />
-							Logout
+							{t("nav.profile.dropdown.account.logout")}
 						</DropdownMenuItem>
 					</DropdownMenuGroup>
 				</DropdownMenuContent>
@@ -188,8 +192,8 @@ export default function DiscordLoginButton({
 					className
 				)}
 			>
-				<span className="hidden lg:flex">{t("long")}</span>
-				<span className="flex lg:hidden">{t("short")}</span>
+				<span className="hidden lg:flex">{t("discordBtn.login.long")}</span>
+				<span className="flex lg:hidden">{t("discordBtn.login.short")}</span>
 				<DiscordIcon className="h-6 w-6" />
 			</button>
 		</>

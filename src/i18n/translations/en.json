@@ -144,7 +144,29 @@
     "commands": "Commands",
     "blog": "Blog",
     "questionPack": "Question Packs",
-    "premium": "Premium"
+    "premium": "Premium",
+    "profile": {
+      "avatar": {
+        "fallback": "WY"
+      },
+      "dropdown": {
+        "account": {
+          "label": "Account",
+          "profile": "Profile",
+          "language": "Language",
+          "settings": {
+            "sub": {
+              "title": "Settings",
+              "label": "Account Settings",
+              "profile": "Profile",
+              "privacy": "Privacy"
+            }
+          },
+          "manageSubscription": "Manage Subscription",
+          "logout": "Logout"
+        }
+      }
+    }
   },
   "footer": {
     "recommended": {
@@ -180,6 +202,15 @@
     "login": {
       "long": "Login with Discord",
       "short": "Login"
+    }
+  },
+  "settings": {
+    "sidebar": {
+      "account": {
+        "label": "Account Settings",
+        "profile": "Profile",
+        "privacy": "Privacy"
+      }
     }
   }
 }
