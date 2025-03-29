@@ -49,10 +49,10 @@ export default function DiscordLoginButton({
 		});
 	};
 
-	const handleLangChange = (value: string) => {
+	const handleLocaleChange = (value: string) => {
 		setUserLocale(value as Locale);
 		authClient.updateUser({
-			language: value
+			locale: value
 		});
 	};
 
@@ -86,8 +86,8 @@ export default function DiscordLoginButton({
 							</DropdownMenuSubTrigger>
 							<DropdownMenuSubContent>
 								<DropdownMenuRadioGroup
-									value={session.user.language}
-									onValueChange={(value) => handleLangChange(value)}
+									value={session.user.locale}
+									onValueChange={(value) => handleLocaleChange(value)}
 								>
 									<DropdownMenuRadioItem value="en">
 										<Flag

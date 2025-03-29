@@ -12,7 +12,7 @@ export const auth = betterAuth({
 			enabled: true
 		},
 		additionalFields: {
-			language: {
+			locale: {
 				type: "string",
 				default: "en"
 			}
@@ -35,7 +35,7 @@ export const auth = betterAuth({
 						? `https://cdn.discordapp.com/banners/${profile.id}/${profile.banner}.${profile.banner.startsWith("a") ? "gif" : "webp"}`
 						: undefined,
 					emailVerified: profile.verified,
-					language: "en"
+					locale: "en"
 				};
 			}
 		}

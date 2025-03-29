@@ -52,7 +52,7 @@ model User {
   emailVerified Boolean
   image         String?
   banner        String?
-  language      String         @default("en")
+  locale        String         @default("en")
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
   Session       Session[]
