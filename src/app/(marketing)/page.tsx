@@ -12,14 +12,11 @@ export default async function Home() {
 	).data.data.bot.approximate_guild_count;
 
 	const serverData = await axios
-		.get<{ result: string }>(
-			"https://liberal-snail-47202.upstash.io/get/server_count",
-			{
-				headers: {
-					Authorization: `Bearer ${env.UPSTASH_API_KEY}`
-				}
+		.get<{ result: string }>(env.UPSTASH_URL, {
+			headers: {
+				Authorization: `Bearer ${env.UPSTASH_API_KEY}`
 			}
-		)
+		})
 		.catch(() => ({ data: { result: "[]" } }));
 	const servers = JSON.parse(serverData.data.result);
 
