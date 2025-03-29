@@ -45,6 +45,7 @@ jobs:
           DISCORD_AUTHORIZE_URL: ${{ secrets.DISCORD_AUTHORIZE_URL }}
           REDIS_URL: ${{ secrets.REDIS_URL }}
           REDIS_TOKEN: ${{ secrets.REDIS_TOKEN }}
+          UPSTASH_URL: ${{ secrets.UPSTASH_URL }}
           UPSTASH_API_KEY: ${{ secrets.UPSTASH_API_KEY }}
           STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
           STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}

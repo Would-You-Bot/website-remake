@@ -104,6 +104,11 @@ const nextConfig: NextConfig = {
 			source: "/impressum",
 			destination: "/legal-de",
 			permanent: true
+		},
+		{
+			source: "/settings",
+			destination: "/settings/profile",
+			permanent: true
 		}
 	]
 };

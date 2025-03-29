@@ -1,3 +1,4 @@
+import { ReactScan } from "@/components/react-scan";
 import { TooltipProvider } from "@/ui/tooltip";
 import { NextIntlClientProvider } from "next-intl";
 import { ThemeProvider } from "next-themes";
@@ -13,7 +14,10 @@ export default function Providers({ children }: { children: ReactNode }) {
 				disableTransitionOnChange
 			>
 				<TooltipProvider delayDuration={0}>
-					<NextIntlClientProvider>{children}</NextIntlClientProvider>
+					<NextIntlClientProvider>
+						<ReactScan />
+						{children}
+					</NextIntlClientProvider>
 				</TooltipProvider>
 			</ThemeProvider>
 		</>

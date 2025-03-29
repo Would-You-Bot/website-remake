@@ -1,5 +1,4 @@
 "use client";
-
 import { cn } from "@/lib/utils";
 import clsx from "clsx";
 import { Crown, Moon, Sun } from "lucide-react";
@@ -8,7 +7,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { type PropsWithChildren, useEffect, useState } from "react";
-import DiscordLoginButton from "./(marketing)/discord-login";
+import DiscordLoginButton from "./discord-login";
 
 export default function Navbar() {
 	const t = useTranslations("brand");
