@@ -28,7 +28,7 @@ export const auth = betterAuth({
 			mapProfileToUser: (profile) => {
 				return {
 					name: profile.global_name || profile.username,
-					email: "internal@wouldyoubot.gg",
+					email: `discord-social-${profile.id}@wouldyoubot.gg`,
 					image: profile.avatar
 						? `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.${profile.avatar.startsWith("a") ? "gif" : "webp"}`
 						: undefined,
