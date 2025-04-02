@@ -3,7 +3,7 @@ import { setUserLocale } from "@/i18n/services/locale";
 import prisma from "@/lib/db";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { createAuthMiddleware, getSessionFromCtx } from "better-auth/api";
+import { createAuthMiddleware } from "better-auth/api";
 
 export const auth = betterAuth({
 	database: prismaAdapter(prisma, {
@@ -45,9 +45,11 @@ export const auth = betterAuth({
 	},
 	hooks: {
 		after: createAuthMiddleware(async (ctx) => {
-			const session = await getSessionFromCtx(ctx);
+			if (ctx.path.startsWith("/callback")) {
+				const session = ctx.context.newSession;
 
-			await setUserLocale(session?.user.locale);
+				await setUserLocale(session?.user.locale);
+			}
 		})
 	}
 });
