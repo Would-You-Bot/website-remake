@@ -1,13 +1,21 @@
 "use client";
 import { cn } from "@/lib/utils";
 import clsx from "clsx";
-import { Crown, Moon, Sun } from "lucide-react";
+import { Crown, Menu, Moon, Sun } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { type PropsWithChildren, useEffect, useState } from "react";
 import DiscordLoginButton from "./discord-login";
+import LanguageSwitcher from "./language-switcher";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuGroup,
+	DropdownMenuItem,
+	DropdownMenuTrigger
+} from "./ui/dropdown-menu";
 
 export default function Navbar() {
 	const t = useTranslations("brand");
@@ -72,14 +80,14 @@ export default function Navbar() {
 							isOpen && "pointer-events-auto bg-background/70 opacity-100"
 						)}
 					>
-						<ThemeToggle />
+						<NavDropdown />
 						<NavList />
 						<DiscordLoginButton className="h-12 rounded-md px-6" />
 					</ul>
 				</NavSection>
 
 				<NavSection className="hidden gap-2 p-2 lg:flex">
-					<ThemeToggle />
+					<NavDropdown />
 					<DiscordLoginButton className="h-12 rounded-md px-6" />
 				</NavSection>
 			</div>
@@ -153,9 +161,10 @@ function NavItem({
 	);
 }
 
-function ThemeToggle() {
+function NavDropdown() {
 	const [mounted, setMounted] = useState(false);
 	const { theme, setTheme } = useTheme();
+	const t = useTranslations();
 
 	useEffect(() => {
 		setMounted(true);
@@ -166,16 +175,30 @@ function ThemeToggle() {
 	}
 
 	return (
-		<button
-			type="button"
-			className="flex aspect-square cursor-pointer items-center justify-center rounded-xl p-2 text-muted-foreground transition hover:text-foreground"
-			onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-		>
-			{theme === "light" ? (
-				<Moon className="h-6 w-6 sm:h-7 sm:w-7" />
-			) : (
-				<Sun className="h-6 w-6 sm:h-7 sm:w-7" />
-			)}
-		</button>
+		<DropdownMenu>
+			<DropdownMenuTrigger className="cursor-pointer">
+				<Menu />
+			</DropdownMenuTrigger>
+			<DropdownMenuContent align="end">
+				<DropdownMenuGroup>
+					<DropdownMenuItem
+						onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+					>
+						{theme === "light" ? (
+							<>
+								<Moon className="h-6 w-6 sm:h-7 sm:w-7" />
+								{t("nav.dropdown.theme.dark")}
+							</>
+						) : (
+							<>
+								<Sun className="h-6 w-6 sm:h-7 sm:w-7" />
+								{t("nav.dropdown.theme.light")}
+							</>
+						)}
+					</DropdownMenuItem>
+					<LanguageSwitcher />
+				</DropdownMenuGroup>
+			</DropdownMenuContent>
+		</DropdownMenu>
 	);
 }

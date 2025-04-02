@@ -1,19 +1,11 @@
-import { setUserLocale } from "@/i18n/services/locale";
 import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
-import {
-	CreditCard,
-	Languages,
-	LogOut,
-	Settings,
-	ShieldUser,
-	User
-} from "lucide-react";
-import { type Locale, useTranslations } from "next-intl";
+import { CreditCard, LogOut, Settings, ShieldUser, User } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Flag from "react-world-flags";
 import DiscordIcon from "./icons/discord";
+import LanguageSwitcher from "./language-switcher";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
 	DropdownMenu,
@@ -21,8 +13,6 @@ import {
 	DropdownMenuGroup,
 	DropdownMenuItem,
 	DropdownMenuLabel,
-	DropdownMenuRadioGroup,
-	DropdownMenuRadioItem,
 	DropdownMenuSeparator,
 	DropdownMenuSub,
 	DropdownMenuSubContent,
@@ -46,13 +36,6 @@ export default function DiscordLoginButton({
 		await authClient.signIn.social({
 			provider: "discord",
 			callbackURL: `${pathname}`
-		});
-	};
-
-	const handleLocaleChange = (value: string) => {
-		setUserLocale(value as Locale);
-		authClient.updateUser({
-			locale: value
 		});
 	};
 
@@ -82,54 +65,7 @@ export default function DiscordLoginButton({
 							<User className="size-4" />
 							{t("nav.profile.dropdown.account.profile")}
 						</DropdownMenuItem>
-						<DropdownMenuSub>
-							<DropdownMenuSubTrigger>
-								<Languages className="size-4 text-muted-foreground" />
-								{t("nav.profile.dropdown.account.language")}
-							</DropdownMenuSubTrigger>
-							<DropdownMenuSubContent>
-								<DropdownMenuRadioGroup
-									value={session.user.locale}
-									onValueChange={(value) => handleLocaleChange(value)}
-								>
-									<DropdownMenuRadioItem value="en">
-										<Flag
-											code="us"
-											className="size-4"
-										/>
-										English
-									</DropdownMenuRadioItem>
-									<DropdownMenuRadioItem value="de">
-										<Flag
-											code="de"
-											className="size-4"
-										/>
-										Deutsch
-									</DropdownMenuRadioItem>
-									<DropdownMenuRadioItem value="fr">
-										<Flag
-											code="fr"
-											className="size-4"
-										/>
-										Français
-									</DropdownMenuRadioItem>
-									<DropdownMenuRadioItem value="es">
-										<Flag
-											code="es"
-											className="size-4"
-										/>
-										Española
-									</DropdownMenuRadioItem>
-									<DropdownMenuRadioItem value="it">
-										<Flag
-											code="it"
-											className="size-4"
-										/>
-										Italiana
-									</DropdownMenuRadioItem>
-								</DropdownMenuRadioGroup>
-							</DropdownMenuSubContent>
-						</DropdownMenuSub>
+						<LanguageSwitcher />
 						<DropdownMenuSub>
 							<DropdownMenuSubTrigger>
 								<Link

@@ -153,7 +153,6 @@
         "account": {
           "label": "Account",
           "profile": "Profile",
-          "language": "Language",
           "settings": {
             "sub": {
               "title": "Settings",
@@ -165,6 +164,13 @@
           "manageSubscription": "Manage Subscription",
           "logout": "Logout"
         }
+      }
+    },
+    "dropdown": {
+      "language": "Language",
+      "theme": {
+        "dark": "Dark",
+        "light": "Light"
       }
     }
   },
