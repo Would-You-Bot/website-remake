@@ -9,6 +9,7 @@ import Link from "next/link";
 import { type PropsWithChildren, useEffect, useState } from "react";
 import DiscordLoginButton from "./discord-login";
 import LanguageSwitcher from "./language-switcher";
+import { Button } from "./ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -176,8 +177,17 @@ function NavDropdown() {
 
 	return (
 		<DropdownMenu>
-			<DropdownMenuTrigger className="cursor-pointer">
-				<Menu />
+			<DropdownMenuTrigger
+				className="cursor-pointer"
+				asChild
+			>
+				<Button
+					variant="ghost"
+					size="icon"
+					className="size-12"
+				>
+					<Menu className="size-6" />
+				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end">
 				<DropdownMenuGroup>
