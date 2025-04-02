@@ -170,7 +170,8 @@
       "language": "Language",
       "theme": {
         "dark": "Dark",
-        "light": "Light"
+        "light": "Light",
+        "title": "Theme"
       }
     }
   },

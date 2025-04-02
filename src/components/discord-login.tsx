@@ -2,10 +2,12 @@ import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import { CreditCard, LogOut, Settings, ShieldUser, User } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import DiscordIcon from "./icons/discord";
 import LanguageSwitcher from "./language-switcher";
+import ThemeSwitcher from "./theme-switcher";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
 	DropdownMenu,
@@ -30,6 +32,7 @@ export default function DiscordLoginButton({
 }: DiscordLoginButtonProps) {
 	const t = useTranslations();
 	const { data: session, isPending } = authClient.useSession();
+	const { theme, setTheme } = useTheme();
 	const pathname = usePathname();
 
 	const handleLogin = async () => {
@@ -60,12 +63,17 @@ export default function DiscordLoginButton({
 						<DropdownMenuLabel>
 							{t("nav.profile.dropdown.account.label")}
 						</DropdownMenuLabel>
+
 						<DropdownMenuSeparator />
+
 						<DropdownMenuItem>
 							<User className="size-4" />
 							{t("nav.profile.dropdown.account.profile")}
 						</DropdownMenuItem>
+
+						<ThemeSwitcher />
 						<LanguageSwitcher />
+
 						<DropdownMenuSub>
 							<DropdownMenuSubTrigger>
 								<Link
@@ -81,12 +89,14 @@ export default function DiscordLoginButton({
 									<DropdownMenuLabel>
 										{t("nav.profile.dropdown.account.settings.sub.label")}
 									</DropdownMenuLabel>
+
 									<Link href={"/settings/profile"}>
 										<DropdownMenuItem>
 											<User className="size-4" />
 											{t("nav.profile.dropdown.account.settings.sub.profile")}
 										</DropdownMenuItem>
 									</Link>
+
 									<Link href={"/settings/privacy"}>
 										<DropdownMenuItem>
 											<ShieldUser className="size-4" />
@@ -96,12 +106,16 @@ export default function DiscordLoginButton({
 								</DropdownMenuGroup>
 							</DropdownMenuSubContent>
 						</DropdownMenuSub>
+
 						<DropdownMenuSeparator />
+
 						<DropdownMenuItem>
 							<CreditCard className="size-4" />
 							{t("nav.profile.dropdown.account.manageSubscription")}
 						</DropdownMenuItem>
+
 						<DropdownMenuSeparator />
+
 						<DropdownMenuItem
 							variant="destructive"
 							onClick={() => authClient.signOut()}
