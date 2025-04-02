@@ -26,7 +26,7 @@ export default function LanguageSwitcher() {
 		}
 
 		getLang();
-	});
+	}, []);
 
 	const handleLocaleChange = (value: string) => {
 		setUserLocale(value as Locale);
