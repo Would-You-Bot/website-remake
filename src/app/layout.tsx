@@ -3,7 +3,7 @@ import { getLocale } from "next-intl/server";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/nav/navbar";
 import type { ReactNode } from "react";
 import Providers from "./providers";
 

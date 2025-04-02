@@ -8,16 +8,16 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { type PropsWithChildren, useState } from "react";
-import DiscordLoginButton from "./discord-login";
-import LanguageSwitcher from "./language-switcher";
-import ThemeSwitcher from "./theme-switcher";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuGroup,
 	DropdownMenuTrigger
-} from "./ui/dropdown-menu";
+} from "../ui/dropdown-menu";
+import DiscordLoginButton from "./discord-login";
+import LanguageSwitcher from "./language-switcher";
+import ThemeSwitcher from "./theme-switcher";
 
 export default function Navbar() {
 	const t = useTranslations("brand");

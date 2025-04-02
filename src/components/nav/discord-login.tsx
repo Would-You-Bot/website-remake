@@ -2,13 +2,10 @@ import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import { CreditCard, LogOut, Settings, ShieldUser, User } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import DiscordIcon from "./icons/discord";
-import LanguageSwitcher from "./language-switcher";
-import ThemeSwitcher from "./theme-switcher";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import DiscordIcon from "../icons/discord";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -20,8 +17,10 @@ import {
 	DropdownMenuSubContent,
 	DropdownMenuSubTrigger,
 	DropdownMenuTrigger
-} from "./ui/dropdown-menu";
-import { Skeleton } from "./ui/skeleton";
+} from "../ui/dropdown-menu";
+import { Skeleton } from "../ui/skeleton";
+import LanguageSwitcher from "./language-switcher";
+import ThemeSwitcher from "./theme-switcher";
 
 interface DiscordLoginButtonProps {
 	className?: string;
@@ -32,7 +31,6 @@ export default function DiscordLoginButton({
 }: DiscordLoginButtonProps) {
 	const t = useTranslations();
 	const { data: session, isPending } = authClient.useSession();
-	const { theme, setTheme } = useTheme();
 	const pathname = usePathname();
 
 	const handleLogin = async () => {
