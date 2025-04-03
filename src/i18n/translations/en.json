@@ -171,6 +171,7 @@
       "theme": {
         "dark": "Dark",
         "light": "Light",
+        "system": "System",
         "title": "Theme"
       }
     }

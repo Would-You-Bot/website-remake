@@ -1,11 +1,8 @@
-import { authClient } from "@/lib/auth-client";
-import { cn } from "@/lib/utils";
-import { CreditCard, LogOut, Settings, ShieldUser, User } from "lucide-react";
-import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import DiscordIcon from "../icons/discord";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import DiscordIcon from "@/components/icons/discord";
+import LanguageSwitcher from "@/components/nav/language-switcher";
+import ThemeSwitcher from "@/components/nav/theme-switcher";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -17,10 +14,14 @@ import {
 	DropdownMenuSubContent,
 	DropdownMenuSubTrigger,
 	DropdownMenuTrigger
-} from "../ui/dropdown-menu";
-import { Skeleton } from "../ui/skeleton";
-import LanguageSwitcher from "./language-switcher";
-import ThemeSwitcher from "./theme-switcher";
+} from "@/components/ui/dropdown-menu";
+import { Skeleton } from "@/components/ui/skeleton";
+import { authClient } from "@/lib/auth-client";
+import { cn } from "@/lib/utils";
+import { CreditCard, LogOut, Settings, ShieldUser, User } from "lucide-react";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface DiscordLoginButtonProps {
 	className?: string;
@@ -43,15 +44,22 @@ export default function DiscordLoginButton({
 	if (session) {
 		return (
 			<DropdownMenu>
-				<DropdownMenuTrigger className="flex cursor-pointer items-center gap-2">
-					<Avatar>
-						<AvatarImage
-							className="h-8 w-8"
-							src={session.user.image || ""}
-						/>
-						<AvatarFallback>{t("nav.profile.avatar.fallback")}</AvatarFallback>
-					</Avatar>
-					{session.user.name}
+				<DropdownMenuTrigger asChild>
+					<Button
+						className="flex h-12 items-center gap-3 p-2 text-xl"
+						variant="ghost"
+					>
+						<Avatar>
+							<AvatarImage
+								className="size-9"
+								src={session.user.image || ""}
+							/>
+							<AvatarFallback>
+								{t("nav.profile.avatar.fallback")}
+							</AvatarFallback>
+						</Avatar>
+						<span className="pr-2 leading-0">{session.user.name}</span>
+					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent
 					side="bottom"

@@ -5,7 +5,7 @@ import {
 	DropdownMenuSubContent,
 	DropdownMenuSubTrigger
 } from "@/ui/dropdown-menu";
-import { Moon, Sun, SunMoon } from "lucide-react";
+import { Monitor, Moon, Sun, SunMoon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 
@@ -32,6 +32,11 @@ export default function ThemeSwitcher() {
 					<DropdownMenuRadioItem value="light">
 						<Sun className="size-4" />
 						{t("light")}
+					</DropdownMenuRadioItem>
+
+					<DropdownMenuRadioItem value="system">
+						<Monitor className="size-4" />
+						{t("system")}
 					</DropdownMenuRadioItem>
 				</DropdownMenuRadioGroup>
 			</DropdownMenuSubContent>
