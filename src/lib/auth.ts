@@ -1,7 +1,9 @@
 import { env } from "@/env";
+import { setUserLocale } from "@/i18n/services/locale";
 import prisma from "@/lib/db";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
+import { createAuthMiddleware } from "better-auth/api";
 
 export const auth = betterAuth({
 	database: prismaAdapter(prisma, {
@@ -28,7 +30,7 @@ export const auth = betterAuth({
 			mapProfileToUser: (profile) => {
 				return {
 					name: profile.global_name || profile.username,
-					email: "internal@wouldyoubot.gg",
+					email: `discord-social-${profile.id}@wouldyoubot.gg`,
 					image: profile.avatar
 						? `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.${profile.avatar.startsWith("a") ? "gif" : "webp"}`
 						: undefined,
@@ -40,5 +42,14 @@ export const auth = betterAuth({
 				};
 			}
 		}
+	},
+	hooks: {
+		after: createAuthMiddleware(async (ctx) => {
+			if (ctx.path.startsWith("/callback")) {
+				const session = ctx.context.newSession;
+
+				await setUserLocale(session?.user.locale);
+			}
+		})
 	}
 });
