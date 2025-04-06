@@ -46,12 +46,12 @@ export default function DiscordLoginButton({
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button
-						className="flex h-12 items-center gap-3 p-2 text-xl"
+						className="flex h-12 items-center gap-3 p-2 text-lg"
 						variant="ghost"
 					>
 						<Avatar>
 							<AvatarImage
-								className="size-9"
+								className="size-8"
 								src={session.user.image || ""}
 							/>
 							<AvatarFallback>
