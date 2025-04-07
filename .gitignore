@@ -49,3 +49,4 @@ src/i18n/translations/*.d.json.ts
 !.vscode/tailwind.json
 .vscode/settings.json
 .github/copilot-instructions.md
+.env.local

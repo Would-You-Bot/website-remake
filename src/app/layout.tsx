@@ -4,8 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import Footer from "@/components/footer";
 import Navbar from "@/components/nav/navbar";
+import Providers from "@/components/providers/providers";
 import type { ReactNode } from "react";
-import Providers from "./providers";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
