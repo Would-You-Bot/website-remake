@@ -4,6 +4,7 @@ import prisma from "@/lib/db";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { createAuthMiddleware } from "better-auth/api";
+import posthog from "posthog-js";
 
 export const auth = betterAuth({
 	database: prismaAdapter(prisma, {
@@ -18,6 +19,10 @@ export const auth = betterAuth({
 			locale: {
 				type: "string",
 				default: "en"
+			},
+			discordId: {
+				type: "string",
+				defaultValue: null
 			}
 		}
 	},
@@ -38,13 +43,18 @@ export const auth = betterAuth({
 						? `https://cdn.discordapp.com/banners/${profile.id}/${profile.banner}.${profile.banner.startsWith("a") ? "gif" : "webp"}`
 						: undefined,
 					emailVerified: profile.verified,
-					locale: "en"
+					locale: "en",
+					discordId: profile.id
 				};
 			}
 		}
 	},
 	hooks: {
 		after: createAuthMiddleware(async (ctx) => {
+			if (ctx.path.startsWith("/sign-out")) {
+				posthog.reset();
+			}
+
 			if (ctx.path.startsWith("/callback")) {
 				const session = ctx.context.newSession;
 

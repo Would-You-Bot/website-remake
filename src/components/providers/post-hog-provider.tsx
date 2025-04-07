@@ -5,6 +5,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider, usePostHog } from "posthog-js/react";
 import { type ReactNode, Suspense, useEffect } from "react";
+import IdentifyProvider from "./identify-provider";
 
 export function PostHogProvider({ children }: { children: ReactNode }) {
 	useEffect(() => {
@@ -18,8 +19,10 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
 
 	return (
 		<PHProvider client={posthog}>
-			<SuspendedPostHogPageView />
-			{children}
+			<IdentifyProvider>
+				<SuspendedPostHogPageView />
+				{children}
+			</IdentifyProvider>
 		</PHProvider>
 	);
 }
